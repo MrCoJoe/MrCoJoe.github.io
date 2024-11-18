@@ -1,0 +1,715 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="generator" content="VuePress 2.0.0-rc.14" />
+    <meta name="theme" content="VuePress Theme Hope 2.0.0-rc.52" />
+    <style>
+      html {
+        background: var(--bg-color, #fff);
+      }
+
+      html[data-theme="dark"] {
+        background: var(--bg-color, #1d1e1f);
+      }
+
+      body {
+        background: var(--bg-color);
+      }
+    </style>
+    <script>
+      const userMode = localStorage.getItem("vuepress-theme-hope-scheme");
+      const systemDarkMode =
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+      if (userMode === "dark" || (userMode !== "light" && systemDarkMode)) {
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
+    </script>
+    <meta property="og:url" content="https://vuepress-theme-hope-docs-demo.netlify.app/%E7%9B%98%E5%8F%A4/%E7%BB%84%E4%BB%B6%E4%BB%8B%E7%BB%8D/%E4%BB%93%E7%9B%92%E6%A8%A1%E5%9D%97.html"><meta property="og:title" content="仓盒模块"><meta property="og:description" content="仓盒模块 如何使用 image.pngimage.png xml xml xml xml java image.png开发模式 image.pngimage.png java 项目扫描配置在配置文件中。最后启动上面的main方法。 yaml 服务器启动 image.pngimage.png image.pngimage.png shell 执行./st..."><meta property="og:type" content="article"><meta property="og:image" content="http://pangu.kingtsoft.com/pangu-facade/assets/project.2fd1c8a6.png"><meta property="og:locale" content="zh-CN"><meta property="og:updated_time" content="2024-11-18T07:25:41.000Z"><meta property="article:author" content="Cotton Eye Joe"><meta property="article:modified_time" content="2024-11-18T07:25:41.000Z"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"仓盒模块","image":["http://pangu.kingtsoft.com/pangu-facade/assets/project.2fd1c8a6.png","http://pangu.kingtsoft.com/pangu-facade/assets/image1.e07179a8.png","http://pangu.kingtsoft.com/pangu-facade/assets/image2.6174b38c.png","http://pangu.kingtsoft.com/pangu-facade/assets/image3.b9644e73.png","http://pangu.kingtsoft.com/pangu-facade/assets/image4.bb420d9c.png","http://pangu.kingtsoft.com/pangu-facade/assets/image5.fde9534b.png"],"dateModified":"2024-11-18T07:25:41.000Z","author":[{"@type":"Person","name":"Cotton Eye Joe","url":"https://github.com/ToDreamr"}]}</script><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"><script async src="https://umami.zhenxin.me/script.js" data-website-id="a799e189-cf7e-4f5a-ac98-71de364f3637"></script><script src="https://cdn.armoe.cn/static/js/autoGray.js"></script><title>仓盒模块</title><meta name="description" content="仓盒模块 如何使用 image.pngimage.png xml xml xml xml java image.png开发模式 image.pngimage.png java 项目扫描配置在配置文件中。最后启动上面的main方法。 yaml 服务器启动 image.pngimage.png image.pngimage.png shell 执行./st...">
+    <link rel="preload" href="/assets/style-DuvwdHTW.css" as="style"><link rel="stylesheet" href="/assets/style-DuvwdHTW.css">
+    <link rel="modulepreload" href="/assets/app-Bym8v7z8.js"><link rel="modulepreload" href="/assets/仓盒模块.html--wkaCapJ.js">
+    <link rel="prefetch" href="/assets/index.html-CXzH1O3K.js" as="script"><link rel="prefetch" href="/assets/portfolio.html-7Vf-M53x.js" as="script"><link rel="prefetch" href="/assets/友链.html-DGvtJJYw.js" as="script"><link rel="prefetch" href="/assets/index.html-CgfRxGQF.js" as="script"><link rel="prefetch" href="/assets/disable.html-DA8YEJxq.js" as="script"><link rel="prefetch" href="/assets/encrypt.html-CEQyUBDI.js" as="script"><link rel="prefetch" href="/assets/layout.html-D7zbFOdQ.js" as="script"><link rel="prefetch" href="/assets/markdown.html-Dreman5b.js" as="script"><link rel="prefetch" href="/assets/page.html-DjleqtBm.js" as="script"><link rel="prefetch" href="/assets/友链.html-ieJ5rchD.js" as="script"><link rel="prefetch" href="/assets/index.html-C_WpmxSq.js" as="script"><link rel="prefetch" href="/assets/Otome Games Analysis.html-GQz_mOgF.js" as="script"><link rel="prefetch" href="/assets/在生活中的一些思考问题.html-3EqV5hSe.js" as="script"><link rel="prefetch" href="/assets/学习计划.html-Dvzb-nVv.js" as="script"><link rel="prefetch" href="/assets/index.html-O9qKWtU-.js" as="script"><link rel="prefetch" href="/assets/Idea.html-hrxJKM9f.js" as="script"><link rel="prefetch" href="/assets/10月.html-DlDoQHYF.js" as="script"><link rel="prefetch" href="/assets/依赖相关.html-T_ALn7wm.js" as="script"><link rel="prefetch" href="/assets/word.html-BEzUW9Ik.js" as="script"><link rel="prefetch" href="/assets/数字马力.html-CMj2DeBu.js" as="script"><link rel="prefetch" href="/assets/7.0病历.html-vtLcqbkD.js" as="script"><link rel="prefetch" href="/assets/Oracle数据库部分代码测试不通过.html-B710QpUs.js" as="script"><link rel="prefetch" href="/assets/SQL日志排查记录的工作流程.html-DMWPEZWS.js" as="script"><link rel="prefetch" href="/assets/kemer病历部架构整理.html-NOr77OFc.js" as="script"><link rel="prefetch" href="/assets/事务分析.html-DrBwRi7a.js" as="script"><link rel="prefetch" href="/assets/如何在工作当中书写需要的SQL.html-Bmzhhh7O.js" as="script"><link rel="prefetch" href="/assets/工作流程.html--0qs7oqq.js" as="script"><link rel="prefetch" href="/assets/开发规范和知识文档.html-Cp5pQPoO.js" as="script"><link rel="prefetch" href="/assets/异常SQL数据查询.html-jdb2xHQM.js" as="script"><link rel="prefetch" href="/assets/质控项-修改代码(SQL).html-l8Suud-u.js" as="script"><link rel="prefetch" href="/assets/金唐软件.html-BUl7dBUf.js" as="script"><link rel="prefetch" href="/assets/金唐软件部分代码分析.html-CILvKuEx.js" as="script"><link rel="prefetch" href="/assets/Ubuntu系统各软件.html-Dpej8GIw.js" as="script"><link rel="prefetch" href="/assets/RabbitMQ.html-DRzD7Pyq.js" as="script"><link rel="prefetch" href="/assets/病历-临床部门后端实习.html-CUtHcsPH.js" as="script"><link rel="prefetch" href="/assets/高并发编程.html-B2uHv6qX.js" as="script"><link rel="prefetch" href="/assets/JVM内存模型.html-B8wPWbgl.js" as="script"><link rel="prefetch" href="/assets/内存管理.html-CwcQm7mZ.js" as="script"><link rel="prefetch" href="/assets/类与类加载.html-NApvUdFZ.js" as="script"><link rel="prefetch" href="/assets/设计模式系列 - 设计模式（一）面向对象设计原则.html-CGEPWgp0.js" as="script"><link rel="prefetch" href="/assets/设计模式系列 - 设计模式（三）结构型.html-DqInPkU1.js" as="script"><link rel="prefetch" href="/assets/设计模式系列 - 设计模式（二）创建型.html-u4QikdTt.js" as="script"><link rel="prefetch" href="/assets/设计模式系列 - 设计模式（四）行为型.html-Bk_E5pNe.js" as="script"><link rel="prefetch" href="/assets/Cpp.html-DHlCBkt-.js" as="script"><link rel="prefetch" href="/assets/index.html-B39aI5L2.js" as="script"><link rel="prefetch" href="/assets/baz.html-BNS6eF_c.js" as="script"><link rel="prefetch" href="/assets/index.html-UKJ3lH52.js" as="script"><link rel="prefetch" href="/assets/ray.html-B4OV9Sqe.js" as="script"><link rel="prefetch" href="/assets/KafKa.html-CTS3O4iT.js" as="script"><link rel="prefetch" href="/assets/RabbitMQ.html-CBo0Ee1B.js" as="script"><link rel="prefetch" href="/assets/Redis(消息模式).html-B4EAtHF2.js" as="script"><link rel="prefetch" href="/assets/Redis(直连模式).html-Dl7lgtmX.js" as="script"><link rel="prefetch" href="/assets/minio.html-BKqUzASB.js" as="script"><link rel="prefetch" href="/assets/mongodb.html-D_hH_zZx.js" as="script"><link rel="prefetch" href="/assets/nacos集成.html-BWNntWM2.js" as="script"><link rel="prefetch" href="/assets/ES模块.html-BhRo2Dw1.js" as="script"><link rel="prefetch" href="/assets/Prometheus模块.html-D6N1IIxE.js" as="script"><link rel="prefetch" href="/assets/sharding模块.html-DV5G99yZ.js" as="script"><link rel="prefetch" href="/assets/分布式事务系列.html-Dh4TLv8Z.js" as="script"><link rel="prefetch" href="/assets/多线程事务.html-B7nCns4n.js" as="script"><link rel="prefetch" href="/assets/数据源模块.html-BLRj8pPH.js" as="script"><link rel="prefetch" href="/assets/Https模块.html-Cp-FfeIV.js" as="script"><link rel="prefetch" href="/assets/Mybatis-Plus.html-BQGiqMsO.js" as="script"><link rel="prefetch" href="/assets/SQL跟踪模块.html-CjoE9eap.js" as="script"><link rel="prefetch" href="/assets/Swagger.html-Cb7F8n5z.js" as="script"><link rel="prefetch" href="/assets/chat模块.html-NQXR60tu.js" as="script"><link rel="prefetch" href="/assets/list工作流集成.html-CoinXPP-.js" as="script"><link rel="prefetch" href="/assets/plug组件.html-Dh34ON3K.js" as="script"><link rel="prefetch" href="/assets/xxl-job模块.html-DBIFcOw7.js" as="script"><link rel="prefetch" href="/assets/工具类.html-DzYU1arK.js" as="script"><link rel="prefetch" href="/assets/延时模块.html-BrnaGRB_.js" as="script"><link rel="prefetch" href="/assets/异常模块.html-DIHCaSjz.js" as="script"><link rel="prefetch" href="/assets/控制器排除模块.html-BKD9xqH_.js" as="script"><link rel="prefetch" href="/assets/框架日志模块.html-Bl3ski15.js" as="script"><link rel="prefetch" href="/assets/盘古-security.html-C0lNOcfo.js" as="script"><link rel="prefetch" href="/assets/盘古.html-CQb-c-wi.js" as="script"><link rel="prefetch" href="/assets/盘古security模块(含授权).html-BAWYEtpb.js" as="script"><link rel="prefetch" href="/assets/缓存模块.html-ConHDV0T.js" as="script"><link rel="prefetch" href="/assets/脱敏和持久层加解密.html-BaB9b79r.js" as="script"><link rel="prefetch" href="/assets/认证模块.html-TVx8QcT2.js" as="script"><link rel="prefetch" href="/assets/配置文件加解密模块.html-ZCOhdTkE.js" as="script"><link rel="prefetch" href="/assets/nacos.html-DjvbWjWu.js" as="script"><link rel="prefetch" href="/assets/日志.html-CaNcKDkC.js" as="script"><link rel="prefetch" href="/assets/熔断.html-DugITjwT.js" as="script"><link rel="prefetch" href="/assets/认证.html-Dyh6qxP-.js" as="script"><link rel="prefetch" href="/assets/路由.html-Ce8stFk_.js" as="script"><link rel="prefetch" href="/assets/限流.html-CyGJXEXA.js" as="script"><link rel="prefetch" href="/assets/通用链路跟踪模块.html-C3rZaXZK.js" as="script"><link rel="prefetch" href="/assets/鹰眼模块.html-BiRD3jqA.js" as="script"><link rel="prefetch" href="/assets/index.html-Disp3CN8.js" as="script"><link rel="prefetch" href="/assets/index.html-OiDA5_fG.js" as="script"><link rel="prefetch" href="/assets/并发编程.html-DJImdmff.js" as="script"><link rel="prefetch" href="/assets/类图-UML.html-CHZQnRcc.js" as="script"><link rel="prefetch" href="/assets/SpringCloud 1.html-BESDCRmx.js" as="script"><link rel="prefetch" href="/assets/SpringCloud 2.html-BQX2q4Tu.js" as="script"><link rel="prefetch" href="/assets/SpringCloud 3.html-SzS9KEqs.js" as="script"><link rel="prefetch" href="/assets/index.html-JPmBCGSt.js" as="script"><link rel="prefetch" href="/assets/MySQL.html-C-jzd0dg.js" as="script"><link rel="prefetch" href="/assets/SQL优化.html-Dvp079_i.js" as="script"><link rel="prefetch" href="/assets/一次SQL优化记录.html-Baupgegv.js" as="script"><link rel="prefetch" href="/assets/多版本并发控制事务.html-CmAtiIwb.js" as="script"><link rel="prefetch" href="/assets/Oracle.html-rem7ROu3.js" as="script"><link rel="prefetch" href="/assets/Redis.html-Dwceqdgg.js" as="script"><link rel="prefetch" href="/assets/数之和.html-UgHk5WZ-.js" as="script"><link rel="prefetch" href="/assets/有序数组的平方.html-ly_-zu1E.js" as="script"><link rel="prefetch" href="/assets/移除元素.html-DRWFJ1JA.js" as="script"><link rel="prefetch" href="/assets/螺旋矩阵.html-CrGCfs2p.js" as="script"><link rel="prefetch" href="/assets/链表篇.html-CAbdgqlr.js" as="script"><link rel="prefetch" href="/assets/长度最小的数组.html-Cjo6F5Gk.js" as="script"><link rel="prefetch" href="/assets/index.html-NQAZYoDL.js" as="script"><link rel="prefetch" href="/assets/快速排序和堆排序.html-C07R1Uhk.js" as="script"><link rel="prefetch" href="/assets/二分法.html-DaITvGtm.js" as="script"><link rel="prefetch" href="/assets/哈希篇.html-BW3rt2G-.js" as="script"><link rel="prefetch" href="/assets/链表.html-BcWUDRJr.js" as="script"><link rel="prefetch" href="/assets/Docker.html-MECuzgQ-.js" as="script"><link rel="prefetch" href="/assets/数据结构图示.html-gfSMorHt.js" as="script"><link rel="prefetch" href="/assets/实例化Node.html-BZlSr31u.js" as="script"><link rel="prefetch" href="/assets/对象间的关系.html-8beqe_8_.js" as="script"><link rel="prefetch" href="/assets/ThreadLocal.html-pO6V9h2R.js" as="script"><link rel="prefetch" href="/assets/关键字.html-B78dB7Bm.js" as="script"><link rel="prefetch" href="/assets/404.html-3TFllIkV.js" as="script"><link rel="prefetch" href="/assets/index.html-C0t-6j3e.js" as="script"><link rel="prefetch" href="/assets/index.html-C5wUKZPd.js" as="script"><link rel="prefetch" href="/assets/index.html-D9hB4yTQ.js" as="script"><link rel="prefetch" href="/assets/index.html-FbGIWzV0.js" as="script"><link rel="prefetch" href="/assets/index.html-DJJKjiwt.js" as="script"><link rel="prefetch" href="/assets/index.html-DAq5kZI7.js" as="script"><link rel="prefetch" href="/assets/index.html-BzmXToJJ.js" as="script"><link rel="prefetch" href="/assets/index.html-RgYvL1QE.js" as="script"><link rel="prefetch" href="/assets/index.html-s4VR23gF.js" as="script"><link rel="prefetch" href="/assets/index.html-Bp5AyKkD.js" as="script"><link rel="prefetch" href="/assets/index.html-_4SxxfQk.js" as="script"><link rel="prefetch" href="/assets/index.html-inIJfuWr.js" as="script"><link rel="prefetch" href="/assets/index.html-BLVTOVP8.js" as="script"><link rel="prefetch" href="/assets/index.html-PkNp5oJV.js" as="script"><link rel="prefetch" href="/assets/index.html-B1qMcitr.js" as="script"><link rel="prefetch" href="/assets/index.html-ygXtyoyo.js" as="script"><link rel="prefetch" href="/assets/index.html-Y5uQO_x0.js" as="script"><link rel="prefetch" href="/assets/index.html-CYnenc3K.js" as="script"><link rel="prefetch" href="/assets/index.html-D8VliLXg.js" as="script"><link rel="prefetch" href="/assets/index.html-BdfTHgK2.js" as="script"><link rel="prefetch" href="/assets/index.html-DbF4GLjt.js" as="script"><link rel="prefetch" href="/assets/index.html-BeipA1-V.js" as="script"><link rel="prefetch" href="/assets/index.html-BVf14Kqp.js" as="script"><link rel="prefetch" href="/assets/index.html-BNaMBPr7.js" as="script"><link rel="prefetch" href="/assets/index.html-bl0DeO-Y.js" as="script"><link rel="prefetch" href="/assets/index.html-CN4R09ZE.js" as="script"><link rel="prefetch" href="/assets/index.html-BhGX8D-S.js" as="script"><link rel="prefetch" href="/assets/index.html-CwAOi7VG.js" as="script"><link rel="prefetch" href="/assets/index.html-BP4oBRto.js" as="script"><link rel="prefetch" href="/assets/index.html-oVjHtg6n.js" as="script"><link rel="prefetch" href="/assets/index.html-B6tUcmGG.js" as="script"><link rel="prefetch" href="/assets/index.html-BPquSZhJ.js" as="script"><link rel="prefetch" href="/assets/index.html-CLQbnbss.js" as="script"><link rel="prefetch" href="/assets/index.html-CiUpOfC5.js" as="script"><link rel="prefetch" href="/assets/index.html-DRKe33S1.js" as="script"><link rel="prefetch" href="/assets/index.html-CO0zaaYt.js" as="script"><link rel="prefetch" href="/assets/index.html-BeiERS3l.js" as="script"><link rel="prefetch" href="/assets/index.html-CSzPv4eY.js" as="script"><link rel="prefetch" href="/assets/index.html-CWYets6I.js" as="script"><link rel="prefetch" href="/assets/index.html-DSLGaqUV.js" as="script"><link rel="prefetch" href="/assets/index.html-bwBxXhm4.js" as="script"><link rel="prefetch" href="/assets/index.html-DWqrr6hi.js" as="script"><link rel="prefetch" href="/assets/index.html-DBHmuEpn.js" as="script"><link rel="prefetch" href="/assets/index.html-CBQomQ63.js" as="script"><link rel="prefetch" href="/assets/index.html-DHpx2K57.js" as="script"><link rel="prefetch" href="/assets/index.html-DRV-xMxT.js" as="script"><link rel="prefetch" href="/assets/index.html-xJ1s7R2v.js" as="script"><link rel="prefetch" href="/assets/index.html-DFBlR0h8.js" as="script"><link rel="prefetch" href="/assets/index.html-CdKuREGo.js" as="script"><link rel="prefetch" href="/assets/index.html-B7z-2c5I.js" as="script"><link rel="prefetch" href="/assets/index.html-CkL6PZKr.js" as="script"><link rel="prefetch" href="/assets/index.html-C5FbK2eb.js" as="script"><link rel="prefetch" href="/assets/index.html-CQtH3mSG.js" as="script"><link rel="prefetch" href="/assets/index.html-CpjXeKBF.js" as="script"><link rel="prefetch" href="/assets/index.html-Cn2k2wnr.js" as="script"><link rel="prefetch" href="/assets/index.html-BZZOyyDl.js" as="script"><link rel="prefetch" href="/assets/index.html-D_LM1pBH.js" as="script"><link rel="prefetch" href="/assets/index.html-B7qxMrTs.js" as="script"><link rel="prefetch" href="/assets/index.html-D7qsWVbX.js" as="script"><link rel="prefetch" href="/assets/photoswipe.esm-GXRgw7eJ.js" as="script"><link rel="prefetch" href="/assets/index-BNnYFWcz.js" as="script">
+  </head>
+  <body>
+    <div id="app"><!--[--><!--[--><!--[--><span tabindex="-1"></span><a href="#main-content" class="vp-skip-link sr-only">跳至主要內容</a><!--]--><div class="theme-container external-link-icon has-toc"><!--[--><header id="navbar" class="vp-navbar"><div class="vp-navbar-start"><button type="button" class="vp-toggle-sidebar-button" title="Toggle Sidebar"><span class="icon"></span></button><!----><!--[--><a class="route-link vp-brand" href="/"><img class="vp-nav-logo" src="/秒速５センチメートル.svg" alt><!----><!----></a><!--]--><!----></div><div class="vp-navbar-center"><!----><!--[--><nav class="vp-nav-links"><div class="vp-nav-item hide-in-mobile"><a class="route-link auto-link" href="/" aria-label="雨山"><!--[--><span class="font-icon icon fa-fw fa-sm fas fa-user-graduate" style=""></span><!--]-->雨山<!----></a></div><div class="vp-nav-item hide-in-mobile"><a class="route-link auto-link" href="/portfolio.html" aria-label="主页"><!--[--><span class="font-icon icon fa-fw fa-sm fas fa-home" style=""></span><!--]-->主页<!----></a></div><div class="vp-nav-item hide-in-mobile"><a class="route-link auto-link" href="/demo/" aria-label="文档和笔记"><!--[--><span class="font-icon icon fa-fw fa-sm fas fa-book" style=""></span><!--]-->文档和笔记<!----></a></div><div class="vp-nav-item hide-in-mobile"><a class="route-link auto-link" href="/%E5%8F%8B%E9%93%BE.html" aria-label="朋友们"><!--[--><span class="font-icon icon fa-fw fa-sm fas fa-user-graduate" style=""></span><!--]-->朋友们<!----></a></div></nav><!--]--><!----></div><div class="vp-navbar-end"><!----><!--[--><!----><div class="vp-nav-item vp-action"><a class="vp-action-link" href="https://github.com/Todreamr/Dr.Magic" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg xmlns="http://www.w3.org/2000/svg" class="icon github-icon" viewBox="0 0 1024 1024" fill="currentColor" aria-label="github icon" name="github" style="width:1.25rem;height:1.25rem;vertical-align:middle;"><path d="M511.957 21.333C241.024 21.333 21.333 240.981 21.333 512c0 216.832 140.544 400.725 335.574 465.664 24.49 4.395 32.256-10.07 32.256-23.083 0-11.69.256-44.245 0-85.205-136.448 29.61-164.736-64.64-164.736-64.64-22.315-56.704-54.4-71.765-54.4-71.765-44.587-30.464 3.285-29.824 3.285-29.824 49.195 3.413 75.179 50.517 75.179 50.517 43.776 75.008 114.816 53.333 142.762 40.79 4.523-31.66 17.152-53.377 31.19-65.537-108.971-12.458-223.488-54.485-223.488-242.602 0-53.547 19.114-97.323 50.517-131.67-5.035-12.33-21.93-62.293 4.779-129.834 0 0 41.258-13.184 134.912 50.346a469.803 469.803 0 0 1 122.88-16.554c41.642.213 83.626 5.632 122.88 16.554 93.653-63.488 134.784-50.346 134.784-50.346 26.752 67.541 9.898 117.504 4.864 129.834 31.402 34.347 50.474 78.123 50.474 131.67 0 188.586-114.73 230.016-224.042 242.09 17.578 15.232 33.578 44.672 33.578 90.454v135.85c0 13.142 7.936 27.606 32.854 22.87C862.25 912.597 1002.667 728.747 1002.667 512c0-271.019-219.648-490.667-490.71-490.667z"></path></svg></a></div><div class="vp-nav-item hide-in-mobile"><button type="button" class="vp-color-mode-switch" id="color-mode-switch"><svg xmlns="http://www.w3.org/2000/svg" class="icon auto-icon" viewBox="0 0 1024 1024" fill="currentColor" aria-label="auto icon" name="auto" style="display:none;"><path d="M512 992C246.92 992 32 777.08 32 512S246.92 32 512 32s480 214.92 480 480-214.92 480-480 480zm0-840c-198.78 0-360 161.22-360 360 0 198.84 161.22 360 360 360s360-161.16 360-360c0-198.78-161.22-360-360-360zm0 660V212c165.72 0 300 134.34 300 300 0 165.72-134.28 300-300 300z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" class="icon dark-icon" viewBox="0 0 1024 1024" fill="currentColor" aria-label="dark icon" name="dark" style="display:none;"><path d="M524.8 938.667h-4.267a439.893 439.893 0 0 1-313.173-134.4 446.293 446.293 0 0 1-11.093-597.334A432.213 432.213 0 0 1 366.933 90.027a42.667 42.667 0 0 1 45.227 9.386 42.667 42.667 0 0 1 10.24 42.667 358.4 358.4 0 0 0 82.773 375.893 361.387 361.387 0 0 0 376.747 82.774 42.667 42.667 0 0 1 54.187 55.04 433.493 433.493 0 0 1-99.84 154.88 438.613 438.613 0 0 1-311.467 128z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" class="icon light-icon" viewBox="0 0 1024 1024" fill="currentColor" aria-label="light icon" name="light" style="display:block;"><path d="M952 552h-80a40 40 0 0 1 0-80h80a40 40 0 0 1 0 80zM801.88 280.08a41 41 0 0 1-57.96-57.96l57.96-58a41.04 41.04 0 0 1 58 58l-58 57.96zM512 752a240 240 0 1 1 0-480 240 240 0 0 1 0 480zm0-560a40 40 0 0 1-40-40V72a40 40 0 0 1 80 0v80a40 40 0 0 1-40 40zm-289.88 88.08-58-57.96a41.04 41.04 0 0 1 58-58l57.96 58a41 41 0 0 1-57.96 57.96zM192 512a40 40 0 0 1-40 40H72a40 40 0 0 1 0-80h80a40 40 0 0 1 40 40zm30.12 231.92a41 41 0 0 1 57.96 57.96l-57.96 58a41.04 41.04 0 0 1-58-58l58-57.96zM512 832a40 40 0 0 1 40 40v80a40 40 0 0 1-80 0v-80a40 40 0 0 1 40-40zm289.88-88.08 58 57.96a41.04 41.04 0 0 1-58 58l-57.96-58a41 41 0 0 1 57.96-57.96z"></path></svg></button></div><!----><!--]--><!----><button type="button" class="vp-toggle-navbar-button" aria-label="Toggle Navbar" aria-expanded="false" aria-controls="nav-screen"><span><span class="vp-top"></span><span class="vp-middle"></span><span class="vp-bottom"></span></span></button></div></header><!----><!--]--><!----><div class="toggle-sidebar-wrapper"><span class="arrow start"></span></div><aside id="sidebar" class="vp-sidebar"><!----><ul class="vp-sidebar-links"><li><section class="vp-sidebar-group"><button class="vp-sidebar-header clickable" type="button"><span class="font-icon icon fa-fw fa-sm fas fa-home" style=""></span><span class="vp-sidebar-title">后端理论</span><span class="vp-arrow end"></span></button><!----></section></li><li><section class="vp-sidebar-group"><button class="vp-sidebar-header clickable active" type="button"><span class="font-icon icon fa-fw fa-sm fas fa-check-square" style=""></span><span class="vp-sidebar-title">盘古</span><span class="vp-arrow down"></span></button><ul class="vp-sidebar-links"><li><section class="vp-sidebar-group"><button class="vp-sidebar-header clickable" type="button"><!----><span class="vp-sidebar-title">中间件</span><span class="vp-arrow end"></span></button><!----></section></li><li><section class="vp-sidebar-group"><button class="vp-sidebar-header clickable" type="button"><!----><span class="vp-sidebar-title">数据源</span><span class="vp-arrow end"></span></button><!----></section></li><li><section class="vp-sidebar-group"><button class="vp-sidebar-header clickable active" type="button"><!----><span class="vp-sidebar-title">组件介绍</span><span class="vp-arrow down"></span></button><ul class="vp-sidebar-links"><li><a class="route-link auto-link vp-sidebar-link" href="/%E7%9B%98%E5%8F%A4/%E7%BB%84%E4%BB%B6%E4%BB%8B%E7%BB%8D/chat%E6%A8%A1%E5%9D%97.html" aria-label="chat模块"><!---->chat模块<!----></a></li><li><a class="route-link auto-link vp-sidebar-link" href="/%E7%9B%98%E5%8F%A4/%E7%BB%84%E4%BB%B6%E4%BB%8B%E7%BB%8D/%E5%BB%B6%E6%97%B6%E6%A8%A1%E5%9D%97.html" aria-label="Delay模块"><!---->Delay模块<!----></a></li><li><a class="route-link auto-link vp-sidebar-link" href="/%E7%9B%98%E5%8F%A4/%E7%BB%84%E4%BB%B6%E4%BB%8B%E7%BB%8D/%E7%9B%98%E5%8F%A4-security.html" aria-label="Feign模块"><!---->Feign模块<!----></a></li><li><a class="route-link auto-link vp-sidebar-link" href="/%E7%9B%98%E5%8F%A4/%E7%BB%84%E4%BB%B6%E4%BB%8B%E7%BB%8D/Https%E6%A8%A1%E5%9D%97.html" aria-label="Https模块"><!---->Https模块<!----></a></li><li><a class="route-link auto-link vp-sidebar-link" href="/%E7%9B%98%E5%8F%A4/%E7%BB%84%E4%BB%B6%E4%BB%8B%E7%BB%8D/Mybatis-Plus.html" aria-label="MybatisPlus模块"><!---->MybatisPlus模块<!----></a></li><li><a class="route-link auto-link vp-sidebar-link" href="/%E7%9B%98%E5%8F%A4/%E7%BB%84%E4%BB%B6%E4%BB%8B%E7%BB%8D/plug%E7%BB%84%E4%BB%B6.html" aria-label="plug组件"><!---->plug组件<!----></a></li><li><a class="route-link auto-link vp-sidebar-link" href="/%E7%9B%98%E5%8F%A4/%E7%BB%84%E4%BB%B6%E4%BB%8B%E7%BB%8D/SQL%E8%B7%9F%E8%B8%AA%E6%A8%A1%E5%9D%97.html" aria-label="SQL跟踪模块"><!---->SQL跟踪模块<!----></a></li><li><a class="route-link auto-link vp-sidebar-link" href="/%E7%9B%98%E5%8F%A4/%E7%BB%84%E4%BB%B6%E4%BB%8B%E7%BB%8D/Swagger.html" aria-label="Swagger模块"><!---->Swagger模块<!----></a></li><li><a class="route-link auto-link vp-sidebar-link" href="/%E7%9B%98%E5%8F%A4/%E7%BB%84%E4%BB%B6%E4%BB%8B%E7%BB%8D/xxl-job%E6%A8%A1%E5%9D%97.html" aria-label="xxl-job模块"><!---->xxl-job模块<!----></a></li><li><a class="route-link route-link-active auto-link vp-sidebar-link active" href="/%E7%9B%98%E5%8F%A4/%E7%BB%84%E4%BB%B6%E4%BB%8B%E7%BB%8D/%E4%BB%93%E7%9B%92%E6%A8%A1%E5%9D%97.html" aria-label="仓盒模块"><!---->仓盒模块<!----></a></li><li><a class="route-link auto-link vp-sidebar-link" href="/%E7%9B%98%E5%8F%A4/%E7%BB%84%E4%BB%B6%E4%BB%8B%E7%BB%8D/%E5%B7%A5%E5%85%B7%E7%B1%BB.html" aria-label="工具类"><!---->工具类<!----></a></li><li><a class="route-link auto-link vp-sidebar-link" href="/%E7%9B%98%E5%8F%A4/%E7%BB%84%E4%BB%B6%E4%BB%8B%E7%BB%8D/%E5%BC%82%E5%B8%B8%E6%A8%A1%E5%9D%97.html" aria-label="异常模块"><!---->异常模块<!----></a></li><li><a class="route-link auto-link vp-sidebar-link" href="/%E7%9B%98%E5%8F%A4/%E7%BB%84%E4%BB%B6%E4%BB%8B%E7%BB%8D/%E6%8E%A7%E5%88%B6%E5%99%A8%E6%8E%92%E9%99%A4%E6%A8%A1%E5%9D%97.html" aria-label="控制器排除模块"><!---->控制器排除模块<!----></a></li><li><a class="route-link auto-link vp-sidebar-link" href="/%E7%9B%98%E5%8F%A4/%E7%BB%84%E4%BB%B6%E4%BB%8B%E7%BB%8D/%E7%BC%93%E5%AD%98%E6%A8%A1%E5%9D%97.html" aria-label="本地缓存模块(工具)"><!---->本地缓存模块(工具)<!----></a></li><li><a class="route-link auto-link vp-sidebar-link" href="/%E7%9B%98%E5%8F%A4/%E7%BB%84%E4%BB%B6%E4%BB%8B%E7%BB%8D/%E6%A1%86%E6%9E%B6%E6%97%A5%E5%BF%97%E6%A8%A1%E5%9D%97.html" aria-label="框架日志模块"><!---->框架日志模块<!----></a></li><li><a class="route-link auto-link vp-sidebar-link" href="/%E7%9B%98%E5%8F%A4/%E7%BB%84%E4%BB%B6%E4%BB%8B%E7%BB%8D/%E7%9B%98%E5%8F%A4security%E6%A8%A1%E5%9D%97(%E5%90%AB%E6%8E%88%E6%9D%83).html" aria-label="盘古security模块(含授权)"><!---->盘古security模块(含授权)<!----></a></li><li><a class="route-link auto-link vp-sidebar-link" href="/%E7%9B%98%E5%8F%A4/%E7%BB%84%E4%BB%B6%E4%BB%8B%E7%BB%8D/list%E5%B7%A5%E4%BD%9C%E6%B5%81%E9%9B%86%E6%88%90.html" aria-label="网关-限流"><!---->网关-限流<!----></a></li><li><a class="route-link auto-link vp-sidebar-link" href="/%E7%9B%98%E5%8F%A4/%E7%BB%84%E4%BB%B6%E4%BB%8B%E7%BB%8D/%E8%84%B1%E6%95%8F%E5%92%8C%E6%8C%81%E4%B9%85%E5%B1%82%E5%8A%A0%E8%A7%A3%E5%AF%86.html" aria-label="脱敏&amp;持久层加解密"><!---->脱敏&amp;持久层加解密<!----></a></li><li><a class="route-link auto-link vp-sidebar-link" href="/%E7%9B%98%E5%8F%A4/%E7%BB%84%E4%BB%B6%E4%BB%8B%E7%BB%8D/%E7%9B%98%E5%8F%A4.html" aria-label="自研的分布式框架-盘古"><!---->自研的分布式框架-盘古<!----></a></li><li><a class="route-link auto-link vp-sidebar-link" href="/%E7%9B%98%E5%8F%A4/%E7%BB%84%E4%BB%B6%E4%BB%8B%E7%BB%8D/%E8%AE%A4%E8%AF%81%E6%A8%A1%E5%9D%97.html" aria-label="认证模块"><!---->认证模块<!----></a></li><li><a class="route-link auto-link vp-sidebar-link" href="/%E7%9B%98%E5%8F%A4/%E7%BB%84%E4%BB%B6%E4%BB%8B%E7%BB%8D/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%8A%A0%E8%A7%A3%E5%AF%86%E6%A8%A1%E5%9D%97.html" aria-label="配置文件加解密模块"><!---->配置文件加解密模块<!----></a></li></ul></section></li><li><section class="vp-sidebar-group"><button class="vp-sidebar-header clickable" type="button"><!----><span class="vp-sidebar-title">网关</span><span class="vp-arrow end"></span></button><!----></section></li><li><section class="vp-sidebar-group"><button class="vp-sidebar-header clickable" type="button"><!----><span class="vp-sidebar-title">鹰眼框架</span><span class="vp-arrow end"></span></button><!----></section></li></ul></section></li><li><section class="vp-sidebar-group"><button class="vp-sidebar-header clickable" type="button"><span class="font-icon icon fa-fw fa-sm fas fa-book" style=""></span><span class="vp-sidebar-title">思考</span><span class="vp-arrow end"></span></button><!----></section></li><li><section class="vp-sidebar-group"><button class="vp-sidebar-header clickable" type="button"><span class="font-icon icon fa-fw fa-sm fas fa-check-square" style=""></span><span class="vp-sidebar-title">帮助</span><span class="vp-arrow end"></span></button><!----></section></li></ul><!----></aside><!--[--><main id="main-content" class="vp-page"><!--[--><!----><!----><nav class="vp-breadcrumb disable"></nav><div class="vp-page-title"><h1><!---->仓盒模块</h1><div class="page-info"><span class="page-author-info" aria-label="作者🖊" data-balloon-pos="up"><svg xmlns="http://www.w3.org/2000/svg" class="icon author-icon" viewBox="0 0 1024 1024" fill="currentColor" aria-label="author icon" name="author"><path d="M649.6 633.6c86.4-48 147.2-144 147.2-249.6 0-160-128-288-288-288s-288 128-288 288c0 108.8 57.6 201.6 147.2 249.6-121.6 48-214.4 153.6-240 288-3.2 9.6 0 19.2 6.4 25.6 3.2 9.6 12.8 12.8 22.4 12.8h704c9.6 0 19.2-3.2 25.6-12.8 6.4-6.4 9.6-16 6.4-25.6-25.6-134.4-121.6-240-243.2-288z"></path></svg><span><a class="page-author-item" href="https://github.com/ToDreamr" target="_blank" rel="noopener noreferrer">Cotton Eye Joe</a></span><span property="author" content="Cotton Eye Joe"></span></span><!----><span class="page-date-info" aria-label="写作日期📅" data-balloon-pos="up"><svg xmlns="http://www.w3.org/2000/svg" class="icon calendar-icon" viewBox="0 0 1024 1024" fill="currentColor" aria-label="calendar icon" name="calendar"><path d="M716.4 110.137c0-18.753-14.72-33.473-33.472-33.473-18.753 0-33.473 14.72-33.473 33.473v33.473h66.993v-33.473zm-334.87 0c0-18.753-14.72-33.473-33.473-33.473s-33.52 14.72-33.52 33.473v33.473h66.993v-33.473zm468.81 33.52H716.4v100.465c0 18.753-14.72 33.473-33.472 33.473a33.145 33.145 0 01-33.473-33.473V143.657H381.53v100.465c0 18.753-14.72 33.473-33.473 33.473a33.145 33.145 0 01-33.473-33.473V143.657H180.6A134.314 134.314 0 0046.66 277.595v535.756A134.314 134.314 0 00180.6 947.289h669.74a134.36 134.36 0 00133.94-133.938V277.595a134.314 134.314 0 00-133.94-133.938zm33.473 267.877H147.126a33.145 33.145 0 01-33.473-33.473c0-18.752 14.72-33.473 33.473-33.473h736.687c18.752 0 33.472 14.72 33.472 33.473a33.145 33.145 0 01-33.472 33.473z"></path></svg><span><!----></span><meta property="datePublished" content="2024-11-18T07:25:41.000Z"></span><!----><span class="page-reading-time-info" aria-label="阅读时间⌛" data-balloon-pos="up"><svg xmlns="http://www.w3.org/2000/svg" class="icon timer-icon" viewBox="0 0 1024 1024" fill="currentColor" aria-label="timer icon" name="timer"><path d="M799.387 122.15c4.402-2.978 7.38-7.897 7.38-13.463v-1.165c0-8.933-7.38-16.312-16.312-16.312H256.33c-8.933 0-16.311 7.38-16.311 16.312v1.165c0 5.825 2.977 10.874 7.637 13.592 4.143 194.44 97.22 354.963 220.201 392.763-122.204 37.542-214.893 196.511-220.2 389.397-4.661 5.049-7.638 11.651-7.638 19.03v5.825h566.49v-5.825c0-7.379-2.849-13.981-7.509-18.9-5.049-193.016-97.867-351.985-220.2-389.527 123.24-37.67 216.446-198.453 220.588-392.892zM531.16 450.445v352.632c117.674 1.553 211.787 40.778 211.787 88.676H304.097c0-48.286 95.149-87.382 213.728-88.676V450.445c-93.077-3.107-167.901-81.297-167.901-177.093 0-8.803 6.99-15.793 15.793-15.793 8.803 0 15.794 6.99 15.794 15.793 0 80.261 63.69 145.635 142.01 145.635s142.011-65.374 142.011-145.635c0-8.803 6.99-15.793 15.794-15.793s15.793 6.99 15.793 15.793c0 95.019-73.789 172.82-165.96 177.093z"></path></svg><span>大约 10 分钟</span><meta property="timeRequired" content="PT10M"></span><!----><!----></div><hr></div><!----><!----><div class="theme-hope-content"><h1 id="仓盒模块" tabindex="-1"><a class="header-anchor" href="#仓盒模块"><span>仓盒模块</span></a></h1><blockquote><h4 id="如何使用" tabindex="-1"><a class="header-anchor" href="#如何使用"><span>如何使用</span></a></h4></blockquote><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>    项目目录如下（只是案例），最后的kthec-template-xdev为开发模式下的层级，主要是在</span></span>
+<span class="line"><span>开发模式下，作为项目启动器启动项目。</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div></div></div><figure><img src="http://pangu.kingtsoft.com/pangu-facade/assets/project.2fd1c8a6.png" alt="image.png" tabindex="0" loading="lazy"><figcaption>image.png</figcaption></figure><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>    xdev pom引用如下</span></span>
+<span class="line"><span>（kthec-template-business与kthec-template-auth都为项目插件，可以根据业务模块区分）。</span></span>
+<span class="line"><span>引入的pangu-all-simple为封装的基础引用套件，重点关注这里面的pangu-box-boot。此包为盘古</span></span>
+<span class="line"><span>项目启动基础底座。(注意：服务发布的时候这个xdev是不参与打包发布的)</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><strong>xml</strong></p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span>
+<span class="line"><span>&lt;projectxmlns=&quot;http://maven.apache.org/POM/4.0.0&quot;</span></span>
+<span class="line"><span>xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span>
+<span class="line"><span>xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;</span></span>
+<span class="line"><span>    &lt;parent&gt;</span></span>
+<span class="line"><span>        &lt;artifactId&gt;kthec-template-dependencies&lt;/artifactId&gt;</span></span>
+<span class="line"><span>        &lt;groupId&gt;com.kingtsoft.kthec&lt;/groupId&gt;</span></span>
+<span class="line"><span>        &lt;version&gt;1.0.0-SNAPSHOT&lt;/version&gt;</span></span>
+<span class="line"><span>        &lt;relativePath/&gt;</span></span>
+<span class="line"><span>    &lt;/parent&gt;</span></span>
+<span class="line"><span>    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    &lt;artifactId&gt;kthec-template-xdev&lt;/artifactId&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    &lt;dependencies&gt;</span></span>
+<span class="line"><span>        &lt;dependency&gt;</span></span>
+<span class="line"><span>            &lt;artifactId&gt;pangu-all-simple&lt;/artifactId&gt;</span></span>
+<span class="line"><span>            &lt;groupId&gt;com.kingtsoft.pangu&lt;/groupId&gt;</span></span>
+<span class="line"><span>        &lt;/dependency&gt;</span></span>
+<span class="line"><span>        &lt;dependency&gt;</span></span>
+<span class="line"><span>            &lt;groupId&gt;com.kingtsoft.kthec&lt;/groupId&gt;</span></span>
+<span class="line"><span>            &lt;artifactId&gt;kthec-template-business&lt;/artifactId&gt;</span></span>
+<span class="line"><span>        &lt;/dependency&gt;</span></span>
+<span class="line"><span>        &lt;dependency&gt;</span></span>
+<span class="line"><span>            &lt;groupId&gt;com.kingtsoft.kthec&lt;/groupId&gt;</span></span>
+<span class="line"><span>            &lt;artifactId&gt;kthec-template-auth&lt;/artifactId&gt;</span></span>
+<span class="line"><span>        &lt;/dependency&gt;</span></span>
+<span class="line"><span>    &lt;/dependencies&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    &lt;build&gt;</span></span>
+<span class="line"><span>        &lt;plugins&gt;</span></span>
+<span class="line"><span>            &lt;plugin&gt;</span></span>
+<span class="line"><span>                &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;</span></span>
+<span class="line"><span>                &lt;artifactId&gt;maven-deploy-plugin&lt;/artifactId&gt;</span></span>
+<span class="line"><span>                &lt;configuration&gt;</span></span>
+<span class="line"><span>                    &lt;skip&gt;true&lt;/skip&gt;</span></span>
+<span class="line"><span>                &lt;/configuration&gt;</span></span>
+<span class="line"><span>            &lt;/plugin&gt;</span></span>
+<span class="line"><span>        &lt;/plugins&gt;</span></span>
+<span class="line"><span>    &lt;/build&gt;</span></span>
+<span class="line"><span>&lt;/project&gt;</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>    业务层级引用盘古打包插件（kthec-template-business为例）</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div></div></div><p><strong>xml</strong></p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>&lt;build&gt;</span></span>
+<span class="line"><span>    &lt;plugins&gt;</span></span>
+<span class="line"><span>        &lt;plugin&gt;</span></span>
+<span class="line"><span>            &lt;groupId&gt;com.kingtsoft.pangu&lt;/groupId&gt;</span></span>
+<span class="line"><span>            &lt;artifactId&gt;pangu-maven-pgpackage&lt;/artifactId&gt;</span></span>
+<span class="line"><span>        &lt;/plugin&gt;</span></span>
+<span class="line"><span>    &lt;/plugins&gt;</span></span>
+<span class="line"><span>&lt;/build&gt;</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><strong>xml</strong></p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span>
+<span class="line"><span>&lt;projectxmlns=&quot;http://maven.apache.org/POM/4.0.0&quot;</span></span>
+<span class="line"><span>xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span>
+<span class="line"><span>xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;</span></span>
+<span class="line"><span>    &lt;parent&gt;</span></span>
+<span class="line"><span>        &lt;artifactId&gt;kthec-template-dependencies&lt;/artifactId&gt;</span></span>
+<span class="line"><span>        &lt;groupId&gt;com.kingtsoft.kthec&lt;/groupId&gt;</span></span>
+<span class="line"><span>        &lt;version&gt;1.0.0-SNAPSHOT&lt;/version&gt;</span></span>
+<span class="line"><span>        &lt;relativePath/&gt;</span></span>
+<span class="line"><span>    &lt;/parent&gt;</span></span>
+<span class="line"><span>    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    &lt;artifactId&gt;kthec-template-business&lt;/artifactId&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    &lt;dependencies&gt;</span></span>
+<span class="line"><span>        &lt;dependency&gt;</span></span>
+<span class="line"><span>            &lt;groupId&gt;com.kingtsoft.pangu&lt;/groupId&gt;</span></span>
+<span class="line"><span>            &lt;artifactId&gt;pangu-all-web&lt;/artifactId&gt;</span></span>
+<span class="line"><span>        &lt;/dependency&gt;</span></span>
+<span class="line"><span>        &lt;dependency&gt;</span></span>
+<span class="line"><span>            &lt;groupId&gt;com.kingtsoft.kthec&lt;/groupId&gt;</span></span>
+<span class="line"><span>            &lt;artifactId&gt;kthec-template-common&lt;/artifactId&gt;</span></span>
+<span class="line"><span>        &lt;/dependency&gt;</span></span>
+<span class="line"><span>    &lt;/dependencies&gt;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    &lt;build&gt;</span></span>
+<span class="line"><span>        &lt;plugins&gt;</span></span>
+<span class="line"><span>            &lt;plugin&gt;</span></span>
+<span class="line"><span>                &lt;groupId&gt;com.kingtsoft.pangu&lt;/groupId&gt;</span></span>
+<span class="line"><span>                &lt;artifactId&gt;pangu-maven-pgpackage&lt;/artifactId&gt;</span></span>
+<span class="line"><span>            &lt;/plugin&gt;</span></span>
+<span class="line"><span>        &lt;/plugins&gt;</span></span>
+<span class="line"><span>        &lt;resources&gt;</span></span>
+<span class="line"><span>            &lt;resource&gt;</span></span>
+<span class="line"><span>                &lt;directory&gt;src/main/java&lt;/directory&gt;</span></span>
+<span class="line"><span>                &lt;includes&gt;</span></span>
+<span class="line"><span>                    &lt;include&gt;**/*.xml&lt;/include&gt;</span></span>
+<span class="line"><span>                &lt;/includes&gt;</span></span>
+<span class="line"><span>            &lt;/resource&gt;</span></span>
+<span class="line"><span>        &lt;/resources&gt;</span></span>
+<span class="line"><span>    &lt;/build&gt;</span></span>
+<span class="line"><span>&lt;/project&gt;</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>    业务引入maven插件后还需要引入一个盘古插件包pangu-start-plugin，这里他被集成在了</span></span>
+<span class="line"><span>pangu-all-web之中。</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div></div></div><p><strong>xml</strong></p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>&lt;dependency&gt;</span></span>
+<span class="line"><span>    &lt;groupId&gt;com.kingtsoft.pangu&lt;/groupId&gt;</span></span>
+<span class="line"><span>    &lt;artifactId&gt;pangu-start-plugin&lt;/artifactId&gt;</span></span>
+<span class="line"><span>&lt;/dependency&gt;</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>    在业务模块中新建插件类，如下。实现PanguPlugin接口即可。可以看到还有个@Level注解，</span></span>
+<span class="line"><span>里面有个value属性，默认为0，由于不排除插件之间的引用，需要为当前包定义插件级别。数字越大，</span></span>
+<span class="line"><span>优先级越高。一般公用组件类如果有插件配置建议设置成-1。（注意：这个与spring的优先级设置是</span></span>
+<span class="line"><span>反的，spring的order是数字越大优先级越低）</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><strong>java</strong></p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>package com.kingtsoft.kthec.template.business.biz.config;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>import com.kingtsoft.pangu.start.plugin.Level;</span></span>
+<span class="line"><span>import com.kingtsoft.pangu.start.plugin.PanguPlugin;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>/**</span></span>
+<span class="line"><span> * Title: 插件描述 &lt;br&gt;</span></span>
+<span class="line"><span> * Description: &lt;br&gt;</span></span>
+<span class="line"><span> * Company: KingTang &lt;br&gt;</span></span>
+<span class="line"><span> *</span></span>
+<span class="line"><span> * @author 金炀</span></span>
+<span class="line"><span> * @version 1.0</span></span>
+<span class="line"><span> */</span></span>
+<span class="line"><span>@Level</span></span>
+<span class="line"><span>public class  KthecTemplateBusinessPluginimplementsPanguPlugin {</span></span>
+<span class="line"><span>    @Override</span></span>
+<span class="line"><span>public String getName() {</span></span>
+<span class="line"><span>return&quot;KthecTemplateBusiness&quot;;</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    @Override</span></span>
+<span class="line"><span>public String getId() {</span></span>
+<span class="line"><span>return&quot;kthec-template-business&quot;;</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    @Override</span></span>
+<span class="line"><span>public String getBoxCtx() {</span></span>
+<span class="line"><span>return&quot;kthec-template&quot;;</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    @Override</span></span>
+<span class="line"><span>public String getTag() {</span></span>
+<span class="line"><span>return&quot;&quot;;</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    @Override</span></span>
+<span class="line"><span>public String getAuthor() {</span></span>
+<span class="line"><span>return&quot;JT454&quot;;</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    @Override</span></span>
+<span class="line"><span>public String getDescribe() {</span></span>
+<span class="line"><span>return&quot;业务案例&quot;;</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    @Override</span></span>
+<span class="line"><span>public String getVersion() {</span></span>
+<span class="line"><span>return&quot;1.0.20220419&quot;;</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    @Override</span></span>
+<span class="line"><span>public String getPersonalDomain() {</span></span>
+<span class="line"><span>return&quot;&quot;;</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span>}</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>    最后，pom点击package、install、deploy的时候就会在target目录产生pgr文件（一个zip</span></span>
+<span class="line"><span>压缩包），这就是服务部署所需插件包。</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div></div></div><p><img src="http://pangu.kingtsoft.com/pangu-facade/assets/image1.e07179a8.png" alt="image.png" loading="lazy"><strong>开发模式</strong></p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>    如下图，xdev新建一个类，代码如下。这里代码都是一样的，只需调用</span></span>
+<span class="line"><span>PanguStart.start(args);方法即可。</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div></div></div><figure><img src="http://pangu.kingtsoft.com/pangu-facade/assets/image2.6174b38c.png" alt="image.png" tabindex="0" loading="lazy"><figcaption>image.png</figcaption></figure><p><strong>java</strong></p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>package com.kingtsoft.kthec.template.xdev;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>import com.kingtsoft.pangu.box.boot.PanguStart;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>/**</span></span>
+<span class="line"><span> * Title: &lt;br&gt;</span></span>
+<span class="line"><span> * Description: &lt;br&gt;</span></span>
+<span class="line"><span> * Company: KingTang &lt;br&gt;</span></span>
+<span class="line"><span> *</span></span>
+<span class="line"><span> * @author 金炀</span></span>
+<span class="line"><span> * @version 1.0</span></span>
+<span class="line"><span> */</span></span>
+<span class="line"><span>public class  StartDev {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    /**</span></span>
+<span class="line"><span>     * 参数案例 --illegal-access=warn -javaagent:C:/Users/JasonKin/Desktop/skywalking-agent/skywalking-agent.jar -Dskywalking.agent.service_name=pangu -Dskywalking.collector.backend_service=10.1.50.131:11800 -Dlog.path=logs/pangu/frame/simple -Dlog.name=frame-simple</span></span>
+<span class="line"><span>     */</span></span>
+<span class="line"><span>publicstaticvoidmain(String[] args) {</span></span>
+<span class="line"><span>        PanguStart.start(args);</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span>}</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>项目扫描配置在配置文件中。最后启动上面的main方法。</p><p><strong>yaml</strong></p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>pangu:</span></span>
+<span class="line"><span>	scan: com.kingtsoft.kthec</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div></div></div><p><strong>服务器启动</strong></p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>    服务器案例如下，需要一个已经编译好的pangu-box-start.jar ，start.yml就等同于</span></span>
+<span class="line"><span>application.yml，优先级配置文件中最高。files内部存放了需要更新的软件包（那些pgr文件，</span></span>
+<span class="line"><span>根据项目所需不同，可能会需要一些额外的公用pgr）。其他目录会随着启动自动生成，一开始是不需要的。</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><figure><img src="http://pangu.kingtsoft.com/pangu-facade/assets/image3.b9644e73.png" alt="image.png" tabindex="0" loading="lazy"><figcaption>image.png</figcaption></figure><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>    如下，files中必须的为这个pangu-box-boot.pgz文件。刚才开发模式下，这个包是配置在xdev</span></span>
+<span class="line"><span>的，所有需要额外存放。（如果业务项目直接给引用了，这里而不需要。但是由于职责关系，业务不建议引</span></span>
+<span class="line"><span>用。后续会有专用工具，在没专用工具情况下，这类公用组件的包可以统一放到一个pom引用下，以方便版</span></span>
+<span class="line"><span>本控制）</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><figure><img src="http://pangu.kingtsoft.com/pangu-facade/assets/image4.bb420d9c.png" alt="image.png" tabindex="0" loading="lazy"><figcaption>image.png</figcaption></figure><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>    编写启动脚本（当然，可以使用java -jar 命令直接启动那个pangu-box-start.jar来启动的，</span></span>
+<span class="line"><span>主要内容是清除原先的解压包，防止包污染。同样是由于目前还没针对的可视化更新工具，可以先用jenkins），</span></span>
+<span class="line"><span>这个脚本一般放在案例中的/home/kingt/service目录下。</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><strong>shell</strong></p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>#!/bin/sh</span></span>
+<span class="line"><span>LANG=zh_CN.UTF-8</span></span>
+<span class="line"><span>#定义服务名</span></span>
+<span class="line"><span>server_name=${1}</span></span>
+<span class="line"><span>#定义文件名</span></span>
+<span class="line"><span>file_name=pangu-box-start.jar</span></span>
+<span class="line"><span>#定义新版本文件位置</span></span>
+<span class="line"><span>workdir=/home/kingt/service</span></span>
+<span class="line"><span>#定义需要发布的文件位置</span></span>
+<span class="line"><span>prod_path=${workdir}/${1}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>if [ !-d&quot;${prod_path}/&quot; ];</span></span>
+<span class="line"><span>then</span></span>
+<span class="line"><span>mkdir ${prod_path}</span></span>
+<span class="line"><span>else</span></span>
+<span class="line"><span>echo&quot;已经存在文件目录&quot;</span></span>
+<span class="line"><span>fi</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>echo&quot;${prod_path}&quot;</span></span>
+<span class="line"><span>echo&quot;${file_name}&quot;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>echo&quot;目录处理&quot;</span></span>
+<span class="line"><span>if [ -d&quot;${prod_path}/bins/&quot; ];</span></span>
+<span class="line"><span>then</span></span>
+<span class="line"><span>rm-rf ${prod_path}/bins</span></span>
+<span class="line"><span>fi</span></span>
+<span class="line"><span>if [ -d&quot;${prod_path}/libs/&quot; ];</span></span>
+<span class="line"><span>then</span></span>
+<span class="line"><span>rm-rf ${prod_path}/libs</span></span>
+<span class="line"><span>fi</span></span>
+<span class="line"><span>if [ -d&quot;${prod_path}/plugs/&quot; ];</span></span>
+<span class="line"><span>then</span></span>
+<span class="line"><span>rm-rf ${prod_path}/plugs</span></span>
+<span class="line"><span>fi</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>if [ -d&quot;${prod_path}/pgrs/&quot; ];</span></span>
+<span class="line"><span>then</span></span>
+<span class="line"><span>cd ${prod_path}/pgrs</span></span>
+<span class="line"><span>for i in$(ls)</span></span>
+<span class="line"><span>do</span></span>
+<span class="line"><span>if [ !&quot;${i}&quot;=&quot;version&quot; ] ; then</span></span>
+<span class="line"><span>cp ${i} ${prod_path}/</span></span>
+<span class="line"><span>fi</span></span>
+<span class="line"><span>done</span></span>
+<span class="line"><span>rm-rf ${prod_path}/pgrs</span></span>
+<span class="line"><span>fi</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>cd ${prod_path}/files</span></span>
+<span class="line"><span>for i in$(ls)</span></span>
+<span class="line"><span>do</span></span>
+<span class="line"><span>cp ${i} ${prod_path}/</span></span>
+<span class="line"><span>done</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>#cp ${workdir}/pangu-box-boot.pgz ${prod_path}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>echo&quot;准备完成&quot;</span></span>
+<span class="line"><span># 停止原来的进程</span></span>
+<span class="line"><span>pid=$(ps-ef|grep${1}/${file_name} |grep-v &quot;grep&quot; |awk &#39;{print $2}&#39;)</span></span>
+<span class="line"><span>echo&quot;服务的进程 Id 是 :${pid}&quot;</span></span>
+<span class="line"><span>if [ &quot;${pid}&quot;=&quot;&quot; ]; then</span></span>
+<span class="line"><span>echo&quot;当前没有${server_name}服务在运行中&quot;</span></span>
+<span class="line"><span>else</span></span>
+<span class="line"><span>echo&quot;开始停止旧版本服务...&quot;</span></span>
+<span class="line"><span>kill-9 $pid</span></span>
+<span class="line"><span>sleep1s</span></span>
+<span class="line"><span>echo&quot;停止旧版本服务成功&quot;</span></span>
+<span class="line"><span>fi</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span># 启动程序</span></span>
+<span class="line"><span>echo&quot;开始启动新版本服务...&quot;</span></span>
+<span class="line"><span>cd ${workdir}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>if [ &quot;${1}&quot;=&quot;kingtsoft-pangu-frame-video&quot; ] || [ &quot;${1}&quot;=&quot;kingtsoft-xxx&quot; ]; then</span></span>
+<span class="line"><span>nohupjava-Xmx1024m-Xms512m-XX:MaxDirectMemorySize=1024m-jar ${prod_path}/${file_name} &gt; ${prod_path}/nohup.out &amp;</span></span>
+<span class="line"><span>else</span></span>
+<span class="line"><span>nohupjava-Xmx256m-Xms256m-jar ${prod_path}/${file_name} &gt; ${prod_path}/nohup.out &amp;</span></span>
+<span class="line"><span>fi</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>sleep2s</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span># step 6. 检查进程/日志</span></span>
+<span class="line"><span>new_pid=$(ps-ef|grep${1}/${file_name} |grep-v &quot;grep&quot; |awk &#39;{print $2}&#39;)</span></span>
+<span class="line"><span>echo&quot;${server_name}服务正在启动，服务的进程 Id 是 :${new_pid}&quot;</span></span>
+<span class="line"><span>tail-fn1000 ${prod_path}/nohup.out| { sed&quot;/App Is Started!/ q&quot; &amp;&amp; echo&quot;启动成功&quot; &amp;&amp; t_pid=$(ps-ef|grep ${prod_path}/nohup.out |grep-v &quot;grep&quot; |awk &#39;{print $2}&#39;) &amp;&amp; kill ${t_pid} &amp;&amp; kill$$; }</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>执行./startup.sh kingtsoft-pangu-frame-simple 即可</p><blockquote><h4 id="技术原理" tabindex="-1"><a class="header-anchor" href="#技术原理"><span>技术原理</span></a></h4></blockquote><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>    盘古模式下的原理很简单，就是把一堆压缩包（pgr文件）用类加载器进行加载，服务部署模式下会生成很多</span></span>
+<span class="line"><span>文件夹，起始只是分类作用。内容对于程序来说都是一样的，加载字节码而已。</span></span>
+<span class="line"><span>    从最初的那个 PanguStart.start(args)方法说起。此方法就是开发模式下放在xdev下的唯一方法。</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><strong>java</strong></p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>package com.kingtsoft.pangu.box.boot;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>import com.kingtsoft.pangu.base.common.ProjectPath;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>import java.lang.reflect.Method;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>/**</span></span>
+<span class="line"><span> * @author JT103</span></span>
+<span class="line"><span> */</span></span>
+<span class="line"><span>public class  PanguStart {</span></span>
+<span class="line"><span>publicstaticvoidstart(String[] args) {</span></span>
+<span class="line"><span>try {</span></span>
+<span class="line"><span>            String basePath = ProjectPath.initBasePath();</span></span>
+<span class="line"><span>            ClassLoader parent = Thread.currentThread().getContextClassLoader();</span></span>
+<span class="line"><span>            Thread.currentThread().setContextClassLoader(newBoxClassLoader(basePath, parent));</span></span>
+<span class="line"><span>            Class&lt;?&gt; mainClass = Thread.currentThread().getContextClassLoader().</span></span>
+<span class="line"><span>loadClass(&quot;com.kingtsoft.pangu.box.boot.PanguBoot&quot;);</span></span>
+<span class="line"><span>            Method mainMethod = mainClass.getDeclaredMethod(&quot;main&quot;, String[].class);</span></span>
+<span class="line"><span>            mainMethod.invoke(null, newObject[]{args});</span></span>
+<span class="line"><span>        } catch (Exception e) {</span></span>
+<span class="line"><span>            e.printStackTrace();</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span>}</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>    这里可以看出在构建一个新的类加载器BoxClassLoader。构造方法中调用了getUrls方法，在获取指定</span></span>
+<span class="line"><span>    目录下的jar文件，这些目录就是服务部署模式下自动归类的那几个目录。这个时候，线程类加载器要加载</span></span>
+<span class="line"><span>哪些jar包，就一键全部指定好了。</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><strong>java</strong></p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>package com.kingtsoft.pangu.box.boot;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>import java.io.File;</span></span>
+<span class="line"><span>import java.io.IOException;</span></span>
+<span class="line"><span>import java.net.MalformedURLException;</span></span>
+<span class="line"><span>import java.net.URL;</span></span>
+<span class="line"><span>import java.net.URLClassLoader;</span></span>
+<span class="line"><span>import java.nio.file.Paths;</span></span>
+<span class="line"><span>import java.util.ArrayList;</span></span>
+<span class="line"><span>import java.util.Enumeration;</span></span>
+<span class="line"><span>import java.util.List;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>public class  BoxClassLoaderextendsURLClassLoader {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>publicBoxClassLoader(String basePath, ClassLoader parent) throws IOException {</span></span>
+<span class="line"><span>super(getUrls(basePath), parent);</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    @Override</span></span>
+<span class="line"><span>protectedvoidaddURL(URL url) {</span></span>
+<span class="line"><span>super.addURL(url);</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    @Override</span></span>
+<span class="line"><span>public URL getResource(String name) {</span></span>
+<span class="line"><span>returnsuper.getResource(name);</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    @Override</span></span>
+<span class="line"><span>public Enumeration&lt;URL&gt; getResources(String name) throws IOException {</span></span>
+<span class="line"><span>returnsuper.getResources(name);</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    @Override</span></span>
+<span class="line"><span>protected Class&lt;?&gt; findClass(String name) throws ClassNotFoundException {</span></span>
+<span class="line"><span>returnsuper.findClass(name);</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    @Override</span></span>
+<span class="line"><span>protected Class&lt;?&gt; loadClass(String name, boolean  resolve) throws ClassNotFoundException {</span></span>
+<span class="line"><span>returnsuper.loadClass(name, resolve);</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    @Override</span></span>
+<span class="line"><span>public Enumeration&lt;URL&gt; findResources(String name) throws IOException {</span></span>
+<span class="line"><span>returnsuper.findResources(name);</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>privatestaticURL[] getUrls(String basePath) {</span></span>
+<span class="line"><span>        List&lt;URL&gt; urls =new ArrayList&lt;&gt;();</span></span>
+<span class="line"><span>getPath(basePath, &quot;libs&quot;, urls);</span></span>
+<span class="line"><span>getPath(basePath, &quot;bins&quot;, urls);</span></span>
+<span class="line"><span>getPath(basePath, &quot;plugs&quot;, urls);</span></span>
+<span class="line"><span>return urls.toArray(newURL[0]);</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>privatestaticvoidgetPath(String basepath, String subpath, List&lt;URL&gt; urls) {</span></span>
+<span class="line"><span>        File libdir = Paths.get(basepath, subpath).toFile();</span></span>
+<span class="line"><span>File[] files = libdir.listFiles();</span></span>
+<span class="line"><span>if (files !=null) {</span></span>
+<span class="line"><span>for (File f : files) {</span></span>
+<span class="line"><span>try {</span></span>
+<span class="line"><span>                    urls.add(f.toURI().toURL());</span></span>
+<span class="line"><span>                } catch (MalformedURLException e) {</span></span>
+<span class="line"><span>                    e.printStackTrace();</span></span>
+<span class="line"><span>                }</span></span>
+<span class="line"><span>            }</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>}</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>    然后第二步是反射com.kingtsoft.pangu.box.boot.PanguBoot下面的main方法。</span></span>
+<span class="line"><span>会发现它其实就是一个springboot启动器。</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div></div></div><p><strong>java</strong></p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>package com.kingtsoft.pangu.box.boot;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>import org.springframework.boot.SpringApplication;</span></span>
+<span class="line"><span>import org.springframework.boot.autoconfigure.SpringBootApplication;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>/**</span></span>
+<span class="line"><span> * @author JT103</span></span>
+<span class="line"><span> */</span></span>
+<span class="line"><span>@SpringBootApplication</span></span>
+<span class="line"><span>public class  PanguBoot {</span></span>
+<span class="line"><span>publicstaticvoidmain(String[] args) {</span></span>
+<span class="line"><span>        SpringApplication.run(PanguBoot.class, args);</span></span>
+<span class="line"><span>        System.out.println(&quot;App Is Started!&quot;);</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>}</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>    这个时候我们还缺少扫描，如何让扫描做得通用又方便呢？首先springboot在启动的时候会</span></span>
+<span class="line"><span>优先去扫描启动类所属包下的所有类文件。它的同级目录如下，可以发现有个叫PanguScanner的文件。</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div></div></div><figure><img src="http://pangu.kingtsoft.com/pangu-facade/assets/image5.fde9534b.png" alt="image.png" tabindex="0" loading="lazy"><figcaption>image.png</figcaption></figure><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>    PanguScanner中定义了扫描。这里的pangu.scan是指把配置文件中的包引用进来。</span></span>
+<span class="line"><span>@AutoConfigureOrder(Ordered.HIGHEST_PRECEDENCE)是为了增加此类的最高级配置优先级。</span></span>
+<span class="line"><span>excludeFilters中是排除内部的一些包扫描，因为公用组件一般会配置成自动化配置文件，扫描与自</span></span>
+<span class="line"><span>动化配置一起在特定的情况下会出现问题，比如加载顺序之类的。</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><strong>java</strong></p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>package com.kingtsoft.pangu.box.boot;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>import org.springframework.boot.autoconfigure.AutoConfigureOrder;</span></span>
+<span class="line"><span>import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;</span></span>
+<span class="line"><span>import org.springframework.context.annotation.ComponentScan;</span></span>
+<span class="line"><span>import org.springframework.context.annotation.Configuration;</span></span>
+<span class="line"><span>import org.springframework.context.annotation.FilterType;</span></span>
+<span class="line"><span>import org.springframework.core.Ordered;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>/**</span></span>
+<span class="line"><span> * Title: &lt;br&gt;</span></span>
+<span class="line"><span> * Description: &lt;br&gt;</span></span>
+<span class="line"><span> * Company: KingTang &lt;br&gt;</span></span>
+<span class="line"><span> *</span></span>
+<span class="line"><span> * @author 金炀</span></span>
+<span class="line"><span> * @version 1.0</span></span>
+<span class="line"><span> */</span></span>
+<span class="line"><span>@ComponentScan(</span></span>
+<span class="line"><span>basePackages=&quot;${pangu.scan}&quot;,</span></span>
+<span class="line"><span>excludeFilters= {</span></span>
+<span class="line"><span>                @ComponentScan.Filter(type= FilterType.ASPECTJ, pattern=&quot;com.kingtsoft.pangu.springcloud..*&quot;),</span></span>
+<span class="line"><span>                @ComponentScan.Filter(type= FilterType.ASPECTJ, pattern=&quot;com.kingtsoft.pangu.spring..*&quot;)</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span>)</span></span>
+<span class="line"><span>@Configuration</span></span>
+<span class="line"><span>@ConditionalOnProperty(value=&quot;pangu.scan&quot;)</span></span>
+<span class="line"><span>@AutoConfigureOrder(Ordered.HIGHEST_PRECEDENCE)</span></span>
+<span class="line"><span>public class  PanguScanner {</span></span>
+<span class="line"><span>}</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>    有的时候模块想自己控制扫描内容，配置文件可以配置成具体的某个包或类。如下这个时候本地项目</span></span>
+<span class="line"><span>config下的类CisConfig会先生效。然后这里再仿造PanguScanner中的配置，进行个性化扫描配置。</span></span>
+<span class="line"><span>当然默认的直接扫描满足绝大多数需求。</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><strong>yaml</strong></p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>pangu:</span></span>
+<span class="line"><span>	scan: &#39;com.kingtsoft.kingpower.ktcis.common.config&#39;</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div></div></div><p><strong>java</strong></p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>package com.kingtsoft.kingpower.ktcis.common.config;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>import org.springframework.boot.autoconfigure.AutoConfigureOrder;</span></span>
+<span class="line"><span>import org.springframework.context.annotation.ComponentScan;</span></span>
+<span class="line"><span>import org.springframework.context.annotation.Configuration;</span></span>
+<span class="line"><span>import org.springframework.context.annotation.EnableAspectJAutoProxy;</span></span>
+<span class="line"><span>import org.springframework.context.annotation.FilterType;</span></span>
+<span class="line"><span>import org.springframework.core.Ordered;</span></span>
+<span class="line"><span>import org.springframework.core.annotation.Order;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>/**</span></span>
+<span class="line"><span> * Title: &lt;br&gt;</span></span>
+<span class="line"><span> * Description: &lt;br&gt;</span></span>
+<span class="line"><span> * Company: KingTang &lt;br&gt;</span></span>
+<span class="line"><span> *</span></span>
+<span class="line"><span> * @author 金炀</span></span>
+<span class="line"><span> * @version 1.0</span></span>
+<span class="line"><span> */</span></span>
+<span class="line"><span>@ComponentScan(</span></span>
+<span class="line"><span>basePackages=&quot;com.kingtsoft.kingpower&quot;,</span></span>
+<span class="line"><span>excludeFilters= {</span></span>
+<span class="line"><span>                @ComponentScan.Filter(type= FilterType.ASPECTJ, pattern=&quot;com.kingtsoft.kingpower.ktap.business.web.controller..*&quot;),</span></span>
+<span class="line"><span>                @ComponentScan.Filter(type= FilterType.ASPECTJ, pattern=&quot;com.kingtsoft.kingpower.ktap.business.config.StartInitHelper&quot;),</span></span>
+<span class="line"><span>                @ComponentScan.Filter(type= FilterType.ASPECTJ, pattern=&quot;com.kingtsoft.kingpower.ktap.common.config.ApConfig&quot;),</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span>)</span></span>
+<span class="line"><span>@Configuration</span></span>
+<span class="line"><span>@AutoConfigureOrder(Ordered.HIGHEST_PRECEDENCE)</span></span>
+<span class="line"><span>@Order(Ordered.HIGHEST_PRECEDENCE)</span></span>
+<span class="line"><span>@EnableAspectJAutoProxy(proxyTargetClass=true, exposeProxy=true)</span></span>
+<span class="line"><span>public class  CisConfig {</span></span>
+<span class="line"><span>}</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>    继续看配置文件方面，pangu-box-boot 下有个PanguEnvironmentPostProcessor与</span></span>
+<span class="line"><span>PanguStartEnvironmentPostProcessor类，用于对环境数据的初始化。可以发现支持对</span></span>
+<span class="line"><span>pangu-app.properties、bootstrap.properties之类的进行加载。重点看</span></span>
+<span class="line"><span>EnvLoadUtil.loadAllEnvWithInclude(pro, &quot;pangu&quot;);这个方法。</span></span>
+<span class="line"><span>（这里分成2个执行器加载是为了剥离最外面的启动文件与内置配置优先级，内置一般是默认项目可覆盖，</span></span>
+<span class="line"><span>外置一般优先级最高）</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><strong>java</strong></p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>package com.kingtsoft.pangu.box.boot;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>import com.kingtsoft.pangu.spring.env.EnvLoadUtil;</span></span>
+<span class="line"><span>import org.springframework.boot.SpringApplication;</span></span>
+<span class="line"><span>import org.springframework.boot.env.EnvironmentPostProcessor;</span></span>
+<span class="line"><span>import org.springframework.core.Ordered;</span></span>
+<span class="line"><span>import org.springframework.core.env.ConfigurableEnvironment;</span></span>
+<span class="line"><span>import org.springframework.core.env.MutablePropertySources;</span></span>
+<span class="line"><span>import org.springframework.core.env.PropertiesPropertySource;</span></span>
+<span class="line"><span>import org.springframework.core.io.Resource;</span></span>
+<span class="line"><span>import org.springframework.core.io.support.PathMatchingResourcePatternResolver;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>import java.io.IOException;</span></span>
+<span class="line"><span>import java.util.*;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>public class  PanguEnvironmentPostProcessorimplementsEnvironmentPostProcessor, Ordered {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>privatestaticfinal String PROPERTY_NAME =&quot;classpath-box-pangu&quot;;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    @Override</span></span>
+<span class="line"><span>private void   postProcessEnvironment(ConfigurableEnvironment environment, SpringApplication application) {</span></span>
+<span class="line"><span>        MutablePropertySources propertySources = environment.getPropertySources();</span></span>
+<span class="line"><span>if (propertySources.get(PROPERTY_NAME) !=null) {</span></span>
+<span class="line"><span>return;</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span>try {</span></span>
+<span class="line"><span>            String locationapp =&quot;classpath*:pangu-app.properties&quot;;</span></span>
+<span class="line"><span>            String locationwebjars =&quot;classpath*:/META-INF/resources/webjars/*/pangu-inner-*.properties&quot;;</span></span>
+<span class="line"><span>            String locationboot =&quot;classpath:bootstrap.properties&quot;;</span></span>
+<span class="line"><span>            PathMatchingResourcePatternResolver pmrpr =newPathMatchingResourcePatternResolver();</span></span>
+<span class="line"><span>Resource[] resourcesapp = pmrpr.getResources(locationapp);</span></span>
+<span class="line"><span>Resource[] resourcesboot = pmrpr.getResources(locationboot);</span></span>
+<span class="line"><span>Resource[] resourceswebjars = pmrpr.getResources(locationwebjars);</span></span>
+<span class="line"><span>            Properties pro =newProperties();</span></span>
+<span class="line"><span>            EnvLoadUtil.loadAllEnvWithInclude(pro, &quot;pangu&quot;);</span></span>
+<span class="line"><span>            EnvLoadUtil.loadRes(resourcesapp, pro);</span></span>
+<span class="line"><span>            EnvLoadUtil.loadRes(resourceswebjars, pro);</span></span>
+<span class="line"><span>            EnvLoadUtil.loadRes(resourcesboot, pro);</span></span>
+<span class="line"><span>if (pro.isEmpty()) {</span></span>
+<span class="line"><span>return;</span></span>
+<span class="line"><span>            }</span></span>
+<span class="line"><span>            PropertiesPropertySource pps =newPropertiesPropertySource(PROPERTY_NAME, pro);</span></span>
+<span class="line"><span>            propertySources.addLast(pps);</span></span>
+<span class="line"><span>        } catch (IOException e) {</span></span>
+<span class="line"><span>            e.printStackTrace();</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    @Override</span></span>
+<span class="line"><span>publicintgetOrder() {</span></span>
+<span class="line"><span>// 配置文件是Ordered.HIGHEST_PRECEDENCE + 10 会设置到底部，数组越前面，优先级越高</span></span>
+<span class="line"><span>return Ordered.HIGHEST_PRECEDENCE +11;</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>}</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><strong>java</strong></p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>package com.kingtsoft.pangu.box.boot;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>/**</span></span>
+<span class="line"><span> * @author 金炀 这里是加载外部配置</span></span>
+<span class="line"><span> */</span></span>
+<span class="line"><span>public class  PanguStartEnvironmentPostProcessorimplementsEnvironmentPostProcessor, Ordered {</span></span>
+<span class="line"><span>    @Override</span></span>
+<span class="line"><span>private void   postProcessEnvironment(ConfigurableEnvironment environment, SpringApplication application) {</span></span>
+<span class="line"><span>        MutablePropertySources propertySources = environment.getPropertySources();</span></span>
+<span class="line"><span>try {</span></span>
+<span class="line"><span>            Properties pro =newProperties();</span></span>
+<span class="line"><span>            EnvLoadUtil.loadOut(pro);</span></span>
+<span class="line"><span>if (!pro.isEmpty()) {</span></span>
+<span class="line"><span>                PropertiesPropertySource pps =newPropertiesPropertySource(&quot;classpath-start-pangu&quot;, pro);</span></span>
+<span class="line"><span>                propertySources.addLast(pps);</span></span>
+<span class="line"><span>            }</span></span>
+<span class="line"><span>        } catch (IOException e) {</span></span>
+<span class="line"><span>            e.printStackTrace();</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    @Override</span></span>
+<span class="line"><span>publicintgetOrder() {</span></span>
+<span class="line"><span>// 配置文件是Ordered.HIGHEST_PRECEDENCE + 10 会设置到底部，数组越前面，优先级越高</span></span>
+<span class="line"><span>return Ordered.HIGHEST_PRECEDENCE +9;</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span>}</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>    EnvLoadUtil中对application开头的三种配置进行了加载。加载顺序根据envSuffixes的顺序</span></span>
+<span class="line"><span>来，越先加载的，就会被后者覆盖。所以优先级是倒着来的。因为spring默认是只加载一个application</span></span>
+<span class="line"><span>种类文件的，这里支持了所有文件的读取。当然，加了内部限制，loadAllEnvWithInclude方法加了</span></span>
+<span class="line"><span>“pangu”入参，就是限定了文件目录中必须要有这个关键字。所以这种模式是不开放外部业务组件多同类</span></span>
+<span class="line"><span>型配置文件的。</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><strong>java</strong></p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>package com.kingtsoft.pangu.spring.tools.env;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>import com.kingtsoft.pangu.base.common.ProjectPath;</span></span>
+<span class="line"><span>import lombok.SneakyThrows;</span></span>
+<span class="line"><span>import org.springframework.boot.env.OriginTrackedMapPropertySource;</span></span>
+<span class="line"><span>import org.springframework.boot.env.YamlPropertySourceLoader;</span></span>
+<span class="line"><span>import org.springframework.boot.origin.OriginTrackedValue;</span></span>
+<span class="line"><span>import org.springframework.core.env.PropertySource;</span></span>
+<span class="line"><span>import org.springframework.core.io.Resource;</span></span>
+<span class="line"><span>import org.springframework.core.io.UrlResource;</span></span>
+<span class="line"><span>import org.springframework.core.io.support.PropertiesLoaderUtils;</span></span>
+<span class="line"><span>import org.springframework.util.CollectionUtils;</span></span>
+<span class="line"><span>import org.springframework.util.StringUtils;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>import java.io.File;</span></span>
+<span class="line"><span>import java.io.IOException;</span></span>
+<span class="line"><span>import java.net.URI;</span></span>
+<span class="line"><span>import java.nio.file.Paths;</span></span>
+<span class="line"><span>import java.util.ArrayList;</span></span>
+<span class="line"><span>import java.util.List;</span></span>
+<span class="line"><span>import java.util.Map;</span></span>
+<span class="line"><span>import java.util.Properties;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>/**</span></span>
+<span class="line"><span> * Title: &lt;br&gt;</span></span>
+<span class="line"><span> * Description: &lt;br&gt;</span></span>
+<span class="line"><span> * Company: KingTang &lt;br&gt;</span></span>
+<span class="line"><span> *</span></span>
+<span class="line"><span> * @author 金炀</span></span>
+<span class="line"><span> * @version 1.0</span></span>
+<span class="line"><span> */</span></span>
+<span class="line"><span>public class  EnvLoadUtil {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>privatestaticfinal String DEFAULT_FILE_NAME =&quot;application&quot;;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>publicstaticvoidloadAllEnv(Properties pro) throws IOException {</span></span>
+<span class="line"><span>loadAllEnv(pro, DEFAULT_FILE_NAME);</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    @SneakyThrows</span></span>
+<span class="line"><span>publicstaticvoidloadAllEnvWithInclude(Properties pro, String includeName) {</span></span>
+<span class="line"><span>loadAllEnv(pro, DEFAULT_FILE_NAME, includeName);</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>publicstaticvoidloadAllEnv(Properties pro, String fileName, String includeName) throws IOException {</span></span>
+<span class="line"><span>String[] envSuffixes = {&quot;yaml&quot;, &quot;yml&quot;, &quot;properties&quot;};</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>for (String envSuffix : envSuffixes) {</span></span>
+<span class="line"><span>            List&lt;Resource&gt; resources =new ArrayList&lt;&gt;();</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>            ClassLoader classLoader = Thread.currentThread().getContextClassLoader();</span></span>
+<span class="line"><span>            classLoader.getResources(fileName +&quot;.&quot;+ envSuffix).asIterator().forEachRemaining(</span></span>
+<span class="line"><span>                    url -&gt; {</span></span>
+<span class="line"><span>if (!StringUtils.hasText(includeName) || url.getPath().contains(includeName)) {</span></span>
+<span class="line"><span>                            resources.add(0, newUrlResource(url));</span></span>
+<span class="line"><span>                        }</span></span>
+<span class="line"><span>                    }</span></span>
+<span class="line"><span>            );</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>if (&quot;properties&quot;.equals(envSuffix)) {</span></span>
+<span class="line"><span>                EnvLoadUtil.loadRes(resources.toArray(newResource[0]), pro);</span></span>
+<span class="line"><span>            } else {</span></span>
+<span class="line"><span>                EnvLoadUtil.loadYmlRes(resources.toArray(newResource[0]), pro);</span></span>
+<span class="line"><span>            }</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>publicstaticvoidloadAllEnv(Properties pro, String fileName) throws IOException {</span></span>
+<span class="line"><span>loadAllEnv(pro, fileName, null);</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>publicstaticvoidloadRes(Resource[] resources, Properties pro) throws IOException {</span></span>
+<span class="line"><span>if (resources !=null&amp;&amp; resources.length &gt;0) {</span></span>
+<span class="line"><span>for (Resource res : resources) {</span></span>
+<span class="line"><span>if (res.exists()) {</span></span>
+<span class="line"><span>                    Properties prot = PropertiesLoaderUtils.loadProperties(res);</span></span>
+<span class="line"><span>                    pro.putAll(prot);</span></span>
+<span class="line"><span>                }</span></span>
+<span class="line"><span>            }</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>publicstaticvoidloadYmlRes(Resource[] resources, Properties pro) throws IOException {</span></span>
+<span class="line"><span>if (resources !=null&amp;&amp; resources.length &gt;0) {</span></span>
+<span class="line"><span>for (Resource res : resources) {</span></span>
+<span class="line"><span>if (res.exists()) {</span></span>
+<span class="line"><span>                    List&lt;PropertySource&lt;?&gt;&gt; propertySources =newYamlPropertySourceLoader().load(res.getFilename(), res);</span></span>
+<span class="line"><span>if (CollectionUtils.isEmpty(propertySources)) {</span></span>
+<span class="line"><span>continue;</span></span>
+<span class="line"><span>                    }</span></span>
+<span class="line"><span>for (PropertySource&lt;?&gt; propertySource : propertySources) {</span></span>
+<span class="line"><span>                        Map&lt;String, Object&gt; source = ((OriginTrackedMapPropertySource) propertySource).getSource();</span></span>
+<span class="line"><span>                        source.forEach((k, v) -&gt; pro.put(k, ((OriginTrackedValue)(v)).getValue()));</span></span>
+<span class="line"><span>                    }</span></span>
+<span class="line"><span>                }</span></span>
+<span class="line"><span>            }</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>publicstaticvoidloadOut(Properties pro) throws IOException {</span></span>
+<span class="line"><span>loadOut(pro, &quot;start&quot;);</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>publicstaticvoidloadOut(Properties pro, String fileName) throws IOException {</span></span>
+<span class="line"><span>        String basePath = ProjectPath.getBasePath();</span></span>
+<span class="line"><span>        File file = Paths.get(basePath, &quot;&quot;).toFile();</span></span>
+<span class="line"><span>File[] files = file.listFiles();</span></span>
+<span class="line"><span>if (files ==null) {</span></span>
+<span class="line"><span>return;</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>// 不在里面加载是为了遵循properties优先级高于yml文件的规则</span></span>
+<span class="line"><span>        List&lt;File&gt; propertiesFiles =new ArrayList&lt;&gt;();</span></span>
+<span class="line"><span>for (File f : files) {</span></span>
+<span class="line"><span>            String filename = f.getName();</span></span>
+<span class="line"><span>if (filename.indexOf(fileName) !=0) {</span></span>
+<span class="line"><span>continue;</span></span>
+<span class="line"><span>            }</span></span>
+<span class="line"><span>if (filename.endsWith(&quot;.properties&quot;)) {</span></span>
+<span class="line"><span>                propertiesFiles.add(f);</span></span>
+<span class="line"><span>            } elseif (filename.endsWith(&quot;.yml&quot;) || filename.endsWith(&quot;.yaml&quot;)) {</span></span>
+<span class="line"><span>                URI sYmlPath = Paths.get(basePath, filename).toUri();</span></span>
+<span class="line"><span>                UrlResource r =newUrlResource(sYmlPath);</span></span>
+<span class="line"><span>if (r.exists()) {</span></span>
+<span class="line"><span>                    EnvLoadUtil.loadYmlRes(newResource[]{r}, pro);</span></span>
+<span class="line"><span>                }</span></span>
+<span class="line"><span>            }</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>if (!propertiesFiles.isEmpty()) {</span></span>
+<span class="line"><span>for (File propertiesFile : propertiesFiles) {</span></span>
+<span class="line"><span>                URI spath = Paths.get(basePath, propertiesFile.getName()).toUri();</span></span>
+<span class="line"><span>                UrlResource r =newUrlResource(spath);</span></span>
+<span class="line"><span>if (r.exists()) {</span></span>
+<span class="line"><span>                    EnvLoadUtil.loadRes(newResource[]{r}, pro);</span></span>
+<span class="line"><span>                }</span></span>
+<span class="line"><span>            }</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>}</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>    当然，这里提供了项目模板生成工具，用于对基础模板项目进行一键生成</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div></div></div><p><a href="http://pangu.jasonandhank.cn/pangu-web/layout/project-create" target="_blank" rel="noopener noreferrer">http://pangu.jasonandhank.cn/pangu-web/layout/project-create</a> JT454 0622</p></div><!----><footer class="vp-page-meta"><div class="vp-meta-item edit-link"><a class="auto-link external-link vp-meta-label" href="https://github.com/Todreamr/Dr.Magic/edit/main/src/盘古/组件介绍/仓盒模块.md" aria-label="在 GitHub 上编辑此页" rel="noopener noreferrer" target="_blank"><!--[--><svg xmlns="http://www.w3.org/2000/svg" class="icon edit-icon" viewBox="0 0 1024 1024" fill="currentColor" aria-label="edit icon" name="edit"><path d="M430.818 653.65a60.46 60.46 0 0 1-50.96-93.281l71.69-114.012 7.773-10.365L816.038 80.138A60.46 60.46 0 0 1 859.225 62a60.46 60.46 0 0 1 43.186 18.138l43.186 43.186a60.46 60.46 0 0 1 0 86.373L588.879 565.55l-8.637 8.637-117.466 68.234a60.46 60.46 0 0 1-31.958 11.229z"></path><path d="M728.802 962H252.891A190.883 190.883 0 0 1 62.008 771.98V296.934a190.883 190.883 0 0 1 190.883-192.61h267.754a60.46 60.46 0 0 1 0 120.92H252.891a69.962 69.962 0 0 0-69.098 69.099V771.98a69.962 69.962 0 0 0 69.098 69.098h475.911A69.962 69.962 0 0 0 797.9 771.98V503.363a60.46 60.46 0 1 1 120.922 0V771.98A190.883 190.883 0 0 1 728.802 962z"></path></svg><!--]-->在 GitHub 上编辑此页<!----></a></div><div class="vp-meta-item git-info"><div class="update-time"><span class="vp-meta-label">上次编辑于: </span><!----></div><div class="contributors"><span class="vp-meta-label">贡献者: </span><!--[--><!--[--><span class="vp-meta-info" title="email: aruixrain@gmail.com">九歌天上有</span><!--]--><!--]--></div></div></footer><nav class="vp-page-nav"><a class="route-link auto-link prev" href="/%E7%9B%98%E5%8F%A4/%E7%BB%84%E4%BB%B6%E4%BB%8B%E7%BB%8D/xxl-job%E6%A8%A1%E5%9D%97.html" aria-label="xxl-job模块"><div class="hint"><span class="arrow start"></span>上一页</div><div class="link"><!---->xxl-job模块</div></a><a class="route-link auto-link next" href="/%E7%9B%98%E5%8F%A4/%E7%BB%84%E4%BB%B6%E4%BB%8B%E7%BB%8D/%E5%B7%A5%E5%85%B7%E7%B1%BB.html" aria-label="工具类"><div class="hint">下一页<span class="arrow end"></span></div><div class="link">工具类<!----></div></a></nav><!----><!----><!--]--></main><!--]--><footer class="vp-footer-wrapper"><div class="vp-footer">由萌ICP备案</div><div class="vp-copyright">Copyright © Mr.Cotton Eye Joe</div></footer></div><!--]--><!--[--><!----><!--]--><!--]--></div>
+    <script type="module" src="/assets/app-Bym8v7z8.js" defer></script>
+  </body>
+</html>

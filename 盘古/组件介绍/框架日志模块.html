@@ -1,0 +1,1391 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="generator" content="VuePress 2.0.0-rc.14" />
+    <meta name="theme" content="VuePress Theme Hope 2.0.0-rc.52" />
+    <style>
+      html {
+        background: var(--bg-color, #fff);
+      }
+
+      html[data-theme="dark"] {
+        background: var(--bg-color, #1d1e1f);
+      }
+
+      body {
+        background: var(--bg-color);
+      }
+    </style>
+    <script>
+      const userMode = localStorage.getItem("vuepress-theme-hope-scheme");
+      const systemDarkMode =
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+      if (userMode === "dark" || (userMode !== "light" && systemDarkMode)) {
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
+    </script>
+    <meta property="og:url" content="https://vuepress-theme-hope-docs-demo.netlify.app/%E7%9B%98%E5%8F%A4/%E7%BB%84%E4%BB%B6%E4%BB%8B%E7%BB%8D/%E6%A1%86%E6%9E%B6%E6%97%A5%E5%BF%97%E6%A8%A1%E5%9D%97.html"><meta property="og:title" content="框架日志模块"><meta property="og:description" content="框架日志模块 如何使用 业务端引入如下模块 xml yaml java 注解日志 持久层日志 常规日志模式 server端 yaml 技术原理 注解 java java 持久层 java java java 常规 java java java java java java server端 java java java"><meta property="og:type" content="article"><meta property="og:locale" content="zh-CN"><meta property="og:updated_time" content="2024-11-18T07:25:41.000Z"><meta property="article:author" content="Cotton Eye Joe"><meta property="article:modified_time" content="2024-11-18T07:25:41.000Z"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"框架日志模块","image":[""],"dateModified":"2024-11-18T07:25:41.000Z","author":[{"@type":"Person","name":"Cotton Eye Joe","url":"https://github.com/ToDreamr"}]}</script><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"><script async src="https://umami.zhenxin.me/script.js" data-website-id="a799e189-cf7e-4f5a-ac98-71de364f3637"></script><script src="https://cdn.armoe.cn/static/js/autoGray.js"></script><title>框架日志模块</title><meta name="description" content="框架日志模块 如何使用 业务端引入如下模块 xml yaml java 注解日志 持久层日志 常规日志模式 server端 yaml 技术原理 注解 java java 持久层 java java java 常规 java java java java java java server端 java java java">
+    <link rel="preload" href="/assets/style-DuvwdHTW.css" as="style"><link rel="stylesheet" href="/assets/style-DuvwdHTW.css">
+    <link rel="modulepreload" href="/assets/app-Bym8v7z8.js"><link rel="modulepreload" href="/assets/框架日志模块.html-Bl3ski15.js">
+    <link rel="prefetch" href="/assets/index.html-CXzH1O3K.js" as="script"><link rel="prefetch" href="/assets/portfolio.html-7Vf-M53x.js" as="script"><link rel="prefetch" href="/assets/友链.html-DGvtJJYw.js" as="script"><link rel="prefetch" href="/assets/index.html-CgfRxGQF.js" as="script"><link rel="prefetch" href="/assets/disable.html-DA8YEJxq.js" as="script"><link rel="prefetch" href="/assets/encrypt.html-CEQyUBDI.js" as="script"><link rel="prefetch" href="/assets/layout.html-D7zbFOdQ.js" as="script"><link rel="prefetch" href="/assets/markdown.html-Dreman5b.js" as="script"><link rel="prefetch" href="/assets/page.html-DjleqtBm.js" as="script"><link rel="prefetch" href="/assets/友链.html-ieJ5rchD.js" as="script"><link rel="prefetch" href="/assets/index.html-C_WpmxSq.js" as="script"><link rel="prefetch" href="/assets/Otome Games Analysis.html-GQz_mOgF.js" as="script"><link rel="prefetch" href="/assets/在生活中的一些思考问题.html-3EqV5hSe.js" as="script"><link rel="prefetch" href="/assets/学习计划.html-Dvzb-nVv.js" as="script"><link rel="prefetch" href="/assets/index.html-O9qKWtU-.js" as="script"><link rel="prefetch" href="/assets/Idea.html-hrxJKM9f.js" as="script"><link rel="prefetch" href="/assets/10月.html-DlDoQHYF.js" as="script"><link rel="prefetch" href="/assets/依赖相关.html-T_ALn7wm.js" as="script"><link rel="prefetch" href="/assets/word.html-BEzUW9Ik.js" as="script"><link rel="prefetch" href="/assets/数字马力.html-CMj2DeBu.js" as="script"><link rel="prefetch" href="/assets/7.0病历.html-vtLcqbkD.js" as="script"><link rel="prefetch" href="/assets/Oracle数据库部分代码测试不通过.html-B710QpUs.js" as="script"><link rel="prefetch" href="/assets/SQL日志排查记录的工作流程.html-DMWPEZWS.js" as="script"><link rel="prefetch" href="/assets/kemer病历部架构整理.html-NOr77OFc.js" as="script"><link rel="prefetch" href="/assets/事务分析.html-DrBwRi7a.js" as="script"><link rel="prefetch" href="/assets/如何在工作当中书写需要的SQL.html-Bmzhhh7O.js" as="script"><link rel="prefetch" href="/assets/工作流程.html--0qs7oqq.js" as="script"><link rel="prefetch" href="/assets/开发规范和知识文档.html-Cp5pQPoO.js" as="script"><link rel="prefetch" href="/assets/异常SQL数据查询.html-jdb2xHQM.js" as="script"><link rel="prefetch" href="/assets/质控项-修改代码(SQL).html-l8Suud-u.js" as="script"><link rel="prefetch" href="/assets/金唐软件.html-BUl7dBUf.js" as="script"><link rel="prefetch" href="/assets/金唐软件部分代码分析.html-CILvKuEx.js" as="script"><link rel="prefetch" href="/assets/Ubuntu系统各软件.html-Dpej8GIw.js" as="script"><link rel="prefetch" href="/assets/RabbitMQ.html-DRzD7Pyq.js" as="script"><link rel="prefetch" href="/assets/病历-临床部门后端实习.html-CUtHcsPH.js" as="script"><link rel="prefetch" href="/assets/高并发编程.html-B2uHv6qX.js" as="script"><link rel="prefetch" href="/assets/JVM内存模型.html-B8wPWbgl.js" as="script"><link rel="prefetch" href="/assets/内存管理.html-CwcQm7mZ.js" as="script"><link rel="prefetch" href="/assets/类与类加载.html-NApvUdFZ.js" as="script"><link rel="prefetch" href="/assets/设计模式系列 - 设计模式（一）面向对象设计原则.html-CGEPWgp0.js" as="script"><link rel="prefetch" href="/assets/设计模式系列 - 设计模式（三）结构型.html-DqInPkU1.js" as="script"><link rel="prefetch" href="/assets/设计模式系列 - 设计模式（二）创建型.html-u4QikdTt.js" as="script"><link rel="prefetch" href="/assets/设计模式系列 - 设计模式（四）行为型.html-Bk_E5pNe.js" as="script"><link rel="prefetch" href="/assets/Cpp.html-DHlCBkt-.js" as="script"><link rel="prefetch" href="/assets/index.html-B39aI5L2.js" as="script"><link rel="prefetch" href="/assets/baz.html-BNS6eF_c.js" as="script"><link rel="prefetch" href="/assets/index.html-UKJ3lH52.js" as="script"><link rel="prefetch" href="/assets/ray.html-B4OV9Sqe.js" as="script"><link rel="prefetch" href="/assets/KafKa.html-CTS3O4iT.js" as="script"><link rel="prefetch" href="/assets/RabbitMQ.html-CBo0Ee1B.js" as="script"><link rel="prefetch" href="/assets/Redis(消息模式).html-B4EAtHF2.js" as="script"><link rel="prefetch" href="/assets/Redis(直连模式).html-Dl7lgtmX.js" as="script"><link rel="prefetch" href="/assets/minio.html-BKqUzASB.js" as="script"><link rel="prefetch" href="/assets/mongodb.html-D_hH_zZx.js" as="script"><link rel="prefetch" href="/assets/nacos集成.html-BWNntWM2.js" as="script"><link rel="prefetch" href="/assets/ES模块.html-BhRo2Dw1.js" as="script"><link rel="prefetch" href="/assets/Prometheus模块.html-D6N1IIxE.js" as="script"><link rel="prefetch" href="/assets/sharding模块.html-DV5G99yZ.js" as="script"><link rel="prefetch" href="/assets/分布式事务系列.html-Dh4TLv8Z.js" as="script"><link rel="prefetch" href="/assets/多线程事务.html-B7nCns4n.js" as="script"><link rel="prefetch" href="/assets/数据源模块.html-BLRj8pPH.js" as="script"><link rel="prefetch" href="/assets/Https模块.html-Cp-FfeIV.js" as="script"><link rel="prefetch" href="/assets/Mybatis-Plus.html-BQGiqMsO.js" as="script"><link rel="prefetch" href="/assets/SQL跟踪模块.html-CjoE9eap.js" as="script"><link rel="prefetch" href="/assets/Swagger.html-Cb7F8n5z.js" as="script"><link rel="prefetch" href="/assets/chat模块.html-NQXR60tu.js" as="script"><link rel="prefetch" href="/assets/list工作流集成.html-CoinXPP-.js" as="script"><link rel="prefetch" href="/assets/plug组件.html-Dh34ON3K.js" as="script"><link rel="prefetch" href="/assets/xxl-job模块.html-DBIFcOw7.js" as="script"><link rel="prefetch" href="/assets/仓盒模块.html--wkaCapJ.js" as="script"><link rel="prefetch" href="/assets/工具类.html-DzYU1arK.js" as="script"><link rel="prefetch" href="/assets/延时模块.html-BrnaGRB_.js" as="script"><link rel="prefetch" href="/assets/异常模块.html-DIHCaSjz.js" as="script"><link rel="prefetch" href="/assets/控制器排除模块.html-BKD9xqH_.js" as="script"><link rel="prefetch" href="/assets/盘古-security.html-C0lNOcfo.js" as="script"><link rel="prefetch" href="/assets/盘古.html-CQb-c-wi.js" as="script"><link rel="prefetch" href="/assets/盘古security模块(含授权).html-BAWYEtpb.js" as="script"><link rel="prefetch" href="/assets/缓存模块.html-ConHDV0T.js" as="script"><link rel="prefetch" href="/assets/脱敏和持久层加解密.html-BaB9b79r.js" as="script"><link rel="prefetch" href="/assets/认证模块.html-TVx8QcT2.js" as="script"><link rel="prefetch" href="/assets/配置文件加解密模块.html-ZCOhdTkE.js" as="script"><link rel="prefetch" href="/assets/nacos.html-DjvbWjWu.js" as="script"><link rel="prefetch" href="/assets/日志.html-CaNcKDkC.js" as="script"><link rel="prefetch" href="/assets/熔断.html-DugITjwT.js" as="script"><link rel="prefetch" href="/assets/认证.html-Dyh6qxP-.js" as="script"><link rel="prefetch" href="/assets/路由.html-Ce8stFk_.js" as="script"><link rel="prefetch" href="/assets/限流.html-CyGJXEXA.js" as="script"><link rel="prefetch" href="/assets/通用链路跟踪模块.html-C3rZaXZK.js" as="script"><link rel="prefetch" href="/assets/鹰眼模块.html-BiRD3jqA.js" as="script"><link rel="prefetch" href="/assets/index.html-Disp3CN8.js" as="script"><link rel="prefetch" href="/assets/index.html-OiDA5_fG.js" as="script"><link rel="prefetch" href="/assets/并发编程.html-DJImdmff.js" as="script"><link rel="prefetch" href="/assets/类图-UML.html-CHZQnRcc.js" as="script"><link rel="prefetch" href="/assets/SpringCloud 1.html-BESDCRmx.js" as="script"><link rel="prefetch" href="/assets/SpringCloud 2.html-BQX2q4Tu.js" as="script"><link rel="prefetch" href="/assets/SpringCloud 3.html-SzS9KEqs.js" as="script"><link rel="prefetch" href="/assets/index.html-JPmBCGSt.js" as="script"><link rel="prefetch" href="/assets/MySQL.html-C-jzd0dg.js" as="script"><link rel="prefetch" href="/assets/SQL优化.html-Dvp079_i.js" as="script"><link rel="prefetch" href="/assets/一次SQL优化记录.html-Baupgegv.js" as="script"><link rel="prefetch" href="/assets/多版本并发控制事务.html-CmAtiIwb.js" as="script"><link rel="prefetch" href="/assets/Oracle.html-rem7ROu3.js" as="script"><link rel="prefetch" href="/assets/Redis.html-Dwceqdgg.js" as="script"><link rel="prefetch" href="/assets/数之和.html-UgHk5WZ-.js" as="script"><link rel="prefetch" href="/assets/有序数组的平方.html-ly_-zu1E.js" as="script"><link rel="prefetch" href="/assets/移除元素.html-DRWFJ1JA.js" as="script"><link rel="prefetch" href="/assets/螺旋矩阵.html-CrGCfs2p.js" as="script"><link rel="prefetch" href="/assets/链表篇.html-CAbdgqlr.js" as="script"><link rel="prefetch" href="/assets/长度最小的数组.html-Cjo6F5Gk.js" as="script"><link rel="prefetch" href="/assets/index.html-NQAZYoDL.js" as="script"><link rel="prefetch" href="/assets/快速排序和堆排序.html-C07R1Uhk.js" as="script"><link rel="prefetch" href="/assets/二分法.html-DaITvGtm.js" as="script"><link rel="prefetch" href="/assets/哈希篇.html-BW3rt2G-.js" as="script"><link rel="prefetch" href="/assets/链表.html-BcWUDRJr.js" as="script"><link rel="prefetch" href="/assets/Docker.html-MECuzgQ-.js" as="script"><link rel="prefetch" href="/assets/数据结构图示.html-gfSMorHt.js" as="script"><link rel="prefetch" href="/assets/实例化Node.html-BZlSr31u.js" as="script"><link rel="prefetch" href="/assets/对象间的关系.html-8beqe_8_.js" as="script"><link rel="prefetch" href="/assets/ThreadLocal.html-pO6V9h2R.js" as="script"><link rel="prefetch" href="/assets/关键字.html-B78dB7Bm.js" as="script"><link rel="prefetch" href="/assets/404.html-3TFllIkV.js" as="script"><link rel="prefetch" href="/assets/index.html-C0t-6j3e.js" as="script"><link rel="prefetch" href="/assets/index.html-C5wUKZPd.js" as="script"><link rel="prefetch" href="/assets/index.html-D9hB4yTQ.js" as="script"><link rel="prefetch" href="/assets/index.html-FbGIWzV0.js" as="script"><link rel="prefetch" href="/assets/index.html-DJJKjiwt.js" as="script"><link rel="prefetch" href="/assets/index.html-DAq5kZI7.js" as="script"><link rel="prefetch" href="/assets/index.html-BzmXToJJ.js" as="script"><link rel="prefetch" href="/assets/index.html-RgYvL1QE.js" as="script"><link rel="prefetch" href="/assets/index.html-s4VR23gF.js" as="script"><link rel="prefetch" href="/assets/index.html-Bp5AyKkD.js" as="script"><link rel="prefetch" href="/assets/index.html-_4SxxfQk.js" as="script"><link rel="prefetch" href="/assets/index.html-inIJfuWr.js" as="script"><link rel="prefetch" href="/assets/index.html-BLVTOVP8.js" as="script"><link rel="prefetch" href="/assets/index.html-PkNp5oJV.js" as="script"><link rel="prefetch" href="/assets/index.html-B1qMcitr.js" as="script"><link rel="prefetch" href="/assets/index.html-ygXtyoyo.js" as="script"><link rel="prefetch" href="/assets/index.html-Y5uQO_x0.js" as="script"><link rel="prefetch" href="/assets/index.html-CYnenc3K.js" as="script"><link rel="prefetch" href="/assets/index.html-D8VliLXg.js" as="script"><link rel="prefetch" href="/assets/index.html-BdfTHgK2.js" as="script"><link rel="prefetch" href="/assets/index.html-DbF4GLjt.js" as="script"><link rel="prefetch" href="/assets/index.html-BeipA1-V.js" as="script"><link rel="prefetch" href="/assets/index.html-BVf14Kqp.js" as="script"><link rel="prefetch" href="/assets/index.html-BNaMBPr7.js" as="script"><link rel="prefetch" href="/assets/index.html-bl0DeO-Y.js" as="script"><link rel="prefetch" href="/assets/index.html-CN4R09ZE.js" as="script"><link rel="prefetch" href="/assets/index.html-BhGX8D-S.js" as="script"><link rel="prefetch" href="/assets/index.html-CwAOi7VG.js" as="script"><link rel="prefetch" href="/assets/index.html-BP4oBRto.js" as="script"><link rel="prefetch" href="/assets/index.html-oVjHtg6n.js" as="script"><link rel="prefetch" href="/assets/index.html-B6tUcmGG.js" as="script"><link rel="prefetch" href="/assets/index.html-BPquSZhJ.js" as="script"><link rel="prefetch" href="/assets/index.html-CLQbnbss.js" as="script"><link rel="prefetch" href="/assets/index.html-CiUpOfC5.js" as="script"><link rel="prefetch" href="/assets/index.html-DRKe33S1.js" as="script"><link rel="prefetch" href="/assets/index.html-CO0zaaYt.js" as="script"><link rel="prefetch" href="/assets/index.html-BeiERS3l.js" as="script"><link rel="prefetch" href="/assets/index.html-CSzPv4eY.js" as="script"><link rel="prefetch" href="/assets/index.html-CWYets6I.js" as="script"><link rel="prefetch" href="/assets/index.html-DSLGaqUV.js" as="script"><link rel="prefetch" href="/assets/index.html-bwBxXhm4.js" as="script"><link rel="prefetch" href="/assets/index.html-DWqrr6hi.js" as="script"><link rel="prefetch" href="/assets/index.html-DBHmuEpn.js" as="script"><link rel="prefetch" href="/assets/index.html-CBQomQ63.js" as="script"><link rel="prefetch" href="/assets/index.html-DHpx2K57.js" as="script"><link rel="prefetch" href="/assets/index.html-DRV-xMxT.js" as="script"><link rel="prefetch" href="/assets/index.html-xJ1s7R2v.js" as="script"><link rel="prefetch" href="/assets/index.html-DFBlR0h8.js" as="script"><link rel="prefetch" href="/assets/index.html-CdKuREGo.js" as="script"><link rel="prefetch" href="/assets/index.html-B7z-2c5I.js" as="script"><link rel="prefetch" href="/assets/index.html-CkL6PZKr.js" as="script"><link rel="prefetch" href="/assets/index.html-C5FbK2eb.js" as="script"><link rel="prefetch" href="/assets/index.html-CQtH3mSG.js" as="script"><link rel="prefetch" href="/assets/index.html-CpjXeKBF.js" as="script"><link rel="prefetch" href="/assets/index.html-Cn2k2wnr.js" as="script"><link rel="prefetch" href="/assets/index.html-BZZOyyDl.js" as="script"><link rel="prefetch" href="/assets/index.html-D_LM1pBH.js" as="script"><link rel="prefetch" href="/assets/index.html-B7qxMrTs.js" as="script"><link rel="prefetch" href="/assets/index.html-D7qsWVbX.js" as="script"><link rel="prefetch" href="/assets/photoswipe.esm-GXRgw7eJ.js" as="script"><link rel="prefetch" href="/assets/index-BNnYFWcz.js" as="script">
+  </head>
+  <body>
+    <div id="app"><!--[--><!--[--><!--[--><span tabindex="-1"></span><a href="#main-content" class="vp-skip-link sr-only">跳至主要內容</a><!--]--><div class="theme-container external-link-icon has-toc"><!--[--><header id="navbar" class="vp-navbar"><div class="vp-navbar-start"><button type="button" class="vp-toggle-sidebar-button" title="Toggle Sidebar"><span class="icon"></span></button><!----><!--[--><a class="route-link vp-brand" href="/"><img class="vp-nav-logo" src="/秒速５センチメートル.svg" alt><!----><!----></a><!--]--><!----></div><div class="vp-navbar-center"><!----><!--[--><nav class="vp-nav-links"><div class="vp-nav-item hide-in-mobile"><a class="route-link auto-link" href="/" aria-label="雨山"><!--[--><span class="font-icon icon fa-fw fa-sm fas fa-user-graduate" style=""></span><!--]-->雨山<!----></a></div><div class="vp-nav-item hide-in-mobile"><a class="route-link auto-link" href="/portfolio.html" aria-label="主页"><!--[--><span class="font-icon icon fa-fw fa-sm fas fa-home" style=""></span><!--]-->主页<!----></a></div><div class="vp-nav-item hide-in-mobile"><a class="route-link auto-link" href="/demo/" aria-label="文档和笔记"><!--[--><span class="font-icon icon fa-fw fa-sm fas fa-book" style=""></span><!--]-->文档和笔记<!----></a></div><div class="vp-nav-item hide-in-mobile"><a class="route-link auto-link" href="/%E5%8F%8B%E9%93%BE.html" aria-label="朋友们"><!--[--><span class="font-icon icon fa-fw fa-sm fas fa-user-graduate" style=""></span><!--]-->朋友们<!----></a></div></nav><!--]--><!----></div><div class="vp-navbar-end"><!----><!--[--><!----><div class="vp-nav-item vp-action"><a class="vp-action-link" href="https://github.com/Todreamr/Dr.Magic" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg xmlns="http://www.w3.org/2000/svg" class="icon github-icon" viewBox="0 0 1024 1024" fill="currentColor" aria-label="github icon" name="github" style="width:1.25rem;height:1.25rem;vertical-align:middle;"><path d="M511.957 21.333C241.024 21.333 21.333 240.981 21.333 512c0 216.832 140.544 400.725 335.574 465.664 24.49 4.395 32.256-10.07 32.256-23.083 0-11.69.256-44.245 0-85.205-136.448 29.61-164.736-64.64-164.736-64.64-22.315-56.704-54.4-71.765-54.4-71.765-44.587-30.464 3.285-29.824 3.285-29.824 49.195 3.413 75.179 50.517 75.179 50.517 43.776 75.008 114.816 53.333 142.762 40.79 4.523-31.66 17.152-53.377 31.19-65.537-108.971-12.458-223.488-54.485-223.488-242.602 0-53.547 19.114-97.323 50.517-131.67-5.035-12.33-21.93-62.293 4.779-129.834 0 0 41.258-13.184 134.912 50.346a469.803 469.803 0 0 1 122.88-16.554c41.642.213 83.626 5.632 122.88 16.554 93.653-63.488 134.784-50.346 134.784-50.346 26.752 67.541 9.898 117.504 4.864 129.834 31.402 34.347 50.474 78.123 50.474 131.67 0 188.586-114.73 230.016-224.042 242.09 17.578 15.232 33.578 44.672 33.578 90.454v135.85c0 13.142 7.936 27.606 32.854 22.87C862.25 912.597 1002.667 728.747 1002.667 512c0-271.019-219.648-490.667-490.71-490.667z"></path></svg></a></div><div class="vp-nav-item hide-in-mobile"><button type="button" class="vp-color-mode-switch" id="color-mode-switch"><svg xmlns="http://www.w3.org/2000/svg" class="icon auto-icon" viewBox="0 0 1024 1024" fill="currentColor" aria-label="auto icon" name="auto" style="display:none;"><path d="M512 992C246.92 992 32 777.08 32 512S246.92 32 512 32s480 214.92 480 480-214.92 480-480 480zm0-840c-198.78 0-360 161.22-360 360 0 198.84 161.22 360 360 360s360-161.16 360-360c0-198.78-161.22-360-360-360zm0 660V212c165.72 0 300 134.34 300 300 0 165.72-134.28 300-300 300z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" class="icon dark-icon" viewBox="0 0 1024 1024" fill="currentColor" aria-label="dark icon" name="dark" style="display:none;"><path d="M524.8 938.667h-4.267a439.893 439.893 0 0 1-313.173-134.4 446.293 446.293 0 0 1-11.093-597.334A432.213 432.213 0 0 1 366.933 90.027a42.667 42.667 0 0 1 45.227 9.386 42.667 42.667 0 0 1 10.24 42.667 358.4 358.4 0 0 0 82.773 375.893 361.387 361.387 0 0 0 376.747 82.774 42.667 42.667 0 0 1 54.187 55.04 433.493 433.493 0 0 1-99.84 154.88 438.613 438.613 0 0 1-311.467 128z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" class="icon light-icon" viewBox="0 0 1024 1024" fill="currentColor" aria-label="light icon" name="light" style="display:block;"><path d="M952 552h-80a40 40 0 0 1 0-80h80a40 40 0 0 1 0 80zM801.88 280.08a41 41 0 0 1-57.96-57.96l57.96-58a41.04 41.04 0 0 1 58 58l-58 57.96zM512 752a240 240 0 1 1 0-480 240 240 0 0 1 0 480zm0-560a40 40 0 0 1-40-40V72a40 40 0 0 1 80 0v80a40 40 0 0 1-40 40zm-289.88 88.08-58-57.96a41.04 41.04 0 0 1 58-58l57.96 58a41 41 0 0 1-57.96 57.96zM192 512a40 40 0 0 1-40 40H72a40 40 0 0 1 0-80h80a40 40 0 0 1 40 40zm30.12 231.92a41 41 0 0 1 57.96 57.96l-57.96 58a41.04 41.04 0 0 1-58-58l58-57.96zM512 832a40 40 0 0 1 40 40v80a40 40 0 0 1-80 0v-80a40 40 0 0 1 40-40zm289.88-88.08 58 57.96a41.04 41.04 0 0 1-58 58l-57.96-58a41 41 0 0 1 57.96-57.96z"></path></svg></button></div><!----><!--]--><!----><button type="button" class="vp-toggle-navbar-button" aria-label="Toggle Navbar" aria-expanded="false" aria-controls="nav-screen"><span><span class="vp-top"></span><span class="vp-middle"></span><span class="vp-bottom"></span></span></button></div></header><!----><!--]--><!----><div class="toggle-sidebar-wrapper"><span class="arrow start"></span></div><aside id="sidebar" class="vp-sidebar"><!----><ul class="vp-sidebar-links"><li><section class="vp-sidebar-group"><button class="vp-sidebar-header clickable" type="button"><span class="font-icon icon fa-fw fa-sm fas fa-home" style=""></span><span class="vp-sidebar-title">后端理论</span><span class="vp-arrow end"></span></button><!----></section></li><li><section class="vp-sidebar-group"><button class="vp-sidebar-header clickable active" type="button"><span class="font-icon icon fa-fw fa-sm fas fa-check-square" style=""></span><span class="vp-sidebar-title">盘古</span><span class="vp-arrow down"></span></button><ul class="vp-sidebar-links"><li><section class="vp-sidebar-group"><button class="vp-sidebar-header clickable" type="button"><!----><span class="vp-sidebar-title">中间件</span><span class="vp-arrow end"></span></button><!----></section></li><li><section class="vp-sidebar-group"><button class="vp-sidebar-header clickable" type="button"><!----><span class="vp-sidebar-title">数据源</span><span class="vp-arrow end"></span></button><!----></section></li><li><section class="vp-sidebar-group"><button class="vp-sidebar-header clickable active" type="button"><!----><span class="vp-sidebar-title">组件介绍</span><span class="vp-arrow down"></span></button><ul class="vp-sidebar-links"><li><a class="route-link auto-link vp-sidebar-link" href="/%E7%9B%98%E5%8F%A4/%E7%BB%84%E4%BB%B6%E4%BB%8B%E7%BB%8D/chat%E6%A8%A1%E5%9D%97.html" aria-label="chat模块"><!---->chat模块<!----></a></li><li><a class="route-link auto-link vp-sidebar-link" href="/%E7%9B%98%E5%8F%A4/%E7%BB%84%E4%BB%B6%E4%BB%8B%E7%BB%8D/%E5%BB%B6%E6%97%B6%E6%A8%A1%E5%9D%97.html" aria-label="Delay模块"><!---->Delay模块<!----></a></li><li><a class="route-link auto-link vp-sidebar-link" href="/%E7%9B%98%E5%8F%A4/%E7%BB%84%E4%BB%B6%E4%BB%8B%E7%BB%8D/%E7%9B%98%E5%8F%A4-security.html" aria-label="Feign模块"><!---->Feign模块<!----></a></li><li><a class="route-link auto-link vp-sidebar-link" href="/%E7%9B%98%E5%8F%A4/%E7%BB%84%E4%BB%B6%E4%BB%8B%E7%BB%8D/Https%E6%A8%A1%E5%9D%97.html" aria-label="Https模块"><!---->Https模块<!----></a></li><li><a class="route-link auto-link vp-sidebar-link" href="/%E7%9B%98%E5%8F%A4/%E7%BB%84%E4%BB%B6%E4%BB%8B%E7%BB%8D/Mybatis-Plus.html" aria-label="MybatisPlus模块"><!---->MybatisPlus模块<!----></a></li><li><a class="route-link auto-link vp-sidebar-link" href="/%E7%9B%98%E5%8F%A4/%E7%BB%84%E4%BB%B6%E4%BB%8B%E7%BB%8D/plug%E7%BB%84%E4%BB%B6.html" aria-label="plug组件"><!---->plug组件<!----></a></li><li><a class="route-link auto-link vp-sidebar-link" href="/%E7%9B%98%E5%8F%A4/%E7%BB%84%E4%BB%B6%E4%BB%8B%E7%BB%8D/SQL%E8%B7%9F%E8%B8%AA%E6%A8%A1%E5%9D%97.html" aria-label="SQL跟踪模块"><!---->SQL跟踪模块<!----></a></li><li><a class="route-link auto-link vp-sidebar-link" href="/%E7%9B%98%E5%8F%A4/%E7%BB%84%E4%BB%B6%E4%BB%8B%E7%BB%8D/Swagger.html" aria-label="Swagger模块"><!---->Swagger模块<!----></a></li><li><a class="route-link auto-link vp-sidebar-link" href="/%E7%9B%98%E5%8F%A4/%E7%BB%84%E4%BB%B6%E4%BB%8B%E7%BB%8D/xxl-job%E6%A8%A1%E5%9D%97.html" aria-label="xxl-job模块"><!---->xxl-job模块<!----></a></li><li><a class="route-link auto-link vp-sidebar-link" href="/%E7%9B%98%E5%8F%A4/%E7%BB%84%E4%BB%B6%E4%BB%8B%E7%BB%8D/%E4%BB%93%E7%9B%92%E6%A8%A1%E5%9D%97.html" aria-label="仓盒模块"><!---->仓盒模块<!----></a></li><li><a class="route-link auto-link vp-sidebar-link" href="/%E7%9B%98%E5%8F%A4/%E7%BB%84%E4%BB%B6%E4%BB%8B%E7%BB%8D/%E5%B7%A5%E5%85%B7%E7%B1%BB.html" aria-label="工具类"><!---->工具类<!----></a></li><li><a class="route-link auto-link vp-sidebar-link" href="/%E7%9B%98%E5%8F%A4/%E7%BB%84%E4%BB%B6%E4%BB%8B%E7%BB%8D/%E5%BC%82%E5%B8%B8%E6%A8%A1%E5%9D%97.html" aria-label="异常模块"><!---->异常模块<!----></a></li><li><a class="route-link auto-link vp-sidebar-link" href="/%E7%9B%98%E5%8F%A4/%E7%BB%84%E4%BB%B6%E4%BB%8B%E7%BB%8D/%E6%8E%A7%E5%88%B6%E5%99%A8%E6%8E%92%E9%99%A4%E6%A8%A1%E5%9D%97.html" aria-label="控制器排除模块"><!---->控制器排除模块<!----></a></li><li><a class="route-link auto-link vp-sidebar-link" href="/%E7%9B%98%E5%8F%A4/%E7%BB%84%E4%BB%B6%E4%BB%8B%E7%BB%8D/%E7%BC%93%E5%AD%98%E6%A8%A1%E5%9D%97.html" aria-label="本地缓存模块(工具)"><!---->本地缓存模块(工具)<!----></a></li><li><a class="route-link route-link-active auto-link vp-sidebar-link active" href="/%E7%9B%98%E5%8F%A4/%E7%BB%84%E4%BB%B6%E4%BB%8B%E7%BB%8D/%E6%A1%86%E6%9E%B6%E6%97%A5%E5%BF%97%E6%A8%A1%E5%9D%97.html" aria-label="框架日志模块"><!---->框架日志模块<!----></a></li><li><a class="route-link auto-link vp-sidebar-link" href="/%E7%9B%98%E5%8F%A4/%E7%BB%84%E4%BB%B6%E4%BB%8B%E7%BB%8D/%E7%9B%98%E5%8F%A4security%E6%A8%A1%E5%9D%97(%E5%90%AB%E6%8E%88%E6%9D%83).html" aria-label="盘古security模块(含授权)"><!---->盘古security模块(含授权)<!----></a></li><li><a class="route-link auto-link vp-sidebar-link" href="/%E7%9B%98%E5%8F%A4/%E7%BB%84%E4%BB%B6%E4%BB%8B%E7%BB%8D/list%E5%B7%A5%E4%BD%9C%E6%B5%81%E9%9B%86%E6%88%90.html" aria-label="网关-限流"><!---->网关-限流<!----></a></li><li><a class="route-link auto-link vp-sidebar-link" href="/%E7%9B%98%E5%8F%A4/%E7%BB%84%E4%BB%B6%E4%BB%8B%E7%BB%8D/%E8%84%B1%E6%95%8F%E5%92%8C%E6%8C%81%E4%B9%85%E5%B1%82%E5%8A%A0%E8%A7%A3%E5%AF%86.html" aria-label="脱敏&amp;持久层加解密"><!---->脱敏&amp;持久层加解密<!----></a></li><li><a class="route-link auto-link vp-sidebar-link" href="/%E7%9B%98%E5%8F%A4/%E7%BB%84%E4%BB%B6%E4%BB%8B%E7%BB%8D/%E7%9B%98%E5%8F%A4.html" aria-label="自研的分布式框架-盘古"><!---->自研的分布式框架-盘古<!----></a></li><li><a class="route-link auto-link vp-sidebar-link" href="/%E7%9B%98%E5%8F%A4/%E7%BB%84%E4%BB%B6%E4%BB%8B%E7%BB%8D/%E8%AE%A4%E8%AF%81%E6%A8%A1%E5%9D%97.html" aria-label="认证模块"><!---->认证模块<!----></a></li><li><a class="route-link auto-link vp-sidebar-link" href="/%E7%9B%98%E5%8F%A4/%E7%BB%84%E4%BB%B6%E4%BB%8B%E7%BB%8D/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%8A%A0%E8%A7%A3%E5%AF%86%E6%A8%A1%E5%9D%97.html" aria-label="配置文件加解密模块"><!---->配置文件加解密模块<!----></a></li></ul></section></li><li><section class="vp-sidebar-group"><button class="vp-sidebar-header clickable" type="button"><!----><span class="vp-sidebar-title">网关</span><span class="vp-arrow end"></span></button><!----></section></li><li><section class="vp-sidebar-group"><button class="vp-sidebar-header clickable" type="button"><!----><span class="vp-sidebar-title">鹰眼框架</span><span class="vp-arrow end"></span></button><!----></section></li></ul></section></li><li><section class="vp-sidebar-group"><button class="vp-sidebar-header clickable" type="button"><span class="font-icon icon fa-fw fa-sm fas fa-book" style=""></span><span class="vp-sidebar-title">思考</span><span class="vp-arrow end"></span></button><!----></section></li><li><section class="vp-sidebar-group"><button class="vp-sidebar-header clickable" type="button"><span class="font-icon icon fa-fw fa-sm fas fa-check-square" style=""></span><span class="vp-sidebar-title">帮助</span><span class="vp-arrow end"></span></button><!----></section></li></ul><!----></aside><!--[--><main id="main-content" class="vp-page"><!--[--><!----><!----><nav class="vp-breadcrumb disable"></nav><div class="vp-page-title"><h1><!---->框架日志模块</h1><div class="page-info"><span class="page-author-info" aria-label="作者🖊" data-balloon-pos="up"><svg xmlns="http://www.w3.org/2000/svg" class="icon author-icon" viewBox="0 0 1024 1024" fill="currentColor" aria-label="author icon" name="author"><path d="M649.6 633.6c86.4-48 147.2-144 147.2-249.6 0-160-128-288-288-288s-288 128-288 288c0 108.8 57.6 201.6 147.2 249.6-121.6 48-214.4 153.6-240 288-3.2 9.6 0 19.2 6.4 25.6 3.2 9.6 12.8 12.8 22.4 12.8h704c9.6 0 19.2-3.2 25.6-12.8 6.4-6.4 9.6-16 6.4-25.6-25.6-134.4-121.6-240-243.2-288z"></path></svg><span><a class="page-author-item" href="https://github.com/ToDreamr" target="_blank" rel="noopener noreferrer">Cotton Eye Joe</a></span><span property="author" content="Cotton Eye Joe"></span></span><!----><span class="page-date-info" aria-label="写作日期📅" data-balloon-pos="up"><svg xmlns="http://www.w3.org/2000/svg" class="icon calendar-icon" viewBox="0 0 1024 1024" fill="currentColor" aria-label="calendar icon" name="calendar"><path d="M716.4 110.137c0-18.753-14.72-33.473-33.472-33.473-18.753 0-33.473 14.72-33.473 33.473v33.473h66.993v-33.473zm-334.87 0c0-18.753-14.72-33.473-33.473-33.473s-33.52 14.72-33.52 33.473v33.473h66.993v-33.473zm468.81 33.52H716.4v100.465c0 18.753-14.72 33.473-33.472 33.473a33.145 33.145 0 01-33.473-33.473V143.657H381.53v100.465c0 18.753-14.72 33.473-33.473 33.473a33.145 33.145 0 01-33.473-33.473V143.657H180.6A134.314 134.314 0 0046.66 277.595v535.756A134.314 134.314 0 00180.6 947.289h669.74a134.36 134.36 0 00133.94-133.938V277.595a134.314 134.314 0 00-133.94-133.938zm33.473 267.877H147.126a33.145 33.145 0 01-33.473-33.473c0-18.752 14.72-33.473 33.473-33.473h736.687c18.752 0 33.472 14.72 33.472 33.473a33.145 33.145 0 01-33.472 33.473z"></path></svg><span><!----></span><meta property="datePublished" content="2024-11-18T07:25:41.000Z"></span><!----><span class="page-reading-time-info" aria-label="阅读时间⌛" data-balloon-pos="up"><svg xmlns="http://www.w3.org/2000/svg" class="icon timer-icon" viewBox="0 0 1024 1024" fill="currentColor" aria-label="timer icon" name="timer"><path d="M799.387 122.15c4.402-2.978 7.38-7.897 7.38-13.463v-1.165c0-8.933-7.38-16.312-16.312-16.312H256.33c-8.933 0-16.311 7.38-16.311 16.312v1.165c0 5.825 2.977 10.874 7.637 13.592 4.143 194.44 97.22 354.963 220.201 392.763-122.204 37.542-214.893 196.511-220.2 389.397-4.661 5.049-7.638 11.651-7.638 19.03v5.825h566.49v-5.825c0-7.379-2.849-13.981-7.509-18.9-5.049-193.016-97.867-351.985-220.2-389.527 123.24-37.67 216.446-198.453 220.588-392.892zM531.16 450.445v352.632c117.674 1.553 211.787 40.778 211.787 88.676H304.097c0-48.286 95.149-87.382 213.728-88.676V450.445c-93.077-3.107-167.901-81.297-167.901-177.093 0-8.803 6.99-15.793 15.793-15.793 8.803 0 15.794 6.99 15.794 15.793 0 80.261 63.69 145.635 142.01 145.635s142.011-65.374 142.011-145.635c0-8.803 6.99-15.793 15.794-15.793s15.793 6.99 15.793 15.793c0 95.019-73.789 172.82-165.96 177.093z"></path></svg><span>大约 15 分钟</span><meta property="timeRequired" content="PT15M"></span><!----><!----></div><hr></div><!----><!----><div class="theme-hope-content"><h1 id="框架日志模块" tabindex="-1"><a class="header-anchor" href="#框架日志模块"><span>框架日志模块</span></a></h1><blockquote><h4 id="如何使用" tabindex="-1"><a class="header-anchor" href="#如何使用"><span>如何使用</span></a></h4></blockquote><p>业务端引入如下模块</p><p><strong>xml</strong></p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>&lt;dependency&gt;</span></span>
+<span class="line"><span>  &lt;groupId&gt;com.kingtsoft.pangu&lt;/groupId&gt;</span></span>
+<span class="line"><span>  &lt;artifactId&gt;pangu-frame-log&lt;/artifactId&gt;</span></span>
+<span class="line"><span>  &lt;version&gt;${pangu.version}&lt;/version&gt;</span></span>
+<span class="line"><span>&lt;/dependency&gt;</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>配置文件</span></span>
+<span class="line"><span>    日志依赖于kafka，所以需要进行kafka相关配置，附加可选的配置详见pangu kafka配置</span></span>
+<span class="line"><span>配置文件主要如下：</span></span>
+<span class="line"><span>    pangu.log.enabled  整体日志的开关</span></span>
+<span class="line"><span>    pangu.log.async  是否异步开启</span></span>
+<span class="line"><span>    pangu.log.module  日志记录的模块</span></span>
+<span class="line"><span>    pangu.log.persistent-dir  日志本地持久化存储目录，默认{user.home}/pangu/msg-local</span></span>
+<span class="line"><span>    pangu.log.db-log.enabled  是否开启持久层日志</span></span>
+<span class="line"><span>    pangu.log.req-log.enabled  是否开启请求日志</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><strong>yaml</strong></p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>spring:</span></span>
+<span class="line"><span>kafka:</span></span>
+<span class="line"><span>bootstrap-servers: 10.1.50.131:9092</span></span>
+<span class="line"><span>pangu:</span></span>
+<span class="line"><span>kafka:</span></span>
+<span class="line"><span>servers: ${spring.kafka.bootstrap-servers}</span></span>
+<span class="line"><span>log:</span></span>
+<span class="line"><span># 是否开启拓展日志采集</span></span>
+<span class="line"><span>enabled: true</span></span>
+<span class="line"><span># 异步</span></span>
+<span class="line"><span>async: true</span></span>
+<span class="line"><span># 日志模块</span></span>
+<span class="line"><span>module: pangu</span></span>
+<span class="line"><span># 日志本地化存储路径</span></span>
+<span class="line"><span>persistent-dir:</span></span>
+<span class="line"><span>db-log:</span></span>
+<span class="line"><span># 持久层监控日志</span></span>
+<span class="line"><span>enabled: true</span></span>
+<span class="line"><span>req-log:</span></span>
+<span class="line"><span>     	# 请求监控日志</span></span>
+<span class="line"><span>enabled: true</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>业务代码</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div></div></div><p><strong>java</strong></p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>privatestaticfinal PgLogger LOGGER = PanguLoggerFactory.getLogger(TestService.class);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>@PanguLog(operateType= PanguLogTypeEnum.TYPE_OTHER, operateName=&quot;测试&quot;, inParam=true, outParam=true)</span></span>
+<span class="line"><span>public Object testLog(String inp) {</span></span>
+<span class="line"><span>    OisRegSchedulePool oisRegSchedulePool =newOisRegSchedulePool();</span></span>
+<span class="line"><span>    oisRegSchedulePool.setState(1);</span></span>
+<span class="line"><span>    oisRegSchedulePool.setPoolCode(UUID.randomUUID().toString().substring(0, 8));</span></span>
+<span class="line"><span>    oisRegSchedulePool.setScheduleSn(1L);</span></span>
+<span class="line"><span>    LOGGER.info(&quot;test1{}&quot;, oisRegSchedulePool);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>int i = oisRegSchedulePoolMapper.insert(oisRegSchedulePool);</span></span>
+<span class="line"><span>    System.out.println(i);</span></span>
+<span class="line"><span>    oisRegSchedulePool.setPoolSn(112L);</span></span>
+<span class="line"><span>    oisRegSchedulePoolMapper.updateAuto(oisRegSchedulePool);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    oisRegSchedulePoolMapper.deleteById(1L);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>return&quot;abcdefg&quot;;</span></span>
+<span class="line"><span>}</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><strong>注解日志</strong></p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>@PanguLog，方法下添加如下所示注解</span></span>
+<span class="line"><span>注解属性如下：</span></span>
+<span class="line"><span>    objId  关键对象ID可空</span></span>
+<span class="line"><span>    operateName  操作名称</span></span>
+<span class="line"><span>    logLevel  日志级别 1-ALL、2-TRACE、3-DEBUG、4-INFO、5-WARN、6-ERROR、7-FATAL、8-OFF</span></span>
+<span class="line"><span>    operateType  操作类型1-增、2-删、3-改、9-其他（比如系统日志记录）</span></span>
+<span class="line"><span>    inParam    入参记录默认false;</span></span>
+<span class="line"><span>    outParam  出参记录默认false;</span></span>
+<span class="line"><span>    typeExPress  也是操作类型优先级高于 operateType;</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><strong>持久层日志</strong></p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>    配置文件添加pangu.log.db-log.enabled=true即可, 会记录新增、更新及删除操作</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div></div></div><p><strong>常规日志模式</strong></p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>    private static final PgLogger LOGGER = PanguLoggerFactory.getLogger(TestService.class);</span></span>
+<span class="line"><span>    执行LOGGER.info(“test1{}”, oisRegSchedulePool);记录即可</span></span>
+<span class="line"><span>而AllLoggers.APPLICATION.info(&quot;AllLoggers.APPLICATION.info&quot;);也是一种方</span></span>
+<span class="line"><span>式，不过此方式要配合filebeat进行采集，这里不做过多介绍。</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><strong>server端</strong></p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>    需要监听业务发送的消息，所以只需要配置文件配置</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div></div></div><p><strong>yaml</strong></p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>spring:</span></span>
+<span class="line"><span>kafka:</span></span>
+<span class="line"><span>bootstrap-servers: 10.1.50.131:9092</span></span>
+<span class="line"><span>pangu:</span></span>
+<span class="line"><span>kafka:</span></span>
+<span class="line"><span>servers: ${spring.kafka.bootstrap-servers}</span></span>
+<span class="line"><span>pangu:</span></span>
+<span class="line"><span>elasticsearch:</span></span>
+<span class="line"><span># ES地址</span></span>
+<span class="line"><span>hosts: &#39;10.1.50.63:9200&#39;</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><blockquote><h4 id="技术原理" tabindex="-1"><a class="header-anchor" href="#技术原理"><span>技术原理</span></a></h4></blockquote><p><strong>注解</strong></p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>    注解的方式主要定义了一个增强类PanguLogAspect 切入口为带有PanguLog注解的方法</span></span>
+<span class="line"><span>操作名，操作类型，对象ID的配置支持spel表达式，异步标记isAsync可以线程化执行以减小对</span></span>
+<span class="line"><span>业务的影响。</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><strong>java</strong></p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>package com.kingtsoft.pangu.frame.log;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>/**</span></span>
+<span class="line"><span> * Title: &lt;br&gt;</span></span>
+<span class="line"><span> * Description: &lt;br&gt;</span></span>
+<span class="line"><span> * Company: KingTang.com &lt;br&gt;</span></span>
+<span class="line"><span> *</span></span>
+<span class="line"><span> * @author 金炀</span></span>
+<span class="line"><span> * @version 1.0</span></span>
+<span class="line"><span> */</span></span>
+<span class="line"><span>@Slf4j</span></span>
+<span class="line"><span>@Aspect</span></span>
+<span class="line"><span>@Component</span></span>
+<span class="line"><span>public class  PanguLogAspectimplementsEnvironmentAware {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>privateboolean   isAsync;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>private final   SpelExpressionParser parser =newSpelExpressionParser();</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>private final   DefaultParameterNameDiscoverer nameDiscoverer =newDefaultParameterNameDiscoverer();</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    @Autowired(required=false)</span></span>
+<span class="line"><span>private LogHandler logHandler;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>private final   ExecutorService pool = LogThreadPool.LOG_POOL;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>private final   KafkaTemplate&lt;String, Object&gt; kafkaTemplate;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>private final   DataToLocalHandler dataToLocalHandler;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>private final   PanguLogProperties panguLogProperties;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>publicPanguLogAspect(KafkaTemplate&lt;String, Object&gt; kafkaTemplate,</span></span>
+<span class="line"><span>                          DataToLocalHandler dataToLocalHandler,</span></span>
+<span class="line"><span>                          PanguLogProperties panguLogProperties) {</span></span>
+<span class="line"><span>this.kafkaTemplate = kafkaTemplate;</span></span>
+<span class="line"><span>this.dataToLocalHandler = dataToLocalHandler;</span></span>
+<span class="line"><span>this.panguLogProperties = panguLogProperties;</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    @Override</span></span>
+<span class="line"><span>private void   setEnvironment(Environment environment) {</span></span>
+<span class="line"><span>        String isAsync = environment.getProperty(&quot;pangu.log.async&quot;);</span></span>
+<span class="line"><span>if (isAsync !=null) {</span></span>
+<span class="line"><span>this.isAsync = boolean  .parseboolean  (isAsync);</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    @Pointcut(&quot;@annotation(com.kingtsoft.pangu.frame.log.annotation.PanguLog)&quot;)</span></span>
+<span class="line"><span>private void   logPointCut() {</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    /**</span></span>
+<span class="line"><span>     * 日志保存切口</span></span>
+<span class="line"><span>     *</span></span>
+<span class="line"><span>     * @paramjoinPoint 切口入参</span></span>
+<span class="line"><span>     * @return 接口执行返回数据</span></span>
+<span class="line"><span>     * @author 金炀</span></span>
+<span class="line"><span>     */</span></span>
+<span class="line"><span>    @Around(&quot;logPointCut()&quot;)</span></span>
+<span class="line"><span>public Object saveOperation(ProceedingJoinPoint joinPoint) throws Throwable {</span></span>
+<span class="line"><span>        Object ret = joinPoint.proceed();</span></span>
+<span class="line"><span>try {</span></span>
+<span class="line"><span>if (RequestContextHolder.getRequestAttributes() !=null) {</span></span>
+<span class="line"><span>                HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();</span></span>
+<span class="line"><span>                String host = request.getRemoteHost();</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>Object[] args = joinPoint.getArgs();</span></span>
+<span class="line"><span>                List&lt;Object&gt; agentArgs =new ArrayList&lt;&gt;();</span></span>
+<span class="line"><span>if (args !=null&amp;&amp; args.length &gt;0) {</span></span>
+<span class="line"><span>                    Collections.addAll(agentArgs, args);</span></span>
+<span class="line"><span>                }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>// 全局跟踪ID</span></span>
+<span class="line"><span>                String traceId = LogTraceHolder.getTraceIdNecessary();</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>if (this.isAsync) {</span></span>
+<span class="line"><span>                    pool.execute(() -&gt;doOperationLogSave(joinPoint, agentArgs.toArray(), host, ret, traceId));</span></span>
+<span class="line"><span>                } else {</span></span>
+<span class="line"><span>doOperationLogSave(joinPoint, agentArgs.toArray(), host, ret, traceId);</span></span>
+<span class="line"><span>                }</span></span>
+<span class="line"><span>            }</span></span>
+<span class="line"><span>        } catch (Exception e) {</span></span>
+<span class="line"><span>            log.error(e.getMessage());</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>return ret;</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    /**</span></span>
+<span class="line"><span>     * 日志相关数据封装</span></span>
+<span class="line"><span>     *</span></span>
+<span class="line"><span>     * @paramjoinPoint 日志数据</span></span>
+<span class="line"><span>     * @author 金炀</span></span>
+<span class="line"><span>     */</span></span>
+<span class="line"><span>private void  doOperationLogSave(ProceedingJoinPoint joinPoint, Object[] args, String host, Object outParam, String traceId) {</span></span>
+<span class="line"><span>        MethodSignature signature = (MethodSignature) joinPoint.getSignature();</span></span>
+<span class="line"><span>        Method method = signature.getMethod();</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>        PanguLog panguLog = method.getAnnotation(PanguLog.class);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>        String operateName = panguLog.operateName();</span></span>
+<span class="line"><span>// SPEL支持</span></span>
+<span class="line"><span>if (operateName.contains(&quot;#&quot;)) {</span></span>
+<span class="line"><span>            operateName =generateKeyBySpEl(operateName, joinPoint, args);</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>        Integer operateType =getOperateType(panguLog, joinPoint, args);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>        String objId = panguLog.objId();</span></span>
+<span class="line"><span>if (StringUtils.hasText(objId) &amp;&amp; objId.contains(&quot;#&quot;)) {</span></span>
+<span class="line"><span>            objId =generateKeyBySpEl(objId, joinPoint, args);</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>if (!StringUtils.hasText(operateName)) {</span></span>
+<span class="line"><span>            Integer finalOperateType = operateType;</span></span>
+<span class="line"><span>            Optional&lt;PanguLogTypeEnum&gt; logTypeEnum = Arrays.stream(PanguLogTypeEnum.values()).filter(</span></span>
+<span class="line"><span>                    en -&gt; en.getLogType().equals(finalOperateType)</span></span>
+<span class="line"><span>            ).findAny();</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>if (logTypeEnum.isEmpty()) {</span></span>
+<span class="line"><span>                operateType =9;</span></span>
+<span class="line"><span>            } else {</span></span>
+<span class="line"><span>                operateName += logTypeEnum.get().getMsg();</span></span>
+<span class="line"><span>            }</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>        String context = (&quot;source：&quot;+ host +&quot; 方法：&quot;+ method.getName() +&quot;【&quot;+ operateName +&quot;】&quot;);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>        StringBuilder operateContent =newStringBuilder(context +&quot;-&gt;&quot;);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>Object[] params = joinPoint.getArgs();</span></span>
+<span class="line"><span>if (params !=null) {</span></span>
+<span class="line"><span>for (Object obj : params) {</span></span>
+<span class="line"><span>                operateContent.append(obj.getClass()).append(&quot;;&quot;);</span></span>
+<span class="line"><span>            }</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>//...存储</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>private void  sendMsg(LogOperateMessage logOperateMessage) {</span></span>
+<span class="line"><span>        Map&lt;String, Object&gt; map =new HashMap&lt;&gt;(4);</span></span>
+<span class="line"><span>        map.put(KafkaHeaders.TOPIC, FrameLogConst.LOG_TOPIC_ANNOTATION);</span></span>
+<span class="line"><span>        map.put(KafkaHeaders.KEY, PanguLogUtil.createMsgKey(FrameLogConst.LogType.ANNOTATION_LOG));</span></span>
+<span class="line"><span>        map.put(FrameLogConst.LOG_TYPE_KEY, FrameLogConst.LogType.ANNOTATION_LOG);</span></span>
+<span class="line"><span>try {</span></span>
+<span class="line"><span>            Message&lt;String&gt; message =new GenericMessage&lt;&gt;(JSON.toJSONString(logOperateMessage), newMessageHeaders(map));</span></span>
+<span class="line"><span>            kafkaTemplate.send(message);</span></span>
+<span class="line"><span>        } catch (Exception e) {</span></span>
+<span class="line"><span>            e.printStackTrace();</span></span>
+<span class="line"><span>            log.error(&quot;消息发送失败！&quot;);</span></span>
+<span class="line"><span>// 发送失败持久化</span></span>
+<span class="line"><span>            dataToLocalHandler.doDataToLocal(JSON.toJSONString(logOperateMessage), map, FrameLogConst.LogType.ANNOTATION_LOG);</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>private Integer getOperateType(PanguLog panguLog, ProceedingJoinPoint joinPoint, Object[] args) {</span></span>
+<span class="line"><span>        Integer operateType;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>        String typeExPress = panguLog.typeExPress();</span></span>
+<span class="line"><span>if (StringUtils.hasText(typeExPress) &amp;&amp; typeExPress.contains(&quot;#&quot;)) {</span></span>
+<span class="line"><span>            operateType =generateKeyBySpEl(typeExPress, joinPoint, args);</span></span>
+<span class="line"><span>        } else {</span></span>
+<span class="line"><span>            PanguLogTypeEnum operateTypeEnum = panguLog.operateType();</span></span>
+<span class="line"><span>            operateType = operateTypeEnum.getLogType();</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>return operateType;</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    @SuppressWarnings({&quot;unchecked&quot;})</span></span>
+<span class="line"><span>private &lt;T&gt; T generateKeyBySpEl(String spElString, ProceedingJoinPoint joinPoint, Object[] args) {</span></span>
+<span class="line"><span>        MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();</span></span>
+<span class="line"><span>String[] paramNames = nameDiscoverer.getParameterNames(methodSignature.getMethod());</span></span>
+<span class="line"><span>        Expression expression = parser.parseExpression(spElString);</span></span>
+<span class="line"><span>        EvaluationContext context =newStandardEvaluationContext();</span></span>
+<span class="line"><span>for (int i =0; i &lt; args.length; i++) {</span></span>
+<span class="line"><span>assert paramNames !=null;</span></span>
+<span class="line"><span>            context.setVariable(paramNames[i], args[i]);</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span>return (T) expression.getValue(context);</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span>}</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>    注意，消息发送的时候，异常捕获有个</span></span>
+<span class="line"><span>dataToLocalHandler.doDataToLocal(JSON.toJSONString(logOperateMessage), map, FrameLogConst.LogType.ANNOTATION_LOG);</span></span>
+<span class="line"><span>此方法是将消息数据持久化到本地,防止消息丢失。部分代码如下。不难发现目录会根据日期进行创建，</span></span>
+<span class="line"><span>并在最后会调用modifyPathDir方法，此方法会整理历史目录数据，若存在历史目录数据，为了节省</span></span>
+<span class="line"><span>空间，会对所有历史目录进行压缩。</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><strong>java</strong></p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>@SneakyThrows</span></span>
+<span class="line"><span>private void   doDataToLocal(String data, Map&lt;String, Object&gt; messageHeader, String logType) {</span></span>
+<span class="line"><span>if (!StringUtils.hasText(logType)) {</span></span>
+<span class="line"><span>            logType = FrameLogConst.LogType.UN_KNOW_LOG;</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span>        LocalDate nowDate = LocalDate.now();</span></span>
+<span class="line"><span>        String logPath = String.format(&quot;%s/%s/%s&quot;, basePath, nowDate, logType);</span></span>
+<span class="line"><span>        File baseDir =newFile(logPath);</span></span>
+<span class="line"><span>if (!baseDir.exists()) {</span></span>
+<span class="line"><span>if (!baseDir.mkdirs()) {</span></span>
+<span class="line"><span>thrownewTipException(&quot;消息持久化基础目录创建失败！&quot;);</span></span>
+<span class="line"><span>            }</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>        String key = (String) messageHeader.get(KafkaHeaders.KEY);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>        File jsonFile =newFile(logPath +&quot;/&quot;+ key +&quot;.json&quot;);</span></span>
+<span class="line"><span>if (!jsonFile.exists()) {</span></span>
+<span class="line"><span>if (!jsonFile.createNewFile()) {</span></span>
+<span class="line"><span>thrownewTipException(&quot;消息持久化文件创建失败！&quot;);</span></span>
+<span class="line"><span>            }</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span>// 在考虑要不要加个上传计数器，用来统计上传次数(失败次数)</span></span>
+<span class="line"><span>        JSONObject jsonObject =newJSONObject()</span></span>
+<span class="line"><span>                .fluentPut(FrameLogConst.MESSAGE_HEADER_KEY, messageHeader)</span></span>
+<span class="line"><span>                .fluentPut(FrameLogConst.MESSAGE_DATA_KEY, data);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>// 将格式化后的字符串写入文件</span></span>
+<span class="line"><span>        Writer write =null;</span></span>
+<span class="line"><span>try {</span></span>
+<span class="line"><span>            write =newOutputStreamWriter(newFileOutputStream(jsonFile), StandardCharsets.UTF_8);</span></span>
+<span class="line"><span>            write.write(jsonObject.toJSONString());</span></span>
+<span class="line"><span>        } finally {</span></span>
+<span class="line"><span>if (write !=null) {</span></span>
+<span class="line"><span>                write.flush();</span></span>
+<span class="line"><span>                write.close();</span></span>
+<span class="line"><span>            }</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>modifyPathDir();</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>private void  modifyPathDir() {</span></span>
+<span class="line"><span>        File baseDir =newFile(basePath);</span></span>
+<span class="line"><span>if (!baseDir.exists()) {</span></span>
+<span class="line"><span>return;</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>File[] fileDates = baseDir.listFiles();</span></span>
+<span class="line"><span>if (fileDates ==null) {</span></span>
+<span class="line"><span>return;</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>        String nowDateStr = LocalDate.now().toString();</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>for (File fileDate : fileDates) {</span></span>
+<span class="line"><span>if (!fileDate.isDirectory()) {</span></span>
+<span class="line"><span>continue;</span></span>
+<span class="line"><span>            }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>if (fileDate.getName().equals(nowDateStr) || fileDate.getName().equals(FrameLogConst.LOG_DIR_TMP)) {</span></span>
+<span class="line"><span>continue;</span></span>
+<span class="line"><span>            }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>            CompressUtil.compressToTgz(fileDate.toPath().toString());</span></span>
+<span class="line"><span>clearSource(fileDate);</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span>    }</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>    当然也暴露了一个接口用来对数据进行补传。会对数据进行解压，并且一份份上传，若只上传了</span></span>
+<span class="line"><span>一部分，又会对未上传部分重新压缩。确保数据处理精细的颗粒度。</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div></div></div><p><strong>持久层</strong></p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>    持久层的日志自动化记录主要用了mybatis的拦截器MbFrameLogIntercept</span></span>
+<span class="line"><span>    （目前只接入了此持久层框架）</span></span>
+<span class="line"><span>    只记录增删改操作，定义了持久层特有的数据结构DbOperateLog.然后解析SQL</span></span>
+<span class="line"><span>数据，持久层因为操作的频繁性，所以强制是多线程处理的消息。getStackTrace并且</span></span>
+<span class="line"><span>可以看出会尽可能定位执行的代码段。</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><strong>java</strong></p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>private void  doExProceed(Object[] args, LocalDateTime now, MappedStatement ms, OperateContext operateContext) {</span></span>
+<span class="line"><span>    DbOperateLog dbOperateLog =newDbOperateLog()</span></span>
+<span class="line"><span>            .setCreateTime(now)</span></span>
+<span class="line"><span>            .setLogPosition(getStackTrace(ms.getId(), &quot;com.sun.proxy&quot;))</span></span>
+<span class="line"><span>            .setOperateContent(String.format(&quot;【数据库%s日志】 值：%s&quot;,</span></span>
+<span class="line"><span>                    (ms.getSqlCommandType().equals(SqlCommandType.INSERT)) ?&quot;新增&quot;:</span></span>
+<span class="line"><span>                            ms.getSqlCommandType().equals(SqlCommandType.DELETE) ?&quot;删除&quot;:&quot;更新&quot;,</span></span>
+<span class="line"><span>                    JSON.toJSONString(args[1]))</span></span>
+<span class="line"><span>            );</span></span>
+<span class="line"><span>    BoundSql boundSql = ms.getBoundSql(args[1]);</span></span>
+<span class="line"><span>    String sql =getSql(boundSql, ms);</span></span>
+<span class="line"><span>    String tableName =getTableName(sql, ms.getSqlCommandType());</span></span>
+<span class="line"><span>    dbOperateLog.setExecSql(sql).setTableName(tableName);</span></span>
+<span class="line"><span>if (operateContext !=null) {</span></span>
+<span class="line"><span>        BeanUtils.copyProperties(operateContext, dbOperateLog);</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span>    dbOperateLog.setModule(panguLogProperties.getModule());</span></span>
+<span class="line"><span>    dbOperateLog.setTraceId(LogTraceHolder.getTraceIdNecessary());</span></span>
+<span class="line"><span>    dbOperateLog.setIp(LogTraceHolder.getLogLocalIp());</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    pool.execute(() -&gt;sendMsg(dbOperateLog));</span></span>
+<span class="line"><span>}</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>    数据结构OperateContext为记录基础数据，主要由客户端传入</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div></div></div><p><strong>java</strong></p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>public class  DbOperateLogextendsOperateContextimplementsSerializable {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    /**</span></span>
+<span class="line"><span>     * 记录ID</span></span>
+<span class="line"><span>     */</span></span>
+<span class="line"><span>private long  id;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    /**</span></span>
+<span class="line"><span>     * 所属模块</span></span>
+<span class="line"><span>     */</span></span>
+<span class="line"><span>private String module;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    /**</span></span>
+<span class="line"><span>     * 操作内容</span></span>
+<span class="line"><span>     */</span></span>
+<span class="line"><span>private String operateContent;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    /**</span></span>
+<span class="line"><span>     * 执行时间</span></span>
+<span class="line"><span>     */</span></span>
+<span class="line"><span>    @JsonFormat(pattern=&quot;yyyy-MM-dd HH:mm:ss&quot;, timezone=&quot;GMT+8&quot;)</span></span>
+<span class="line"><span>private LocalDateTime createTime;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    /**</span></span>
+<span class="line"><span>     * 执行时间(时间戳)</span></span>
+<span class="line"><span>     */</span></span>
+<span class="line"><span>private long  createTimelong ;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    /**</span></span>
+<span class="line"><span>     * 表名</span></span>
+<span class="line"><span>     */</span></span>
+<span class="line"><span>private String tableName;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    /**</span></span>
+<span class="line"><span>     * 执行的SQL</span></span>
+<span class="line"><span>     */</span></span>
+<span class="line"><span>private String execSql;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    /**</span></span>
+<span class="line"><span>     * 执行的代码位置</span></span>
+<span class="line"><span>     */</span></span>
+<span class="line"><span>private String logPosition;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    /**</span></span>
+<span class="line"><span>     * ip地址</span></span>
+<span class="line"><span>     */</span></span>
+<span class="line"><span>private String ip;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    /**</span></span>
+<span class="line"><span>     * 跟踪ID</span></span>
+<span class="line"><span>     */</span></span>
+<span class="line"><span>private String traceId;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    /**</span></span>
+<span class="line"><span>     * 备注</span></span>
+<span class="line"><span>     */</span></span>
+<span class="line"><span>private String remark;</span></span>
+<span class="line"><span>}</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><strong>java</strong></p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>@Data</span></span>
+<span class="line"><span>public class  OperateContextimplementsSerializable {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    /** 菜单代码 */</span></span>
+<span class="line"><span>private String menuCode;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    /** 菜单名称 */</span></span>
+<span class="line"><span>private String menuName;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    /** 客户端 */</span></span>
+<span class="line"><span>private String terminal;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    /** 用户ID */</span></span>
+<span class="line"><span>private Integer userId;</span></span>
+<span class="line"><span>}</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><strong>常规</strong></p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>    常规模式指的类似于log4j那样直接手动记录日志，主要运用了jdk动态代理实现。</span></span>
+<span class="line"><span>定义了一个基础接口，可以看出主要是集成了SLF4J的门面接口，用来定义实际执行的方法。</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div></div></div><p><strong>java</strong></p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>package com.kingtsoft.pangu.frame.log.normal;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>import org.slf4j.Logger;</span></span>
+<span class="line"><span>import org.slf4j.Marker;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>/**</span></span>
+<span class="line"><span> * Title: &lt;br&gt;</span></span>
+<span class="line"><span> * Description: &lt;br&gt;</span></span>
+<span class="line"><span> * Company: KingTang &lt;br&gt;</span></span>
+<span class="line"><span> *</span></span>
+<span class="line"><span> * @author 金炀</span></span>
+<span class="line"><span> * @version 1.0</span></span>
+<span class="line"><span> */</span></span>
+<span class="line"><span>public interface  PgLoggerextendsLogger {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    Class&lt;?&gt; getClazz();</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    @Override</span></span>
+<span class="line"><span>voidtrace(String s);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    @Override</span></span>
+<span class="line"><span>voidtrace(String s, Object o);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    @Override</span></span>
+<span class="line"><span>voidtrace(String s, Object o, Object o1);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    @Override</span></span>
+<span class="line"><span>voidtrace(String s, Object... objects);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    @Override</span></span>
+<span class="line"><span>voidtrace(String s, Throwable throwable);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    @Override</span></span>
+<span class="line"><span>voidtrace(Marker marker, String s);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    @Override</span></span>
+<span class="line"><span>voidtrace(Marker marker, String s, Object o);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    @Override</span></span>
+<span class="line"><span>voidtrace(Marker marker, String s, Object o, Object o1);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    @Override</span></span>
+<span class="line"><span>voidtrace(Marker marker, String s, Object... objects);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    @Override</span></span>
+<span class="line"><span>voidtrace(Marker marker, String s, Throwable throwable);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    @Override</span></span>
+<span class="line"><span>voiddebug(String s);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    @Override</span></span>
+<span class="line"><span>voiddebug(String s, Object o);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    @Override</span></span>
+<span class="line"><span>voiddebug(String s, Object o, Object o1);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    @Override</span></span>
+<span class="line"><span>voiddebug(String s, Object... objects);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    @Override</span></span>
+<span class="line"><span>voiddebug(String s, Throwable throwable);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    @Override</span></span>
+<span class="line"><span>voiddebug(Marker marker, String s);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    @Override</span></span>
+<span class="line"><span>voiddebug(Marker marker, String s, Object o);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    @Override</span></span>
+<span class="line"><span>voiddebug(Marker marker, String s, Object o, Object o1);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>	// 等等</span></span>
+<span class="line"><span>}</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>    PgLoggerImpl 为PgLogger的实现类，其实就是实现了slf4j的日志接口方法。</span></span>
+<span class="line"><span>目的一个是为了后续拓展及添加切入口。</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div></div></div><p><strong>java</strong></p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>package com.kingtsoft.pangu.frame.log.normal;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>import org.slf4j.Logger;</span></span>
+<span class="line"><span>import org.slf4j.LoggerFactory;</span></span>
+<span class="line"><span>import org.slf4j.Marker;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>/**</span></span>
+<span class="line"><span> * Title: &lt;br&gt;</span></span>
+<span class="line"><span> * Description: &lt;br&gt;</span></span>
+<span class="line"><span> * Company: KingTang &lt;br&gt;</span></span>
+<span class="line"><span> *</span></span>
+<span class="line"><span> * @author 金炀</span></span>
+<span class="line"><span> * @version 1.0</span></span>
+<span class="line"><span> */</span></span>
+<span class="line"><span>public class  PgLoggerImplimplementsPgLogger {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>private final   Logger log;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>private final   Class&lt;?&gt; clazz;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>publicPgLoggerImpl(Class&lt;?&gt; clazz) {</span></span>
+<span class="line"><span>this.clazz = clazz;</span></span>
+<span class="line"><span>        log = LoggerFactory.getLogger(clazz);</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    @Override</span></span>
+<span class="line"><span>public class  &lt;?&gt; getClazz() {</span></span>
+<span class="line"><span>return clazz;</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    @Override</span></span>
+<span class="line"><span>public String getName() {</span></span>
+<span class="line"><span>return log.getName();</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    @Override</span></span>
+<span class="line"><span>publicboolean  isTraceEnabled() {</span></span>
+<span class="line"><span>return log.isTraceEnabled();</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    @Override</span></span>
+<span class="line"><span>private void   trace(String s) {</span></span>
+<span class="line"><span>        log.trace(s);</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    @Override</span></span>
+<span class="line"><span>private void   trace(String s, Object o) {</span></span>
+<span class="line"><span>        log.trace(s, o);</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    @Override</span></span>
+<span class="line"><span>private void   trace(String s, Object o, Object o1) {</span></span>
+<span class="line"><span>        log.trace(s, o, o1);</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    @Override</span></span>
+<span class="line"><span>private void   trace(String s, Object... objects) {</span></span>
+<span class="line"><span>        log.trace(s, objects);</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    @Override</span></span>
+<span class="line"><span>private void   trace(String s, Throwable throwable) {</span></span>
+<span class="line"><span>        log.trace(s, throwable);</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    @Override</span></span>
+<span class="line"><span>publicboolean  isTraceEnabled(Marker marker) {</span></span>
+<span class="line"><span>return log.isTraceEnabled(marker);</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    @Override</span></span>
+<span class="line"><span>private void   trace(Marker marker, String s) {</span></span>
+<span class="line"><span>        log.trace(marker, s);</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    @Override</span></span>
+<span class="line"><span>private void   trace(Marker marker, String s, Object o) {</span></span>
+<span class="line"><span>        log.trace(marker, s, o);</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    @Override</span></span>
+<span class="line"><span>private void   trace(Marker marker, String s, Object o, Object o1) {</span></span>
+<span class="line"><span>        log.trace(marker, s, o, o1);</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    @Override</span></span>
+<span class="line"><span>private void   trace(Marker marker, String s, Object... objects) {</span></span>
+<span class="line"><span>        log.trace(marker, s, objects);</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    @Override</span></span>
+<span class="line"><span>private void   trace(Marker marker, String s, Throwable throwable) {</span></span>
+<span class="line"><span>        log.trace(marker, s, throwable);</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    @Override</span></span>
+<span class="line"><span>publicboolean  isDebugEnabled() {</span></span>
+<span class="line"><span>return log.isDebugEnabled();</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>// 等等</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>}</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>    然后定义一个门面接口生成的PanguLoggerFactory，内部静态方法getLogger会</span></span>
+<span class="line"><span>创建一个PgLogger的代理，代理为类NormalLogProxy，主要是获取NormalLogInterceptor，</span></span>
+<span class="line"><span>可以发现NormalLogInterceptor对象是通过NormalBeanCache缓存的，若不存在则会</span></span>
+<span class="line"><span>新构建一个，保证了此类的单例性。然后创建了类NormalLogInvocationHandler。</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><strong>java</strong></p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>package com.kingtsoft.pangu.frame.log.normal;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>import java.lang.reflect.Proxy;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>/**</span></span>
+<span class="line"><span> * Title: &lt;br&gt;</span></span>
+<span class="line"><span> * Description: &lt;br&gt;</span></span>
+<span class="line"><span> * Company: KingTang &lt;br&gt;</span></span>
+<span class="line"><span> *</span></span>
+<span class="line"><span> * @author 金炀</span></span>
+<span class="line"><span> * @version 1.0</span></span>
+<span class="line"><span> */</span></span>
+<span class="line"><span>public class  PanguLoggerFactory {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>publicstatic PgLogger getLogger(Class&lt;?&gt; clazz) {</span></span>
+<span class="line"><span>        PgLogger target =newPgLoggerImpl(clazz);</span></span>
+<span class="line"><span>        NormalLogProxy logProxy =newNormalLogProxy();</span></span>
+<span class="line"><span>return (PgLogger) logProxy.getProxy(target);</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>classNormalLogProxy {</span></span>
+<span class="line"><span>public Object getProxy(Object object) {</span></span>
+<span class="line"><span>        NormalLogInterceptor interceptor = NormalBeanCache.interceptor;</span></span>
+<span class="line"><span>if (interceptor ==null) {</span></span>
+<span class="line"><span>            interceptor =newNormalLogInterceptor();</span></span>
+<span class="line"><span>            NormalBeanCache.interceptor = interceptor;</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>        NormalLogInvocationHandler normalHandler =newNormalLogInvocationHandler(interceptor);</span></span>
+<span class="line"><span>        normalHandler.setObject(object);</span></span>
+<span class="line"><span>return Proxy.newProxyInstance(object.getClass().getClassLoader(),</span></span>
+<span class="line"><span>                object.getClass().getInterfaces(), normalHandler);</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span>}</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>    查看NormalLogInvocationHandler类如下，他根据代理规范，实现了InvocationHandler接口，</span></span>
+<span class="line"><span>对象及拦截器都会通过构造器注入（手动赋值，非spring），然后配置执行器为实际方法执行后执行</span></span>
+<span class="line"><span>NormalLogInterceptor的afterNormalLog方法。</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><strong>java</strong></p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>package com.kingtsoft.pangu.frame.log.normal;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>import java.lang.reflect.InvocationHandler;</span></span>
+<span class="line"><span>import java.lang.reflect.Method;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>/**</span></span>
+<span class="line"><span> * Title: &lt;br&gt;</span></span>
+<span class="line"><span> * Description: &lt;br&gt;</span></span>
+<span class="line"><span> * Company: KingTang &lt;br&gt;</span></span>
+<span class="line"><span> *</span></span>
+<span class="line"><span> * @author 金炀</span></span>
+<span class="line"><span> * @version 1.0</span></span>
+<span class="line"><span> */</span></span>
+<span class="line"><span>public class  NormalLogInvocationHandlerimplementsInvocationHandler {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>private Object object;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>private final   NormalLogInterceptor interceptor;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>publicNormalLogInvocationHandler(NormalLogInterceptor interceptor) {</span></span>
+<span class="line"><span>this.interceptor = interceptor;</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>private void   setObject(Object object) {</span></span>
+<span class="line"><span>this.object = object;</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    @Override</span></span>
+<span class="line"><span>public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {</span></span>
+<span class="line"><span>        Object result = method.invoke(object, args);</span></span>
+<span class="line"><span>        interceptor.afterNormalLog(proxy, method, args);</span></span>
+<span class="line"><span>return result;</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span>}</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>    继续查看NormalLogInterceptor类，可以发现NormalLogInterceptor并非</span></span>
+<span class="line"><span>被spring所托管，因为主体的那个类是通过new的形式产生了，所以内部的对象都要通过NormalBeanCache</span></span>
+<span class="line"><span>中缓存的对象来处理。NormalLogInterceptor本身就是针对log日志的结构体，对传入信息进行解析，</span></span>
+<span class="line"><span>包括支持{}等模式复制及异常对象基类及Marker格式的解析。这样就可以组装好结构化数据进行传输了。</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><strong>java</strong></p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>package com.kingtsoft.pangu.frame.log.normal;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>/**</span></span>
+<span class="line"><span> * Title: &lt;br&gt;</span></span>
+<span class="line"><span> * Description: &lt;br&gt;</span></span>
+<span class="line"><span> * Company: KingTang &lt;br&gt;</span></span>
+<span class="line"><span> *</span></span>
+<span class="line"><span> * @author 金炀</span></span>
+<span class="line"><span> * @version 1.0</span></span>
+<span class="line"><span> */</span></span>
+<span class="line"><span>@Slf4j</span></span>
+<span class="line"><span>public class  NormalLogInterceptor {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>private KafkaTemplate&lt;String, Object&gt; kafkaTemplate;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>private DataToLocalHandler dataToLocalHandler;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>private PanguLogProperties panguLogProperties;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>private final   ExecutorService pool = LogThreadPool.LOG_POOL;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>public NormalLogInterceptor setKafkaTemplate(KafkaTemplate&lt;String, Object&gt; kafkaTemplate) {</span></span>
+<span class="line"><span>this.kafkaTemplate = kafkaTemplate;</span></span>
+<span class="line"><span>returnthis;</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>public NormalLogInterceptor setDataToLocalHandler(DataToLocalHandler dataToLocalHandler) {</span></span>
+<span class="line"><span>this.dataToLocalHandler = dataToLocalHandler;</span></span>
+<span class="line"><span>returnthis;</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>public NormalLogInterceptor setPanguLogProperties(PanguLogProperties panguLogProperties) {</span></span>
+<span class="line"><span>this.panguLogProperties = panguLogProperties;</span></span>
+<span class="line"><span>returnthis;</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>private void   afterNormalLog(Object proxy, Method method, Object[] args) {</span></span>
+<span class="line"><span>if (method.getName().startsWith(&quot;is&quot;) || method.getName().startsWith(&quot;get&quot;)) {</span></span>
+<span class="line"><span>return;</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>        Class&lt;?&gt; aClass;</span></span>
+<span class="line"><span>try {</span></span>
+<span class="line"><span>            Method methodClazz = method.getDeclaringClass().getMethod(&quot;getClazz&quot;);</span></span>
+<span class="line"><span>            aClass = (Class&lt;?&gt;) methodClazz.invoke(proxy);</span></span>
+<span class="line"><span>        } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {</span></span>
+<span class="line"><span>            e.printStackTrace();</span></span>
+<span class="line"><span>return;</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span>// 开始消息传输</span></span>
+<span class="line"><span>        LogOperateMessage logOperateMessage =newLogOperateMessage();</span></span>
+<span class="line"><span>        logOperateMessage.setLogPosition(getStackTrace(&quot;com.sun.proxy&quot;));</span></span>
+<span class="line"><span>        logOperateMessage.setClassName(aClass.getName());</span></span>
+<span class="line"><span>if (args[0] instanceof Marker) {</span></span>
+<span class="line"><span>            Marker marker = (Marker) args[0];</span></span>
+<span class="line"><span>            logOperateMessage.setOperateName(marker.getName());</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span>        logOperateMessage.setOperateContent(getLogContent(method, args, 0));</span></span>
+<span class="line"><span>        logOperateMessage.setCreateTime(LocalDateTime.now());</span></span>
+<span class="line"><span>        logOperateMessage.setLogLevel(getLogLevel(method.getName()));</span></span>
+<span class="line"><span>        logOperateMessage.setModule(panguLogProperties.getModule());</span></span>
+<span class="line"><span>        logOperateMessage.setTraceId(LogTraceHolder.getTraceIdNecessary());</span></span>
+<span class="line"><span>        logOperateMessage.setIp(LogTraceHolder.getLogLocalIp());</span></span>
+<span class="line"><span>        pool.execute(() -&gt;sendMsg(logOperateMessage));</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>private String getLogContent(Method method, Object[] args, intstartIdx) {</span></span>
+<span class="line"><span>        Class&lt;?&gt; [] classes = method.getParameterTypes();</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>if (classes.length - startIdx ==1) {</span></span>
+<span class="line"><span>return args[0].toString();</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>if (args[0] instanceof Marker) {</span></span>
+<span class="line"><span>Object[] params =newObject[args.length -1];</span></span>
+<span class="line"><span>            System.arraycopy(args, 1, params, 0, args.length -1);</span></span>
+<span class="line"><span>returngetLogContent(method, params, 1);</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>if (classes.length - startIdx &gt;=2) {</span></span>
+<span class="line"><span>if (args[1] instanceof Throwable) {</span></span>
+<span class="line"><span>returngetLogStringContent(args);</span></span>
+<span class="line"><span>            } elseif (&quot;[Ljava.lang.Object;&quot;.equals(args[1].getClass().getName())) {</span></span>
+<span class="line"><span>Object[] params = (Object[]) args[1];</span></span>
+<span class="line"><span>returngetLogStringValueContent((String) args[0], params);</span></span>
+<span class="line"><span>            } else {</span></span>
+<span class="line"><span>returngetLogStringValueContent(args);</span></span>
+<span class="line"><span>            }</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>return&quot;&quot;;</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>private String getLogStringValueContent(Object[] params) {</span></span>
+<span class="line"><span>        String text = (String) params[0];</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>for (int i =1; i &lt; params.length; i++) {</span></span>
+<span class="line"><span>            text = text.replace(&quot;{}&quot;, params[i].toString());</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>return text;</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>private String getLogStringValueContent(String text, Object[] params) {</span></span>
+<span class="line"><span>for (Object param : params) {</span></span>
+<span class="line"><span>            text = text.replace(&quot;{}&quot;, param.toString());</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>return text;</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>private String getLogStringContent(Object[] args) {</span></span>
+<span class="line"><span>        StringBuilder text =newStringBuilder((String) args[0]).append(&quot;\n&quot;);</span></span>
+<span class="line"><span>        Throwable throwable = (Throwable) args[1];</span></span>
+<span class="line"><span>        text.append(throwable.toString()).append(&quot;\n&quot;);</span></span>
+<span class="line"><span>StackTraceElement[] traceElements = throwable.getStackTrace();</span></span>
+<span class="line"><span>for (StackTraceElement traceElement : traceElements) {</span></span>
+<span class="line"><span>            text.append(traceElement.toString()).append(&quot;\n&quot;);</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>return text.toString();</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>private Integer getLogLevel(String methodName) {</span></span>
+<span class="line"><span>for (PanguLogLevelEnum levelEnum : PanguLogLevelEnum.values()) {</span></span>
+<span class="line"><span>if (levelEnum.getName().toLowerCase().equals(methodName)) {</span></span>
+<span class="line"><span>return levelEnum.getLogLevel();</span></span>
+<span class="line"><span>            }</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>return PanguLogLevelEnum.LEVEL_INFO.getLogLevel();</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>publicstatic String getStackTrace(String className) {</span></span>
+<span class="line"><span>StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();</span></span>
+<span class="line"><span>for (int i =0; i &lt; stackTrace.length; i++) {</span></span>
+<span class="line"><span>            StackTraceElement traceElement = stackTrace[i];</span></span>
+<span class="line"><span>if (traceElement.getClassName().contains(className) &amp;&amp; i &lt; stackTrace.length -1) {</span></span>
+<span class="line"><span>return stackTrace[i +1].toString();</span></span>
+<span class="line"><span>            }</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>returnnull;</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>private void  sendMsg(LogOperateMessage logOperateMessage) {</span></span>
+<span class="line"><span>        Map&lt;String, Object&gt; map =new HashMap&lt;&gt;(4);</span></span>
+<span class="line"><span>        map.put(KafkaHeaders.TOPIC, FrameLogConst.LOG_TOPIC_NORMAL);</span></span>
+<span class="line"><span>        map.put(KafkaHeaders.KEY, PanguLogUtil.createMsgKey(FrameLogConst.LogType.NORMAL_LOG));</span></span>
+<span class="line"><span>        map.put(FrameLogConst.LOG_TYPE_KEY, FrameLogConst.LogType.NORMAL_LOG);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>try {</span></span>
+<span class="line"><span>            Message&lt;String&gt; message =new GenericMessage&lt;&gt;(JSON.toJSONString(logOperateMessage), newMessageHeaders(map));</span></span>
+<span class="line"><span>            kafkaTemplate.send(message);</span></span>
+<span class="line"><span>        } catch (Exception e) {</span></span>
+<span class="line"><span>            e.printStackTrace();</span></span>
+<span class="line"><span>            log.error(&quot;消息发送失败！&quot;);</span></span>
+<span class="line"><span>            dataToLocalHandler.doDataToLocal(JSON.toJSONString(logOperateMessage), map, FrameLogConst.LogType.NORMAL_LOG);</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span>}</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>    NormalBeanCache数据来源于下main这个类，在应用启动时会获取各类所需的bean，</span></span>
+<span class="line"><span>并且缓存在NormalBeanCache.interceptor中，这样就可以做到在new一个日志对象时候运用到bean对象。</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div></div></div><p><strong>java</strong></p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>package com.kingtsoft.pangu.frame.log.normal;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>import com.kingtsoft.pangu.frame.log.DataToLocalHandler;</span></span>
+<span class="line"><span>import com.kingtsoft.pangu.frame.log.PanguLogProperties;</span></span>
+<span class="line"><span>import lombok.extern.slf4j.Slf4j;</span></span>
+<span class="line"><span>import org.springframework.boot.ApplicationArguments;</span></span>
+<span class="line"><span>import org.springframework.boot.ApplicationRunner;</span></span>
+<span class="line"><span>import org.springframework.context.annotation.Configuration;</span></span>
+<span class="line"><span>import org.springframework.kafka.core.KafkaTemplate;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>/**</span></span>
+<span class="line"><span> * Title: &lt;br&gt;</span></span>
+<span class="line"><span> * Description: &lt;br&gt;</span></span>
+<span class="line"><span> * Company: KingTang &lt;br&gt;</span></span>
+<span class="line"><span> *</span></span>
+<span class="line"><span> * @author 金炀</span></span>
+<span class="line"><span> * @version 1.0</span></span>
+<span class="line"><span> */</span></span>
+<span class="line"><span>@Slf4j</span></span>
+<span class="line"><span>@Configuration</span></span>
+<span class="line"><span>public class  NormalLogConfigurationimplementsApplicationRunner {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>private final   KafkaTemplate&lt;String, Object&gt; kafkaTemplate;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>private final   DataToLocalHandler dataToLocalHandler;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>private final   PanguLogProperties panguLogProperties;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>publicNormalLogConfiguration(KafkaTemplate&lt;String, Object&gt; kafkaTemplate,</span></span>
+<span class="line"><span>                                  DataToLocalHandler dataToLocalHandler,</span></span>
+<span class="line"><span>                                  PanguLogProperties panguLogProperties) {</span></span>
+<span class="line"><span>this.kafkaTemplate = kafkaTemplate;</span></span>
+<span class="line"><span>this.dataToLocalHandler = dataToLocalHandler;</span></span>
+<span class="line"><span>this.panguLogProperties = panguLogProperties;</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    @Override</span></span>
+<span class="line"><span>private void   run(ApplicationArguments args) {</span></span>
+<span class="line"><span>if (NormalBeanCache.interceptor ==null) {</span></span>
+<span class="line"><span>            NormalBeanCache.interceptor =newNormalLogInterceptor();</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span>        NormalBeanCache.interceptor</span></span>
+<span class="line"><span>                .setKafkaTemplate(kafkaTemplate)</span></span>
+<span class="line"><span>                .setDataToLocalHandler(dataToLocalHandler)</span></span>
+<span class="line"><span>                .setPanguLogProperties(panguLogProperties);</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span>}</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><strong>server端</strong></p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>    日志的服务端主要是接收kafka消息数据</span></span>
+<span class="line"><span>首先，目前的日志模式es的索引都是统一的，并未使用日期进行区分，</span></span>
+<span class="line"><span>所以直接在服务启动的时候去判断索引是否存在。某种程度下可以减少一次流程判断压力。</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><strong>java</strong></p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>package com.kingtsoft.pangu.frame.log.server.biz.config;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>import com.kingtsoft.pangu.data.es.IndexService;</span></span>
+<span class="line"><span>import com.kingtsoft.pangu.frame.log.server.biz.listener.AnnotationLogListener;</span></span>
+<span class="line"><span>import com.kingtsoft.pangu.frame.log.server.biz.listener.DbLogListener;</span></span>
+<span class="line"><span>import com.kingtsoft.pangu.frame.log.server.biz.listener.NormalLogListener;</span></span>
+<span class="line"><span>import lombok.SneakyThrows;</span></span>
+<span class="line"><span>import lombok.extern.slf4j.Slf4j;</span></span>
+<span class="line"><span>import org.springframework.boot.ApplicationArguments;</span></span>
+<span class="line"><span>import org.springframework.boot.ApplicationRunner;</span></span>
+<span class="line"><span>import org.springframework.context.annotation.Configuration;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>/**</span></span>
+<span class="line"><span> * Title: &lt;br&gt;</span></span>
+<span class="line"><span> * Description: &lt;br&gt;</span></span>
+<span class="line"><span> * Company: KingTang &lt;br&gt;</span></span>
+<span class="line"><span> *</span></span>
+<span class="line"><span> * @author 金炀</span></span>
+<span class="line"><span> * @version 1.0</span></span>
+<span class="line"><span> */</span></span>
+<span class="line"><span>@Slf4j</span></span>
+<span class="line"><span>@Configuration</span></span>
+<span class="line"><span>public class  EsLogStartupConfigimplementsApplicationRunner {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>private final   IndexService indexService;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>publicEsLogStartupConfig(IndexService indexService) {</span></span>
+<span class="line"><span>this.indexService = indexService;</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    @Override</span></span>
+<span class="line"><span>    @SneakyThrows</span></span>
+<span class="line"><span>private void   run(ApplicationArguments args) {</span></span>
+<span class="line"><span>// 持久层索引</span></span>
+<span class="line"><span>if (!indexService.indexExists(DbLogListener.LOG_IDX)) {</span></span>
+<span class="line"><span>            indexService.createIndex(DbLogListener.LOG_IDX);</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span>// 注解日志层索引</span></span>
+<span class="line"><span>if (!indexService.indexExists(AnnotationLogListener.LOG_IDX)) {</span></span>
+<span class="line"><span>            indexService.createIndex(AnnotationLogListener.LOG_IDX);</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span>// 常规日志记录索引</span></span>
+<span class="line"><span>if (!indexService.indexExists(NormalLogListener.LOG_IDX)) {</span></span>
+<span class="line"><span>            indexService.createIndex(NormalLogListener.LOG_IDX);</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span>}</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>    然后对消息进行监听，然后创建一个setCreateTimelong ，主要是创建时间的时间点，</span></span>
+<span class="line"><span>这样ES存储可以更轻松的进行比较排序。</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div></div></div><p><strong>java</strong></p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>package com.kingtsoft.pangu.frame.log.server.biz.listener;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>import com.alibaba.fastjson2.JSON;</span></span>
+<span class="line"><span>import com.kingtsoft.pangu.data.es.DocumentService;</span></span>
+<span class="line"><span>import com.kingtsoft.pangu.frame.log.common.constants.FrameLogConst;</span></span>
+<span class="line"><span>import com.kingtsoft.pangu.frame.log.common.model.LogOperateMessage;</span></span>
+<span class="line"><span>import com.kingtsoft.pangu.frame.log.server.biz.utils.LogMessageUtil;</span></span>
+<span class="line"><span>import lombok.extern.slf4j.Slf4j;</span></span>
+<span class="line"><span>import org.apache.kafka.clients.consumer.ConsumerRecord;</span></span>
+<span class="line"><span>import org.springframework.kafka.annotation.KafkaListener;</span></span>
+<span class="line"><span>import org.springframework.stereotype.Component;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>import java.time.ZoneOffset;</span></span>
+<span class="line"><span>import java.util.Optional;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>/**</span></span>
+<span class="line"><span> * Title: &lt;br&gt;</span></span>
+<span class="line"><span> * Description: &lt;br&gt;</span></span>
+<span class="line"><span> * Company: KingTang &lt;br&gt;</span></span>
+<span class="line"><span> *</span></span>
+<span class="line"><span> * @author 金炀</span></span>
+<span class="line"><span> * @version 1.0</span></span>
+<span class="line"><span> */</span></span>
+<span class="line"><span>@Slf4j</span></span>
+<span class="line"><span>@Component</span></span>
+<span class="line"><span>public class  AnnotationLogListener {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>private final   DocumentService&lt;LogOperateMessage&gt; documentService;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>publicstaticfinal String LOG_IDX = FrameLogConst.LogIndex.LOG_ANNOTATION_IDX;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>publicAnnotationLogListener(DocumentService&lt;LogOperateMessage&gt; documentService) {</span></span>
+<span class="line"><span>this.documentService = documentService;</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    @KafkaListener(id=&quot;annotationLogListener&quot;, topics= {FrameLogConst.LOG_TOPIC_ANNOTATION}, groupId=&quot;mainGroup&quot;)</span></span>
+<span class="line"><span>private void   annotationLogListener(ConsumerRecord&lt;String, String&gt; record) {</span></span>
+<span class="line"><span>        Optional&lt;String&gt; message = Optional.ofNullable(record.value());</span></span>
+<span class="line"><span>        String key = LogMessageUtil.getLogKey(record.key());</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>if (message.isEmpty()) {</span></span>
+<span class="line"><span>            log.info(&quot;日志数据为空！ &quot;);</span></span>
+<span class="line"><span>return;</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>try {</span></span>
+<span class="line"><span>doAnnotationLogSave(message.get(), key);</span></span>
+<span class="line"><span>        } catch (Exception e) {</span></span>
+<span class="line"><span>            e.printStackTrace();</span></span>
+<span class="line"><span>            log.error(&quot;日志数据保存失败！&quot;);</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>private void  doAnnotationLogSave(String msg, String key) {</span></span>
+<span class="line"><span>        LogOperateMessage logOperateMessage = JSON.parseObject(msg, LogOperateMessage.class);</span></span>
+<span class="line"><span>        logOperateMessage.setCreateTimelong (logOperateMessage.getCreateTime().toEpochSecond(ZoneOffset.of(&quot;+8&quot;)));</span></span>
+<span class="line"><span>        documentService.saveOrUpdateDocument(LOG_IDX, key, logOperateMessage);</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span>}</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>    剩下的内容则为ES模块的各类CRUD操作</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div></div></div><p><strong>java</strong></p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>package com.kingtsoft.pangu.frame.log.server.biz.service;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>/**</span></span>
+<span class="line"><span> * Title: &lt;br&gt;</span></span>
+<span class="line"><span> * Description: &lt;br&gt;</span></span>
+<span class="line"><span> * Company: KingTang &lt;br&gt;</span></span>
+<span class="line"><span> *</span></span>
+<span class="line"><span> * @author 金炀</span></span>
+<span class="line"><span> * @version 1.0</span></span>
+<span class="line"><span> */</span></span>
+<span class="line"><span>@Service</span></span>
+<span class="line"><span>public class  EsLogService {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>private final   ElasticsearchClient elasticsearchClient;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>private final   ElasticsearchAsyncClient elasticsearchAsyncClient;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>publicEsLogService(ElasticsearchClient elasticsearchClient,</span></span>
+<span class="line"><span>                        ElasticsearchAsyncClient elasticsearchAsyncClient) {</span></span>
+<span class="line"><span>this.elasticsearchClient = elasticsearchClient;</span></span>
+<span class="line"><span>this.elasticsearchAsyncClient = elasticsearchAsyncClient;</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    /**</span></span>
+<span class="line"><span>     * 查询日志数据</span></span>
+<span class="line"><span>     *</span></span>
+<span class="line"><span>     * @paramesLogRequest 过滤条件</span></span>
+<span class="line"><span>     * @return 日志数据</span></span>
+<span class="line"><span>     * @author 金炀</span></span>
+<span class="line"><span>     */</span></span>
+<span class="line"><span>public JSONObject getEsLogData(EsLogRequest esLogRequest) {</span></span>
+<span class="line"><span>if (esLogRequest.getLogClassify().equals(FrameLogConst.LogClassify.LOG_OPERATION)) {</span></span>
+<span class="line"><span>            List&lt;LogOperateMessage&gt; data =getOperationEsLogData(esLogRequest);</span></span>
+<span class="line"><span>long  total =getOperationEsLogTotal(esLogRequest);</span></span>
+<span class="line"><span>returnnewJSONObject().fluentPut(&quot;data&quot;, data).fluentPut(&quot;total&quot;, total);</span></span>
+<span class="line"><span>        } else {</span></span>
+<span class="line"><span>            List&lt;DbOperateLog&gt; data =getDbEsLogData(esLogRequest);</span></span>
+<span class="line"><span>long  total =getDbEsLogTotal(esLogRequest);</span></span>
+<span class="line"><span>returnnewJSONObject().fluentPut(&quot;data&quot;, data).fluentPut(&quot;total&quot;, total);</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    /**</span></span>
+<span class="line"><span>     * 获取操作日志数据</span></span>
+<span class="line"><span>     *</span></span>
+<span class="line"><span>     * @paramesLogRequest 过滤条件</span></span>
+<span class="line"><span>     * @return 操作日志数据</span></span>
+<span class="line"><span>     * @author 金炀</span></span>
+<span class="line"><span>     */</span></span>
+<span class="line"><span>// 分页scroll</span></span>
+<span class="line"><span>    @SneakyThrows</span></span>
+<span class="line"><span>private List&lt;LogOperateMessage&gt; getOperationEsLogData(EsLogRequest esLogRequest) {</span></span>
+<span class="line"><span>        SearchResponse&lt;LogOperateMessage&gt; response =getOperationEsLogDocData(esLogRequest);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>        List&lt;LogOperateMessage&gt; operateMessages =new ArrayList&lt;&gt;();</span></span>
+<span class="line"><span>for (Hit&lt;LogOperateMessage&gt; hit : response.hits().hits()) {</span></span>
+<span class="line"><span>            operateMessages.add(hit.source());</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>return operateMessages;</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    /**</span></span>
+<span class="line"><span>     * 查询操作日志总数</span></span>
+<span class="line"><span>     *</span></span>
+<span class="line"><span>     * @paramesLogRequest 过滤条件</span></span>
+<span class="line"><span>     * @return 操作日志总数</span></span>
+<span class="line"><span>     * @author 金炀</span></span>
+<span class="line"><span>     */</span></span>
+<span class="line"><span>privatelong getOperationEsLogTotal(EsLogRequest esLogRequest) {</span></span>
+<span class="line"><span>        CountResponse response =getOperationEsLogCountData(esLogRequest);</span></span>
+<span class="line"><span>return response.count();</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    /**</span></span>
+<span class="line"><span>     * 获取操作日志信息</span></span>
+<span class="line"><span>     *</span></span>
+<span class="line"><span>     * @paramesLogRequest 过滤条件</span></span>
+<span class="line"><span>     * @return 操作日志信息</span></span>
+<span class="line"><span>     * @author 金炀</span></span>
+<span class="line"><span>     */</span></span>
+<span class="line"><span>    @SneakyThrows</span></span>
+<span class="line"><span>private SearchResponse&lt;LogOperateMessage&gt; getOperationEsLogDocData(EsLogRequest esLogRequest) {</span></span>
+<span class="line"><span>return elasticsearchClient.search(</span></span>
+<span class="line"><span>                builder -&gt; {</span></span>
+<span class="line"><span>                    builder.index(FrameLogConst.LogIndex.LOG_ANNOTATION_IDX)</span></span>
+<span class="line"><span>                            .index(FrameLogConst.LogIndex.LOG_NORMAL_LOG)</span></span>
+<span class="line"><span>                            .sort(sortBuilder -&gt; sortBuilder.field(f -&gt; f.order(SortOrder.Desc).field(&quot;createTimelong &quot;)))</span></span>
+<span class="line"><span>                            .highlight(getEsOperationHighlight(esLogRequest))</span></span>
+<span class="line"><span>                            .query(getEsOperationQuery(esLogRequest))</span></span>
+<span class="line"><span>                            .timeout(&quot;3s&quot;);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>                    PgEsUtil.modifyPageData(esLogRequest, builder);</span></span>
+<span class="line"><span>return builder;</span></span>
+<span class="line"><span>                }, LogOperateMessage.class);</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    /**</span></span>
+<span class="line"><span>     * 获取操作日志总数</span></span>
+<span class="line"><span>     *</span></span>
+<span class="line"><span>     * @paramesLogRequest 过滤条件</span></span>
+<span class="line"><span>     * @return 操作日志总数</span></span>
+<span class="line"><span>     * @author 金炀</span></span>
+<span class="line"><span>     */</span></span>
+<span class="line"><span>    @SneakyThrows</span></span>
+<span class="line"><span>private CountResponse getOperationEsLogCountData(EsLogRequest esLogRequest) {</span></span>
+<span class="line"><span>return elasticsearchClient.count(</span></span>
+<span class="line"><span>                builder -&gt; builder.index(FrameLogConst.LogIndex.LOG_ANNOTATION_IDX)</span></span>
+<span class="line"><span>                        .index(FrameLogConst.LogIndex.LOG_NORMAL_LOG)</span></span>
+<span class="line"><span>                        .query(getEsOperationQuery(esLogRequest))</span></span>
+<span class="line"><span>        );</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    /**</span></span>
+<span class="line"><span>     * 获取高亮执行信息</span></span>
+<span class="line"><span>     *</span></span>
+<span class="line"><span>     * @paramesLogRequest 过滤条件</span></span>
+<span class="line"><span>     * @return 高亮执行信息</span></span>
+<span class="line"><span>     * @author 金炀</span></span>
+<span class="line"><span>     */</span></span>
+<span class="line"><span>private Highlight getEsOperationHighlight(EsLogRequest esLogRequest) {</span></span>
+<span class="line"><span>        Map&lt;String, HighlightField&gt; map =new HashMap&lt;&gt;();</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>if (StringUtils.hasText(esLogRequest.getSearchStr())) {</span></span>
+<span class="line"><span>            map.put(&quot;operateName&quot;, getHighlightBuild(esLogRequest.getSearchStr()));</span></span>
+<span class="line"><span>            map.put(&quot;operateContent&quot;, getHighlightBuild(esLogRequest.getSearchStr()));</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span>if (StringUtils.hasText(esLogRequest.getLogPosition())) {</span></span>
+<span class="line"><span>            map.put(&quot;className&quot;, getHighlightBuild(esLogRequest.getLogPosition()));</span></span>
+<span class="line"><span>            map.put(&quot;logPosition&quot;, getHighlightBuild(esLogRequest.getLogPosition()));</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>return Highlight.of(h -&gt; h.highlightQuery(getEsOperationQuery(esLogRequest)).fields(map));</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    /**</span></span>
+<span class="line"><span>     * 获取操作日志总查询信息</span></span>
+<span class="line"><span>     *</span></span>
+<span class="line"><span>     * @paramesLogRequest 过滤条件</span></span>
+<span class="line"><span>     * @return 操作日志总查询信息</span></span>
+<span class="line"><span>     * @author 金炀</span></span>
+<span class="line"><span>     */</span></span>
+<span class="line"><span>private Query getEsOperationQuery(EsLogRequest esLogRequest) {</span></span>
+<span class="line"><span>        List&lt;Query&gt; mustQueryList =new ArrayList&lt;&gt;();</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>if (StringUtils.hasText(esLogRequest.getSearchStr())) {</span></span>
+<span class="line"><span>            mustQueryList.add(</span></span>
+<span class="line"><span>                    Query.of(s -&gt; s.bool(</span></span>
+<span class="line"><span>                            v -&gt; v.should(Query.of(q -&gt; q.match(mf -&gt; mf.field(&quot;operateName&quot;).analyzer(&quot;ik_max_word&quot;).query(qf -&gt; qf.stringValue(esLogRequest.getSearchStr())))))</span></span>
+<span class="line"><span>                                    .should(Query.of(q -&gt; q.match(mf -&gt; mf.field(&quot;operateContent&quot;).analyzer(&quot;ik_max_word&quot;).query(qf -&gt; qf.stringValue(esLogRequest.getSearchStr())))))</span></span>
+<span class="line"><span>                    ))</span></span>
+<span class="line"><span>            );</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span>if (StringUtils.hasText(esLogRequest.getLogPosition())) {</span></span>
+<span class="line"><span>            mustQueryList.add(</span></span>
+<span class="line"><span>                    Query.of(s -&gt; s.bool(</span></span>
+<span class="line"><span>                            v -&gt; v.should(Query.of(q -&gt; q.match(mf -&gt; mf.field(&quot;className&quot;).analyzer(&quot;ik_max_word&quot;).query(qf -&gt; qf.stringValue(esLogRequest.getLogPosition())))))</span></span>
+<span class="line"><span>                                    .should(Query.of(q -&gt; q.match(mf -&gt; mf.field(&quot;logPosition&quot;).analyzer(&quot;ik_max_word&quot;).query(qf -&gt; qf.stringValue(esLogRequest.getLogPosition())))))</span></span>
+<span class="line"><span>                    ))</span></span>
+<span class="line"><span>            );</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>buildWithCondition(esLogRequest, mustQueryList);</span></span>
+<span class="line"><span>return QueryBuilders.bool(b -&gt; b.must(mustQueryList));</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    /**</span></span>
+<span class="line"><span>     * 获取数据库日志信息</span></span>
+<span class="line"><span>     *</span></span>
+<span class="line"><span>     * @paramesLogRequest 过滤条件</span></span>
+<span class="line"><span>     * @return 数据库日志信息</span></span>
+<span class="line"><span>     * @author 金炀</span></span>
+<span class="line"><span>     */</span></span>
+<span class="line"><span>    @SneakyThrows</span></span>
+<span class="line"><span>private List&lt;DbOperateLog&gt; getDbEsLogData(EsLogRequest esLogRequest) {</span></span>
+<span class="line"><span>        SearchResponse&lt;DbOperateLog&gt; response =getDbEsLogDocData(esLogRequest);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>        List&lt;DbOperateLog&gt; operateLogs =new ArrayList&lt;&gt;();</span></span>
+<span class="line"><span>for (Hit&lt;DbOperateLog&gt; hit : response.hits().hits()) {</span></span>
+<span class="line"><span>            operateLogs.add(hit.source());</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>return operateLogs;</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    /**</span></span>
+<span class="line"><span>     * 获取数据库日志数据</span></span>
+<span class="line"><span>     *</span></span>
+<span class="line"><span>     * @paramesLogRequest 过滤条件</span></span>
+<span class="line"><span>     * @return 数据库日志数据</span></span>
+<span class="line"><span>     * @author 金炀</span></span>
+<span class="line"><span>     */</span></span>
+<span class="line"><span>    @SneakyThrows</span></span>
+<span class="line"><span>private SearchResponse&lt;DbOperateLog&gt; getDbEsLogDocData(EsLogRequest esLogRequest) {</span></span>
+<span class="line"><span>return elasticsearchClient.search(</span></span>
+<span class="line"><span>                builder -&gt; {</span></span>
+<span class="line"><span>                    builder.index(FrameLogConst.LogIndex.LOG_DB_LOG)</span></span>
+<span class="line"><span>                            .sort(sortBuilder -&gt; sortBuilder.field(f -&gt; f.order(SortOrder.Desc).field(&quot;createTimelong &quot;)))</span></span>
+<span class="line"><span>                            .highlight(getEsDbHighlight(esLogRequest))</span></span>
+<span class="line"><span>                            .query(getEsDbQuery(esLogRequest))</span></span>
+<span class="line"><span>                            .timeout(&quot;3s&quot;);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>                    PgEsUtil.modifyPageData(esLogRequest, builder);</span></span>
+<span class="line"><span>return builder;</span></span>
+<span class="line"><span>                }, DbOperateLog.class);</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    /**</span></span>
+<span class="line"><span>     * 获取高亮执行信息</span></span>
+<span class="line"><span>     *</span></span>
+<span class="line"><span>     * @paramesLogRequest 过滤条件</span></span>
+<span class="line"><span>     * @return 高亮执行信息</span></span>
+<span class="line"><span>     * @author 金炀</span></span>
+<span class="line"><span>     */</span></span>
+<span class="line"><span>private Highlight getEsDbHighlight(EsLogRequest esLogRequest) {</span></span>
+<span class="line"><span>        Map&lt;String, HighlightField&gt; map =new HashMap&lt;&gt;();</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>if (StringUtils.hasText(esLogRequest.getSearchStr())) {</span></span>
+<span class="line"><span>            map.put(&quot;execSql&quot;, getHighlightBuild(esLogRequest.getSearchStr()));</span></span>
+<span class="line"><span>            map.put(&quot;operateContent&quot;, getHighlightBuild(esLogRequest.getSearchStr()));</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span>if (StringUtils.hasText(esLogRequest.getLogPosition())) {</span></span>
+<span class="line"><span>            map.put(&quot;logPosition&quot;, getHighlightBuild(esLogRequest.getLogPosition()));</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>if (StringUtils.hasText(esLogRequest.getSourceStr())) {</span></span>
+<span class="line"><span>            map.put(&quot;userId&quot;, getHighlightBuild(esLogRequest.getSourceStr()));</span></span>
+<span class="line"><span>            map.put(&quot;terminal&quot;, getHighlightBuild(esLogRequest.getSourceStr()));</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>return Highlight.of(h -&gt; h.highlightQuery(getEsDbQuery(esLogRequest)).fields(map));</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    /**</span></span>
+<span class="line"><span>     * 封装统一的高亮样式</span></span>
+<span class="line"><span>     *</span></span>
+<span class="line"><span>     * @paramstr 高亮文字</span></span>
+<span class="line"><span>     * @return 高亮</span></span>
+<span class="line"><span>     * @author 金炀</span></span>
+<span class="line"><span>     */</span></span>
+<span class="line"><span>private HighlightField getHighlightBuild(String str) {</span></span>
+<span class="line"><span>returnnew HighlightField.Builder()</span></span>
+<span class="line"><span>                .matchedFields(str)</span></span>
+<span class="line"><span>                .requireFieldMatch(false)</span></span>
+<span class="line"><span>                .preTags(&quot;&lt;sp&gt;&quot;)</span></span>
+<span class="line"><span>                .postTags(&quot;&lt;/sp&gt;&quot;)</span></span>
+<span class="line"><span>                .build();</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    /**</span></span>
+<span class="line"><span>     * 获取数据库日志总数</span></span>
+<span class="line"><span>     *</span></span>
+<span class="line"><span>     * @paramesLogRequest 过滤条件</span></span>
+<span class="line"><span>     * @return 数据库日志总数</span></span>
+<span class="line"><span>     * @author 金炀</span></span>
+<span class="line"><span>     */</span></span>
+<span class="line"><span>privatelong getDbEsLogTotal(EsLogRequest esLogRequest) {</span></span>
+<span class="line"><span>        CountResponse response =getDbEsLogCountData(esLogRequest);</span></span>
+<span class="line"><span>return response.count();</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    /**</span></span>
+<span class="line"><span>     * 获取数据库日志总数结构体</span></span>
+<span class="line"><span>     *</span></span>
+<span class="line"><span>     * @paramesLogRequest 过滤条件</span></span>
+<span class="line"><span>     * @return 数据库日志总数结构体</span></span>
+<span class="line"><span>     * @author 金炀</span></span>
+<span class="line"><span>     */</span></span>
+<span class="line"><span>    @SneakyThrows</span></span>
+<span class="line"><span>private CountResponse getDbEsLogCountData(EsLogRequest esLogRequest) {</span></span>
+<span class="line"><span>return elasticsearchClient.count(</span></span>
+<span class="line"><span>                builder -&gt; builder.index(FrameLogConst.LogIndex.LOG_DB_LOG).query(getEsDbQuery(esLogRequest))</span></span>
+<span class="line"><span>        );</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    /**</span></span>
+<span class="line"><span>     * 获取数据库日志总条件</span></span>
+<span class="line"><span>     *</span></span>
+<span class="line"><span>     * @paramesLogRequest 过滤条件</span></span>
+<span class="line"><span>     * @return 数据库日志总条件</span></span>
+<span class="line"><span>     * @author 金炀</span></span>
+<span class="line"><span>     */</span></span>
+<span class="line"><span>private Query getEsDbQuery(EsLogRequest esLogRequest) {</span></span>
+<span class="line"><span>        List&lt;Query&gt; mustQueryList =new ArrayList&lt;&gt;();</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>if (StringUtils.hasText(esLogRequest.getSearchStr())) {</span></span>
+<span class="line"><span>            mustQueryList.add(</span></span>
+<span class="line"><span>                    Query.of(s -&gt; s.bool(</span></span>
+<span class="line"><span>                            v -&gt; v.should(Query.of(q -&gt; q.match(mf -&gt; mf.field(&quot;execSql&quot;).query(qf -&gt; qf.stringValue(esLogRequest.getSearchStr())))))</span></span>
+<span class="line"><span>                                    .should(Query.of(q -&gt; q.match(mf -&gt; mf.field(&quot;operateContent&quot;).query(qf -&gt; qf.stringValue(esLogRequest.getSearchStr())))))</span></span>
+<span class="line"><span>                    ))</span></span>
+<span class="line"><span>            );</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span>if (StringUtils.hasText(esLogRequest.getLogPosition())) {</span></span>
+<span class="line"><span>            mustQueryList.add(</span></span>
+<span class="line"><span>                    Query.of(s -&gt; s.match(mf -&gt; mf.field(&quot;logPosition&quot;).query(qf -&gt; qf.stringValue(esLogRequest.getLogPosition()))))</span></span>
+<span class="line"><span>            );</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span>if (StringUtils.hasText(esLogRequest.getSourceStr())) {</span></span>
+<span class="line"><span>            mustQueryList.add(</span></span>
+<span class="line"><span>                    Query.of(s -&gt; s.bool(</span></span>
+<span class="line"><span>                            v -&gt; v.should(Query.of(q -&gt; q.match(mf -&gt; mf.field(&quot;userId&quot;).query(qf -&gt; qf.stringValue(esLogRequest.getSourceStr())))))</span></span>
+<span class="line"><span>                                    .should(Query.of(q -&gt; q.match(mf -&gt; mf.field(&quot;terminal&quot;).query(qf -&gt; qf.stringValue(esLogRequest.getSourceStr())))))</span></span>
+<span class="line"><span>                    ))</span></span>
+<span class="line"><span>            );</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>buildWithCondition(esLogRequest, mustQueryList);</span></span>
+<span class="line"><span>return QueryBuilders.bool(b -&gt; b.must(mustQueryList));</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    /**</span></span>
+<span class="line"><span>     * 构建查询结构体</span></span>
+<span class="line"><span>     *</span></span>
+<span class="line"><span>     * @paramesLogRequest 过滤条件</span></span>
+<span class="line"><span>     * @parammustQueryList 执行条件集合</span></span>
+<span class="line"><span>     * @author 金炀</span></span>
+<span class="line"><span>     */</span></span>
+<span class="line"><span>private void  buildWithCondition(EsLogRequest esLogRequest, List&lt;Query&gt; mustQueryList) {</span></span>
+<span class="line"><span>if (StringUtils.hasText(esLogRequest.getModule())) {</span></span>
+<span class="line"><span>            mustQueryList.add(</span></span>
+<span class="line"><span>                    Query.of(q -&gt; q.match(</span></span>
+<span class="line"><span>                            mf -&gt; mf.field(&quot;module&quot;).query(qf -&gt; qf.stringValue(esLogRequest.getModule()))</span></span>
+<span class="line"><span>                    ))</span></span>
+<span class="line"><span>            );</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span>if (StringUtils.hasText(esLogRequest.getTraceId())) {</span></span>
+<span class="line"><span>            mustQueryList.add(</span></span>
+<span class="line"><span>                    Query.of(q -&gt; q.wildcard(</span></span>
+<span class="line"><span>                            mf -&gt; mf.field(&quot;traceId&quot;).value(esLogRequest.getTraceId() +&quot;*&quot;)))</span></span>
+<span class="line"><span>            );</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span>if (StringUtils.hasText(esLogRequest.getTerminal())) {</span></span>
+<span class="line"><span>            mustQueryList.add(</span></span>
+<span class="line"><span>                    Query.of(q -&gt; q.match(</span></span>
+<span class="line"><span>                            mf -&gt; mf.field(&quot;terminal&quot;).query(qf -&gt; qf.stringValue(esLogRequest.getTerminal()))</span></span>
+<span class="line"><span>                    ))</span></span>
+<span class="line"><span>            );</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    /**</span></span>
+<span class="line"><span>     * 删除日志数据(一般不开放)</span></span>
+<span class="line"><span>     *</span></span>
+<span class="line"><span>     * @paramesLogRequest 过滤条件</span></span>
+<span class="line"><span>     * @author 金炀</span></span>
+<span class="line"><span>     */</span></span>
+<span class="line"><span>    @SneakyThrows</span></span>
+<span class="line"><span>private void   delEsLogData(EsLogRequest esLogRequest) {</span></span>
+<span class="line"><span>        SearchResponse&lt;LogOperateMessage&gt; response =getOperationEsLogDocData(esLogRequest);</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>for (Hit&lt;LogOperateMessage&gt; hit : response.hits().hits()) {</span></span>
+<span class="line"><span>            elasticsearchClient.delete(d -&gt; d.index(hit.index()).id(hit.id()));</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>        SearchResponse&lt;DbOperateLog&gt; response2 =getDbEsLogDocData(esLogRequest);</span></span>
+<span class="line"><span>for (Hit&lt;DbOperateLog&gt; hit : response2.hits().hits()) {</span></span>
+<span class="line"><span>            elasticsearchClient.delete(d -&gt; d.index(hit.index()).id(hit.id()));</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span>}</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></div><!----><footer class="vp-page-meta"><div class="vp-meta-item edit-link"><a class="auto-link external-link vp-meta-label" href="https://github.com/Todreamr/Dr.Magic/edit/main/src/盘古/组件介绍/框架日志模块.md" aria-label="在 GitHub 上编辑此页" rel="noopener noreferrer" target="_blank"><!--[--><svg xmlns="http://www.w3.org/2000/svg" class="icon edit-icon" viewBox="0 0 1024 1024" fill="currentColor" aria-label="edit icon" name="edit"><path d="M430.818 653.65a60.46 60.46 0 0 1-50.96-93.281l71.69-114.012 7.773-10.365L816.038 80.138A60.46 60.46 0 0 1 859.225 62a60.46 60.46 0 0 1 43.186 18.138l43.186 43.186a60.46 60.46 0 0 1 0 86.373L588.879 565.55l-8.637 8.637-117.466 68.234a60.46 60.46 0 0 1-31.958 11.229z"></path><path d="M728.802 962H252.891A190.883 190.883 0 0 1 62.008 771.98V296.934a190.883 190.883 0 0 1 190.883-192.61h267.754a60.46 60.46 0 0 1 0 120.92H252.891a69.962 69.962 0 0 0-69.098 69.099V771.98a69.962 69.962 0 0 0 69.098 69.098h475.911A69.962 69.962 0 0 0 797.9 771.98V503.363a60.46 60.46 0 1 1 120.922 0V771.98A190.883 190.883 0 0 1 728.802 962z"></path></svg><!--]-->在 GitHub 上编辑此页<!----></a></div><div class="vp-meta-item git-info"><div class="update-time"><span class="vp-meta-label">上次编辑于: </span><!----></div><div class="contributors"><span class="vp-meta-label">贡献者: </span><!--[--><!--[--><span class="vp-meta-info" title="email: aruixrain@gmail.com">九歌天上有</span><!--]--><!--]--></div></div></footer><nav class="vp-page-nav"><a class="route-link auto-link prev" href="/%E7%9B%98%E5%8F%A4/%E7%BB%84%E4%BB%B6%E4%BB%8B%E7%BB%8D/%E7%BC%93%E5%AD%98%E6%A8%A1%E5%9D%97.html" aria-label="本地缓存模块(工具)"><div class="hint"><span class="arrow start"></span>上一页</div><div class="link"><!---->本地缓存模块(工具)</div></a><a class="route-link auto-link next" href="/%E7%9B%98%E5%8F%A4/%E7%BB%84%E4%BB%B6%E4%BB%8B%E7%BB%8D/%E7%9B%98%E5%8F%A4security%E6%A8%A1%E5%9D%97(%E5%90%AB%E6%8E%88%E6%9D%83).html" aria-label="盘古security模块(含授权)"><div class="hint">下一页<span class="arrow end"></span></div><div class="link">盘古security模块(含授权)<!----></div></a></nav><!----><!----><!--]--></main><!--]--><footer class="vp-footer-wrapper"><div class="vp-footer">由萌ICP备案</div><div class="vp-copyright">Copyright © Mr.Cotton Eye Joe</div></footer></div><!--]--><!--[--><!----><!--]--><!--]--></div>
+    <script type="module" src="/assets/app-Bym8v7z8.js" defer></script>
+  </body>
+</html>
